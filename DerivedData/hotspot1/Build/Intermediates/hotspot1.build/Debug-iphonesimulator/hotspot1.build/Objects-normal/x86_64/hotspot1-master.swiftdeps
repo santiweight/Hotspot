@@ -1,0 +1,10 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "678a9879e495e38124952d0e33389a92"
+build_time: [592618996, 507969000]
+inputs:
+  "/Users/zackrossman/Documents/cmc_junior/Software_Development/hotspot/hotspot1/hotspot1/ViewController.swift": !dirty [592606122, 0]
+  "/Users/zackrossman/Documents/cmc_junior/Software_Development/hotspot/hotspot1/hotspot1/DDBDynamoDBManager.swift": !dirty [592605057, 0]
+  "/Users/zackrossman/Documents/cmc_junior/Software_Development/hotspot/hotspot1/hotspot1/DDBSearchViewController.swift": !dirty [592545610, 0]
+  "/Users/zackrossman/Documents/cmc_junior/Software_Development/hotspot/hotspot1/hotspot1/DDBMainTableViewController.swift": !dirty [592606295, 0]
+  "/Users/zackrossman/Documents/cmc_junior/Software_Development/hotspot/hotspot1/hotspot1/DDBDetailViewController.swift": !dirty [592606478, 0]
+  "/Users/zackrossman/Documents/cmc_junior/Software_Development/hotspot/hotspot1/hotspot1/AppDelegate.swift": !dirty [592542106, 0]

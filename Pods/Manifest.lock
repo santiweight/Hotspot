@@ -1,0 +1,20 @@
+PODS:
+  - AWSCore (2.6.31)
+  - AWSDynamoDB (2.6.31):
+    - AWSCore (= 2.6.31)
+
+DEPENDENCIES:
+  - AWSDynamoDB
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AWSCore
+    - AWSDynamoDB
+
+SPEC CHECKSUMS:
+  AWSCore: c7abfb87ef802d1c4b5dd56db64ac8b4a7823ef0
+  AWSDynamoDB: eb3eb7d49b14f1e523afa80373a8ab0fbde935a9
+
+PODFILE CHECKSUM: f6975bafba8e72f1116dbf89a6daec2fde4d2b7c
+
+COCOAPODS: 1.5.3

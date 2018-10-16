@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF2216EF49A003FF5BC /* AppDelegate.swift */; };
+		3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF4216EF49A003FF5BC /* ViewController.swift */; };
+		3591ACFA216EF49A003FF5BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3591ACF9216EF49A003FF5BC /* Assets.xcassets */; };
+		3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */; };
+		3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */; };
+		3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
+		3591AD14216F12A1003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
+		35D4E812216FE77F0091D73F /* DDBDynamoDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */; };
+		35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */; };
+		35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */; };
+		35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E817216FEF510091D73F /* DDBDetailViewController.swift */; };
+		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
+		E906649B0A16AD10602B535D /* Pods_hotspot1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */; };
+		E97B4937E4502226388F2D13 /* Pods_hotspot1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3591AD04216EF49A003FF5BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3591ACE7216EF49A003FF5BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3591ACEE216EF49A003FF5BC;
+			remoteInfo = hotspot1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02C558B1B8F35983C568AB7C /* Pods-hotspot1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.release.xcconfig"; sourceTree = "<group>"; };
+		1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3591ACEF216EF49A003FF5BC /* hotspot1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotspot1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3591ACF2216EF49A003FF5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3591ACF4216EF49A003FF5BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3591ACF9216EF49A003FF5BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3591ACFC216EF49A003FF5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3591ACFE216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3591AD03216EF49A003FF5BC /* hotspot1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hotspot1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotspot1Tests.swift; sourceTree = "<group>"; };
+		3591AD09216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3591AD12216F11CE003FF5BC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; };
+		35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBMainTableViewController.swift; sourceTree = "<group>"; };
+		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
+		35D4E817216FEF510091D73F /* DDBDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDetailViewController.swift; sourceTree = "<group>"; };
+		35D4E819217014A10091D73F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.debug.xcconfig"; sourceTree = "<group>"; };
+		871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A8941FB5911B4A25F2A8EF53 /* Pods-hotspot1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3591ACEC216EF49A003FF5BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E97B4937E4502226388F2D13 /* Pods_hotspot1.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3591AD00216EF49A003FF5BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E906649B0A16AD10602B535D /* Pods_hotspot1Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3591ACE6216EF49A003FF5BC = {
+			isa = PBXGroup;
+			children = (
+				3591ACF1216EF49A003FF5BC /* hotspot1 */,
+				3591AD06216EF49A003FF5BC /* hotspot1Tests */,
+				3591ACF0216EF49A003FF5BC /* Products */,
+				AB358B98440D435BE598EFDF /* Pods */,
+				A793F0E15B255112A8A6A5DD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3591ACF0216EF49A003FF5BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3591ACEF216EF49A003FF5BC /* hotspot1.app */,
+				3591AD03216EF49A003FF5BC /* hotspot1Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
+			isa = PBXGroup;
+			children = (
+				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
+				3591ACF4216EF49A003FF5BC /* ViewController.swift */,
+				3591ACF9216EF49A003FF5BC /* Assets.xcassets */,
+				35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */,
+				35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */,
+				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
+				35D4E817216FEF510091D73F /* DDBDetailViewController.swift */,
+				35D4E819217014A10091D73F /* Main.storyboard */,
+				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
+				3591ACFE216EF49A003FF5BC /* Info.plist */,
+				3591AD12216F11CE003FF5BC /* awsconfiguration.json */,
+			);
+			path = hotspot1;
+			sourceTree = "<group>";
+		};
+		3591AD06216EF49A003FF5BC /* hotspot1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */,
+				3591AD09216EF49A003FF5BC /* Info.plist */,
+			);
+			path = hotspot1Tests;
+			sourceTree = "<group>";
+		};
+		A793F0E15B255112A8A6A5DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */,
+				1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB358B98440D435BE598EFDF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */,
+				02C558B1B8F35983C568AB7C /* Pods-hotspot1.release.xcconfig */,
+				A8941FB5911B4A25F2A8EF53 /* Pods-hotspot1Tests.debug.xcconfig */,
+				96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3591ACEE216EF49A003FF5BC /* hotspot1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3591AD0C216EF49A003FF5BC /* Build configuration list for PBXNativeTarget "hotspot1" */;
+			buildPhases = (
+				8FDABCB861F34A3BCD078362 /* [CP] Check Pods Manifest.lock */,
+				3591ACEB216EF49A003FF5BC /* Sources */,
+				3591ACEC216EF49A003FF5BC /* Frameworks */,
+				3591ACED216EF49A003FF5BC /* Resources */,
+				799E5563776C56A2D6A4EDBE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hotspot1;
+			productName = hotspot1;
+			productReference = 3591ACEF216EF49A003FF5BC /* hotspot1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3591AD02216EF49A003FF5BC /* hotspot1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3591AD0F216EF49A003FF5BC /* Build configuration list for PBXNativeTarget "hotspot1Tests" */;
+			buildPhases = (
+				CCF44042D262F95604BD838F /* [CP] Check Pods Manifest.lock */,
+				3591ACFF216EF49A003FF5BC /* Sources */,
+				3591AD00216EF49A003FF5BC /* Frameworks */,
+				3591AD01216EF49A003FF5BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3591AD05216EF49A003FF5BC /* PBXTargetDependency */,
+			);
+			name = hotspot1Tests;
+			productName = hotspot1Tests;
+			productReference = 3591AD03216EF49A003FF5BC /* hotspot1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3591ACE7216EF49A003FF5BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = CS121;
+				TargetAttributes = {
+					3591ACEE216EF49A003FF5BC = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					3591AD02216EF49A003FF5BC = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3591ACEE216EF49A003FF5BC;
+					};
+				};
+			};
+			buildConfigurationList = 3591ACEA216EF49A003FF5BC /* Build configuration list for PBXProject "hotspot1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3591ACE6216EF49A003FF5BC;
+			productRefGroup = 3591ACF0216EF49A003FF5BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3591ACEE216EF49A003FF5BC /* hotspot1 */,
+				3591AD02216EF49A003FF5BC /* hotspot1Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3591ACED216EF49A003FF5BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */,
+				35D4E81A217014A10091D73F /* Main.storyboard in Resources */,
+				3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */,
+				3591ACFA216EF49A003FF5BC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3591AD01216EF49A003FF5BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3591AD14216F12A1003FF5BC /* awsconfiguration.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		799E5563776C56A2D6A4EDBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FDABCB861F34A3BCD078362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-hotspot1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCF44042D262F95604BD838F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-hotspot1Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3591ACEB216EF49A003FF5BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
+				35D4E812216FE77F0091D73F /* DDBDynamoDBManager.swift in Sources */,
+				35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */,
+				35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */,
+				35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */,
+				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3591ACFF216EF49A003FF5BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3591AD05216EF49A003FF5BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3591ACEE216EF49A003FF5BC /* hotspot1 */;
+			targetProxy = 3591AD04216EF49A003FF5BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3591ACFC216EF49A003FF5BC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3591AD0A216EF49A003FF5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3591AD0B216EF49A003FF5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3591AD0D216EF49A003FF5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = hotspot1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AWSCore\"",
+					"-framework",
+					"\"AWSDynamoDB\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3591AD0E216EF49A003FF5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02C558B1B8F35983C568AB7C /* Pods-hotspot1.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = hotspot1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AWSCore\"",
+					"-framework",
+					"\"AWSDynamoDB\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		3591AD10216EF49A003FF5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8941FB5911B4A25F2A8EF53 /* Pods-hotspot1Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = hotspot1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hotspot1.app/hotspot1";
+			};
+			name = Debug;
+		};
+		3591AD11216EF49A003FF5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = hotspot1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hotspot1.app/hotspot1";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3591ACEA216EF49A003FF5BC /* Build configuration list for PBXProject "hotspot1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3591AD0A216EF49A003FF5BC /* Debug */,
+				3591AD0B216EF49A003FF5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3591AD0C216EF49A003FF5BC /* Build configuration list for PBXNativeTarget "hotspot1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3591AD0D216EF49A003FF5BC /* Debug */,
+				3591AD0E216EF49A003FF5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3591AD0F216EF49A003FF5BC /* Build configuration list for PBXNativeTarget "hotspot1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3591AD10216EF49A003FF5BC /* Debug */,
+				3591AD11216EF49A003FF5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3591ACE7216EF49A003FF5BC /* Project object */;
+}

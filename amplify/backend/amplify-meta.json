@@ -1,0 +1,20 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "hotspot1-20181010220409-authRole",
+			"UnauthRoleArn": "arn:aws:iam::560819674279:role/hotspot1-20181010220409-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::560819674279:role/hotspot1-20181010220409-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "hotspot1-20181010220409-deployment",
+			"UnauthRoleName": "hotspot1-20181010220409-unauthRole",
+			"StackName": "hotspot1-20181010220409",
+			"StackId": "arn:aws:cloudformation:us-east-1:560819674279:stack/hotspot1-20181010220409/169004d0-cd13-11e8-a05f-50d5cafe7636"
+		}
+	},
+	"storage": {
+		"dynamo22374536": {
+			"service": "DynamoDB",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

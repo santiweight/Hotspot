@@ -1,0 +1,5 @@
+{
+    "tableName": "dynamo22374536",
+    "partitionKeyName": "Test",
+    "partitionKeyType": "S"
+}
