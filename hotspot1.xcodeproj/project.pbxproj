@@ -19,6 +19,7 @@
 		35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */; };
 		35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E817216FEF510091D73F /* DDBDetailViewController.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
+		4F77D1E02175A6D9008380FA /* registrationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77D1DF2175A6D9008380FA /* registrationPageViewController.swift */; };
 		E906649B0A16AD10602B535D /* Pods_hotspot1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */; };
 		E97B4937E4502226388F2D13 /* Pods_hotspot1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
 		35D4E817216FEF510091D73F /* DDBDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDetailViewController.swift; sourceTree = "<group>"; };
 		35D4E819217014A10091D73F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4F77D1DF2175A6D9008380FA /* registrationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = registrationPageViewController.swift; sourceTree = "<group>"; };
+		4F77D1E12175A80C008380FA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
 		7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.debug.xcconfig"; sourceTree = "<group>"; };
 		871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
+				4F77D1DC2175A455008380FA /* Login */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
 				3591ACF4216EF49A003FF5BC /* ViewController.swift */,
 				3591ACF9216EF49A003FF5BC /* Assets.xcassets */,
@@ -107,6 +111,8 @@
 				35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */,
 				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E817216FEF510091D73F /* DDBDetailViewController.swift */,
+				4F77D1DF2175A6D9008380FA /* registrationPageViewController.swift */,
+				4F77D1E12175A80C008380FA /* UIViewController.h */,
 				35D4E819217014A10091D73F /* Main.storyboard */,
 				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
 				3591ACFE216EF49A003FF5BC /* Info.plist */,
@@ -122,6 +128,13 @@
 				3591AD09216EF49A003FF5BC /* Info.plist */,
 			);
 			path = hotspot1Tests;
+			sourceTree = "<group>";
+		};
+		4F77D1DC2175A455008380FA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		A793F0E15B255112A8A6A5DD /* Frameworks */ = {
@@ -316,6 +329,7 @@
 				35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */,
 				35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */,
 				35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */,
+				4F77D1E02175A6D9008380FA /* registrationPageViewController.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
