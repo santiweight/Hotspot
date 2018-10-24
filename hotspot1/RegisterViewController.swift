@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RegisterPageViewController: UIViewController {
     
     @IBOutlet weak var userEmailTextField: UITextField!
