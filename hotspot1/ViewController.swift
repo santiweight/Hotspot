@@ -4,7 +4,7 @@
 //
 //  Created by Zack Rossman on 10/10/18.
 //  Copyright © 2018 CS121. All rights reserved.
-//
+
 
 import UIKit
 import AWSDynamoDB
@@ -20,10 +20,23 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(_ animated: Bool)
-    {
+    override func viewDidAppear(_ animated: Bool){
+        
+        let isUserLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn");
+        
+        if(!isUserLoggedIn)
+        {
+            self.performSegue(withIdentifier: "loginView", sender: self);
+            
+        }
+        self.performSegue(withIdentifier: "loginView", sender: self);
+    }
+    
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey:"isUserLoggedIn");
+        UserDefaults.standard.synchronize();
         self.performSegue(withIdentifier: "loginView", sender: self);
     }
     
 }
-
