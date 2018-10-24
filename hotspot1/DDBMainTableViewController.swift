@@ -21,7 +21,7 @@ class DDBMainTableViewController: UITableViewController {
     var tableRows:Array<DDBTableRow>?
     var lock:NSLock?
     var lastEvaluatedKey:[String : AWSDynamoDBAttributeValue]!
-    var  doneLoading = false
+    var doneLoading = false
 
     var needsToRefresh = false
 
@@ -44,7 +44,7 @@ class DDBMainTableViewController: UITableViewController {
 
     func setupTable() {
         //See if the test table exists.
-        DDBDynamoDBManger.describeTable().continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+        DDBDynamoDBManger.describeTable().continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
 
             // If the test table doesn't exist, create one.
             if let error = task.error as NSError?, error.domain == AWSDynamoDBErrorDomain && error.code == AWSDynamoDBErrorType.resourceNotFound.rawValue {

@@ -88,6 +88,18 @@ class DDBDetailViewController: UIViewController {
         })
     }
     
+    
+    //TODO figure out how to make for loops work (Back to CS 5 :/)
+    @IBAction func uIdGenerator() {
+        let title = self.rangeKeyTextField.text
+        let topBound = title!.count
+        for i in 0...topBound {
+            print(topBound)
+            print(title)
+        }
+        
+    }
+    
     func updateTableRow(_ tableRow:DDBTableRow) {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
@@ -118,6 +130,7 @@ class DDBDetailViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: UIButton) {
+        uIdGenerator()
         let tableRow = DDBTableRow()
         tableRow?.EventId = self.hashKeyTextField.text
         tableRow?.EventTitle = self.rangeKeyTextField.text
