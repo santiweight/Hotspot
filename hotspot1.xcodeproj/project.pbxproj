@@ -19,7 +19,8 @@
 		35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */; };
 		35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E817216FEF510091D73F /* DDBDetailViewController.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
-		4F77D1E02175A6D9008380FA /* registrationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F77D1DF2175A6D9008380FA /* registrationPageViewController.swift */; };
+		4F8A6AEC21800B1A00BCCA36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */; };
+		4F8A6AEE2180124300BCCA36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A6AED2180124300BCCA36 /* LoginViewController.swift */; };
 		E906649B0A16AD10602B535D /* Pods_hotspot1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */; };
 		E97B4937E4502226388F2D13 /* Pods_hotspot1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */; };
 /* End PBXBuildFile section */
@@ -52,8 +53,9 @@
 		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
 		35D4E817216FEF510091D73F /* DDBDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDetailViewController.swift; sourceTree = "<group>"; };
 		35D4E819217014A10091D73F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		4F77D1DF2175A6D9008380FA /* registrationPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = registrationPageViewController.swift; sourceTree = "<group>"; };
 		4F77D1E12175A80C008380FA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
+		4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4F8A6AED2180124300BCCA36 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.debug.xcconfig"; sourceTree = "<group>"; };
 		871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +105,6 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
-				4F77D1DC2175A455008380FA /* Login */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
 				3591ACF4216EF49A003FF5BC /* ViewController.swift */,
 				3591ACF9216EF49A003FF5BC /* Assets.xcassets */,
@@ -111,12 +112,13 @@
 				35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */,
 				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E817216FEF510091D73F /* DDBDetailViewController.swift */,
-				4F77D1DF2175A6D9008380FA /* registrationPageViewController.swift */,
 				4F77D1E12175A80C008380FA /* UIViewController.h */,
 				35D4E819217014A10091D73F /* Main.storyboard */,
 				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
 				3591ACFE216EF49A003FF5BC /* Info.plist */,
 				3591AD12216F11CE003FF5BC /* awsconfiguration.json */,
+				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
+				4F8A6AED2180124300BCCA36 /* LoginViewController.swift */,
 			);
 			path = hotspot1;
 			sourceTree = "<group>";
@@ -128,13 +130,6 @@
 				3591AD09216EF49A003FF5BC /* Info.plist */,
 			);
 			path = hotspot1Tests;
-			sourceTree = "<group>";
-		};
-		4F77D1DC2175A455008380FA /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Login;
 			sourceTree = "<group>";
 		};
 		A793F0E15B255112A8A6A5DD /* Frameworks */ = {
@@ -205,7 +200,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CS121;
 				TargetAttributes = {
 					3591ACEE216EF49A003FF5BC = {
@@ -326,10 +321,11 @@
 			files = (
 				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
 				35D4E812216FE77F0091D73F /* DDBDynamoDBManager.swift in Sources */,
+				4F8A6AEC21800B1A00BCCA36 /* RegisterViewController.swift in Sources */,
 				35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */,
+				4F8A6AEE2180124300BCCA36 /* LoginViewController.swift in Sources */,
 				35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */,
 				35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */,
-				4F77D1E02175A6D9008380FA /* registrationPageViewController.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,6 +378,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -432,6 +429,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -462,6 +460,7 @@
 			baseConfigurationReference = 7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = hotspot1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -482,6 +481,7 @@
 			baseConfigurationReference = 02C558B1B8F35983C568AB7C /* Pods-hotspot1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = hotspot1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
