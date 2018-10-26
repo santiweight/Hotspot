@@ -14,6 +14,11 @@
 		3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */; };
 		3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
 		3591AD14216F12A1003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
+		35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */; };
+		35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */; };
+		35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */; };
+		35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35AEE4742182DB5700EA9EB1 /* Okta.plist */; };
+		35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4762182E76000EA9EB1 /* OktaUserModel.swift */; };
 		35D4E812216FE77F0091D73F /* DDBDynamoDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */; };
 		35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */; };
 		35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */; };
@@ -48,12 +53,16 @@
 		3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotspot1Tests.swift; sourceTree = "<group>"; };
 		3591AD09216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3591AD12216F11CE003FF5BC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLoginController.swift; sourceTree = "<group>"; };
+		35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		35AEE4742182DB5700EA9EB1 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
+		35AEE4762182E76000EA9EB1 /* OktaUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OktaUserModel.swift; path = ../../../Okta/OktaPractice/OktaPractice/OktaUserModel.swift; sourceTree = "<group>"; };
 		35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; };
 		35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBMainTableViewController.swift; sourceTree = "<group>"; };
 		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
 		35D4E817216FEF510091D73F /* DDBDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDetailViewController.swift; sourceTree = "<group>"; };
 		35D4E819217014A10091D73F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		4F77D1E12175A80C008380FA /* UIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewController.h; sourceTree = "<group>"; };
 		4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		4F8A6AED2180124300BCCA36 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,13 +121,17 @@
 				35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */,
 				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E817216FEF510091D73F /* DDBDetailViewController.swift */,
-				4F77D1E12175A80C008380FA /* UIViewController.h */,
 				35D4E819217014A10091D73F /* Main.storyboard */,
+				35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */,
 				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
 				3591ACFE216EF49A003FF5BC /* Info.plist */,
+				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
 				3591AD12216F11CE003FF5BC /* awsconfiguration.json */,
 				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
 				4F8A6AED2180124300BCCA36 /* LoginViewController.swift */,
+				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
+				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
+				35AEE4762182E76000EA9EB1 /* OktaUserModel.swift */,
 			);
 			path = hotspot1;
 			sourceTree = "<group>";
@@ -238,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */,
 				3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */,
 				35D4E81A217014A10091D73F /* Main.storyboard in Resources */,
 				3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */,
@@ -265,11 +279,17 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/OktaAuth/OktaAuth.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaAuth.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -325,7 +345,11 @@
 				35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */,
 				4F8A6AEE2180124300BCCA36 /* LoginViewController.swift in Sources */,
 				35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */,
+				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
+				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
 				35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */,
+				35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */,
+				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,7 +496,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -493,7 +518,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

@@ -44,19 +44,19 @@ class DDBMainTableViewController: UITableViewController {
 
     func setupTable() {
         //See if the test table exists.
-        DDBDynamoDBManger.describeTable().continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+        DDBDynamoDBManger.describeTable().continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
 
             // If the test table doesn't exist, create one.
             if let error = task.error as NSError?, error.domain == AWSDynamoDBErrorDomain && error.code == AWSDynamoDBErrorType.resourceNotFound.rawValue {
                     self.performSegue(withIdentifier: "DDBLoadingViewSegue", sender: self)
 
-                    return DDBDynamoDBManger.createTable() .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+                return DDBDynamoDBManger.createTable() .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
                         if let error = task.error as NSError? {
                             //Handle errors.
                             print("Error: \(error)")
                             
-                            let alertController = UIAlertController(title: "Failed to setup a test table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
-                            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                            let alertController = UIAlertController(title: "Failed to setup a test table.", message: error.description, preferredStyle: UIAlertController.Style.alert)
+                            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
                             alertController.addAction(okAction)
                             
                             self.present(alertController, animated: true, completion: nil)
@@ -91,7 +91,7 @@ class DDBMainTableViewController: UITableViewController {
             let queryExpression = AWSDynamoDBScanExpression()
             queryExpression.exclusiveStartKey = self.lastEvaluatedKey
             queryExpression.limit = 20
-            dynamoDBObjectMapper.scan(DDBTableRow.self, expression: queryExpression).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+            dynamoDBObjectMapper.scan(DDBTableRow.self, expression: queryExpression).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
 
                 if self.lastEvaluatedKey == nil {
                     self.tableRows?.removeAll(keepingCapacity: true)
@@ -124,15 +124,15 @@ class DDBMainTableViewController: UITableViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-        dynamoDBObjectMapper.remove(row).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+        dynamoDBObjectMapper.remove(row).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
 
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
             if let error = task.error as NSError? {
                 print("Error: \(error)")
 
-                let alertController = UIAlertController(title: "Failed to delete a row.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                let alertController = UIAlertController(title: "Failed to delete a row.", message: error.description, preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
             }
@@ -185,14 +185,14 @@ class DDBMainTableViewController: UITableViewController {
     }
 
     @IBAction func showActionSheet(_ sender: AnyObject) {
-        let alertController = UIAlertController(title: "Choose Your Action", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertController = UIAlertController(title: "Choose Your Action", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
 
-        let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) -> Void in
+        let addAction = UIAlertAction(title: "Add", style: UIAlertAction.Style.default, handler: { (action:UIAlertAction) -> Void in
             self.performSegue(withIdentifier: "DDBSeguePushDetailViewController", sender: alertController)
         })
 
         let editTitle = self.tableView.isEditing ? "End Editing" : "Edit" ;
-        let editAction = UIAlertAction(title: editTitle, style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) -> Void in
+        let editAction = UIAlertAction(title: editTitle, style: UIAlertAction.Style.default, handler: { (action:UIAlertAction) -> Void in
             if self.tableView.isEditing {
                 self.tableView.isEditing = false
             } else {
@@ -200,15 +200,15 @@ class DDBMainTableViewController: UITableViewController {
             }
         })
 
-        let genAction = UIAlertAction(title: "Generate Test Data", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) -> Void in
+        let genAction = UIAlertAction(title: "Generate Test Data", style: UIAlertAction.Style.default, handler: { (action:UIAlertAction) -> Void in
             self.generateTestData()
         })
 
-        let refreshAction = UIAlertAction(title: "Refresh", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) -> Void in
+        let refreshAction = UIAlertAction(title: "Refresh", style: UIAlertAction.Style.default, handler: { (action:UIAlertAction) -> Void in
             self.refreshList(true)
         })
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (action:UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (action:UIAlertAction) -> Void in
 
         })
 
@@ -293,7 +293,7 @@ class DDBMainTableViewController: UITableViewController {
 
 
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             if var myTableRows = self.tableRows {

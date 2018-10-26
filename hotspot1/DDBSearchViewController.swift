@@ -64,8 +64,8 @@ class DDBSearchViewController: UIViewController,UIPickerViewDataSource,UIPickerV
             if let error = task.error as NSError? {
                 print("Error: \(error)")
 
-                let alertController = UIAlertController(title: "Failed to query a test table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+                let alertController = UIAlertController(title: "Failed to query a test table.", message: error.description, preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
             } else {
