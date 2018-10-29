@@ -16,7 +16,7 @@
 import Foundation
 import AWSDynamoDB
 
-let AWSSampleDynamoDBTableName = "hotspot2"
+let AWSSampleDynamoDBTableName = "Events"
 
 class DDBDynamoDBManger : NSObject {
     class func describeTable() -> AWSTask<AnyObject> {
@@ -34,7 +34,7 @@ class DDBDynamoDBManger : NSObject {
         //Create the test table
         let hashKeyAttributeDefinition = AWSDynamoDBAttributeDefinition()
         hashKeyAttributeDefinition?.attributeName = "EventId"
-        hashKeyAttributeDefinition?.attributeType = AWSDynamoDBScalarAttributeType.S
+        hashKeyAttributeDefinition?.attributeType = AWSDynamoDBScalarAttributeType.N
 
         let hashKeySchemaElement = AWSDynamoDBKeySchemaElement()
         hashKeySchemaElement?.attributeName = "EventId"

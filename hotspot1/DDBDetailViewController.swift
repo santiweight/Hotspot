@@ -16,6 +16,17 @@
 import UIKit
 import AWSDynamoDB
 
+extension StringProtocol {
+    var ascii: [UInt32] {
+        return unicodeScalars.compactMap { $0.isASCII ? $0.value : nil }
+    }
+}
+extension Character {
+    var ascii: UInt32? {
+        return String(self).ascii.first
+    }
+}
+
 class DDBDetailViewController: UIViewController {
     
     enum DDBDetailViewType {
@@ -29,6 +40,7 @@ class DDBDetailViewController: UIViewController {
     @IBOutlet weak var attribute1TextField: UITextField!
     @IBOutlet weak var attribute2TextField: UITextField!
     @IBOutlet weak var attribute3TextField: UITextField!
+    @IBOutlet weak var SearchTextField: UITextField!
     
     var viewType:DDBDetailViewType = DDBDetailViewType.insert
     var tableRow:DDBTableRow?
@@ -39,7 +51,7 @@ class DDBDetailViewController: UIViewController {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
         //tableRow?.UserId --> (tableRow?.UserId)!
-        dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: (tableRow?.EventId)!, rangeKey: tableRow?.EventTitle) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+        dynamoDBObjectMapper .load(DDBTableRow.self, hashKey: (tableRow?.EventId)!, rangeKey: tableRow?.EventTitle) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
             if let error = task.error as NSError? {
                 print("Error: \(error)")
                 let alertController = UIAlertController(title: "Failed to get item from table.", message: error.description, preferredStyle: UIAlertControllerStyle.alert)
@@ -62,7 +74,7 @@ class DDBDetailViewController: UIViewController {
     func insertTableRow(_ tableRow: DDBTableRow) {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
-        dynamoDBObjectMapper.save(tableRow) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject! in
+        dynamoDBObjectMapper.save(tableRow) .continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask!) -> AnyObject? in
             if let error = task.error as NSError? {
                 print("Error: \(error)")
 
@@ -88,17 +100,22 @@ class DDBDetailViewController: UIViewController {
         })
     }
     
-    
-    //TODO figure out how to make for loops work (Back to CS 5 :/)
+/*
     @IBAction func uIdGenerator() {
+        
         let title = self.rangeKeyTextField.text
         let topBound = title!.count
-        for i in 0...topBound {
-            print(topBound)
-            print(title)
+        let hashMult = 101
+        var hashVal = 0
+        
+        for i in title?.characters.indices {
+            //set c to be charecter ascii to int
+            var c = title?[i].ascii
+            hashVal = hashVal * hashMult + c
         }
         
     }
+ */
     
     func updateTableRow(_ tableRow:DDBTableRow) {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
@@ -129,8 +146,27 @@ class DDBDetailViewController: UIViewController {
         })
     }
     
+    @IBAction func searchBtnPressed(_ sender: UIButton) {
+        let queryExpression = AWSDynamoDBQueryExpression()
+        queryExpression.indexName = "CreatorEmail-index"
+        
+        queryExpression.keyConditionExpression = "EventTitle = :title";
+        queryExpression.expressionAttributeValues = ["title": self.SearchTextField.text];
+        
+        dynamoDBObjectMapper.query(Book.self, expression: queryExpression).continueWith(block: { (task:AWSTask<AnyObject>!) -> Any? in
+            if let error = task.error as? NSError {
+                print("The request failed. Error: \(error)")
+            } else if let paginatedOutput = task.result {
+                for book in paginateOutput.items as! Book {
+                    // Do something with book.
+                }
+            }
+            return nil
+        })
+        
+    
     @IBAction func submit(_ sender: UIButton) {
-        uIdGenerator()
+        //uIdGenerator()
         let tableRow = DDBTableRow()
         tableRow?.EventId = self.hashKeyTextField.text
         tableRow?.EventTitle = self.rangeKeyTextField.text
