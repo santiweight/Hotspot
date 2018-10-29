@@ -1,0 +1,6 @@
+framework module OktaAuth {
+  umbrella header "OktaAuth-umbrella.h"
+
+  export *
+  module * { export * }
+}

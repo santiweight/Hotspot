@@ -7,6 +7,8 @@ target 'hotspot1' do
 
   # Pods for hotspot1
 	pod 'AWSDynamoDB'
+    pod 'OktaAuth', '~> 0.1'
+    pod 'Alamofire'
 
   target 'hotspot1Tests' do
     inherit! :search_paths
