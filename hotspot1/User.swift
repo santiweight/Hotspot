@@ -12,6 +12,7 @@ class User{
     var _user_email: String!;
     var _first_name: String;
     var _last_name: String;
+    //need slider bars
     var _filters: [String]!;
     
     init(user_email: String, first_name: String, last_name: String, filters: [String]){

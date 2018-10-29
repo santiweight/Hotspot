@@ -11,20 +11,31 @@ import Foundation
 class Event{
     var _event_id: Int!;
     var _creator_email: String!;
-    var _start_t: Date!;
-    var _end_t: Date!;
+    var _start: NSDate!;
+    var _end: NSDate!;
     var _attendees: [String]!;
     var _latitude: Double!;
     var _longitude: Double!;
     var _filters: [Int]!;
     
-    init(event_id: Int, creator_email: String, start_t: Date, attendees: [String], latitude: Double, longitude: Double, filters: [Int]){
+    init(event_id: Int, creator_email: String, start: NSDate, end: NSDate, attendees: [String], latitude: Double, longitude: Double, filters: [Int]){
         _event_id = event_id;
         _creator_email = creator_email;
-        _start_t = start_t;
+        _start = start;
+        _end = end;
         _attendees = attendees;
         _latitude = latitude;
         _longitude = longitude;
         _filters = filters;
+    }
+    
+    func setDate(start: NSDate, end: NSDate){
+        _start = start;
+        _end = end;
+    }
+    
+    func setLocation(latitude: Double, longitude: Double){
+        _latitude = latitude;
+        _longitude = longitude;
     }
 }
