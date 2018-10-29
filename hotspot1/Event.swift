@@ -11,6 +11,8 @@ import Foundation
 class Event{
     var _event_id: Int!;
     var _creator_email: String!;
+    var _title: String!;
+    var _description: String!;
     var _start: NSDate!;
     var _end: NSDate!;
     var _attendees: [String]!;
@@ -18,9 +20,11 @@ class Event{
     var _longitude: Double!;
     var _filters: [Int]!;
     
-    init(event_id: Int, creator_email: String, start: NSDate, end: NSDate, attendees: [String], latitude: Double, longitude: Double, filters: [Int]){
+    init(event_id: Int, creator_email: String, title: String, description: String, start: NSDate, end: NSDate, attendees: [String], latitude: Double, longitude: Double, filters: [Int]){
         _event_id = event_id;
         _creator_email = creator_email;
+        _title = title;
+        _description = description;
         _start = start;
         _end = end;
         _attendees = attendees;
