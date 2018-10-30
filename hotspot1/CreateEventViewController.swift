@@ -42,10 +42,9 @@ class CreateEventViewController: UIViewController {
         endComponents.month = 2
         endComponents.minute = 30
         
-        var newEvent = Event(event_id: 1, creator_email: "zackrossman10@gmail.com", title: eventTitle.text, description: eventDescription, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: expectedAttendees, latitude: 100.1, longitude: 100.1, filters: [1])
+        var newEvent = Event(event_id: 1, creator_email: "zackrossman10@gmail.com", title: eventTitle.text!, description: eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: 100.1, longitude: 100.1, filters: [1])
         
     }
-    
 }
 
 
