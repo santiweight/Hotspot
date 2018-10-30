@@ -7,7 +7,6 @@
 		<key>AWSCore.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>3</integer>
 		</dict>
 		<key>AWSDynamoDB.xcscheme</key>
@@ -18,19 +17,13 @@
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>AppAuth.xcscheme</key>
-=======
-			<integer>1</integer>
-		</dict>
-		<key>AWSDynamoDB.xcscheme</key>
->>>>>>> maps
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-<<<<<<< HEAD
 		<key>OktaAuth.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -40,21 +33,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
-=======
-		<key>Pods-hotspot1.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
->>>>>>> maps
 		</dict>
 		<key>Pods-hotspot1Tests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>7</integer>
-=======
-			<integer>4</integer>
->>>>>>> maps
 		</dict>
 	</dict>
 </dict>
