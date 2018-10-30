@@ -11,10 +11,11 @@ import UIKit
 
 class CreateEventViewController: UIViewController {
     
+    var geocoder = Geocoder()
+    
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
-    @IBOutlet weak var expectedAttendees: UITextField!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,6 +29,8 @@ class CreateEventViewController: UIViewController {
     }
     
     @IBAction func createEvent(_ sender: Any) {
+        geocoder.getLocation(address: eventAddress.text!)
+        
         var startComponents = DateComponents()
         startComponents.year = 2018
         startComponents.month = 12

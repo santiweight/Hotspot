@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--Create Event View Controller-->
         <scene sceneID="awL-hZ-U6N">
             <objects>
-                <viewController id="0s2-sK-SLE" customClass="DDBDetailViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8J-P8-mks"/>
                         <viewControllerLayoutGuide type="bottom" id="k4I-Yg-C5C"/>
@@ -42,14 +42,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLL-Zy-FDE">
-                                <rect key="frame" x="11" y="116" width="98" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLL-Zy-FDE">
+                                <rect key="frame" x="11" y="116" width="99" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Latitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwP-8M-pDJ">
-                                <rect key="frame" x="11" y="154" width="61" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwP-8M-pDJ">
+                                <rect key="frame" x="11" y="154" width="79" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,8 +66,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37z-wa-qcV">
-                                <rect key="frame" x="11" y="78" width="74" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37z-wa-qcV">
+                                <rect key="frame" x="11" y="78" width="73" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="submit:" destination="0s2-sK-SLE" eventType="touchDragInside" id="VKm-dS-2qS"/>
+                                    <action selector="createEvent:" destination="0s2-sK-SLE" eventType="touchUpInside" id="IdQ-Dn-9Zy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -148,124 +148,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="attribute1TextField" destination="ypO-cj-gyL" id="oJr-iX-Hhc"/>
-                        <outlet property="attribute2TextField" destination="0Jb-6J-XYh" id="hjY-6J-c8N"/>
-                        <outlet property="attribute3TextField" destination="eZl-KM-095" id="hGU-Yk-m1K"/>
-                        <outlet property="hashKeyTextField" destination="8fI-GV-IBB" id="fJa-mI-ZIM"/>
-                        <outlet property="rangeKeyTextField" destination="xKk-Wd-RZL" id="04W-gW-UVr"/>
+                        <outlet property="eventAddress" destination="xKk-Wd-RZL" id="jht-4F-533"/>
+                        <outlet property="eventDescription" destination="ypO-cj-gyL" id="7p5-Y4-0U6"/>
+                        <outlet property="eventTitle" destination="8fI-GV-IBB" id="azP-Ad-tme"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyq-l0-xX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2389.5999999999999" y="133.5832083958021"/>
-        </scene>
-        <!--Create Event View Controller-->
-        <scene sceneID="Iwl-Q4-GbL">
-            <objects>
-                <viewController id="rbc-Ev-ugA" customClass="CreateEventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ym3-kE-X4f"/>
-                        <viewControllerLayoutGuide type="bottom" id="zPb-qz-zt6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xgE-Na-BVT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event Name:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IkL-eN-KDG">
-                                <rect key="frame" x="140" y="109" width="224" height="30"/>
-                                <accessibility key="accessibilityConfiguration" label=""/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="Top Score" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z7Q-ml-dW1">
-                                <rect key="frame" x="140" y="147" width="224" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="Wins" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T6L-db-ITt">
-                                <rect key="frame" x="140" y="185" width="224" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Event Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8N-51-gtK">
-                                <rect key="frame" x="16" y="115" width="99" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Event Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhQ-Fe-wda">
-                                <rect key="frame" x="16" y="153" width="121" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="# Expected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbR-pV-ADa">
-                                <rect key="frame" x="16" y="191" width="78" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Event Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM2-8q-rFO">
-                                <rect key="frame" x="16" y="77" width="74" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oYA-Re-T8m">
-                                <rect key="frame" x="140" y="71" width="224" height="30"/>
-                                <accessibility key="accessibilityConfiguration" label=""/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="woC-pL-mC3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="woC-pL-mC3"/>
-                                    </mask>
-                                </variation>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z1-MT-R1u">
-                                <rect key="frame" x="175" y="288" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="createEvent:" destination="rbc-Ev-ugA" eventType="touchUpInside" id="WcB-vs-4b4"/>
-                                    <action selector="submit:" destination="0s2-sK-SLE" eventType="touchDragInside" id="6vc-yH-YRy"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="T6L-db-ITt" firstAttribute="leading" secondItem="bbR-pV-ADa" secondAttribute="trailing" constant="8" symbolic="YES" id="4vr-By-jvJ"/>
-                            <constraint firstItem="z7Q-ml-dW1" firstAttribute="leading" secondItem="nhQ-Fe-wda" secondAttribute="trailing" constant="8" symbolic="YES" id="7fW-9e-tv7"/>
-                            <constraint firstItem="bbR-pV-ADa" firstAttribute="width" secondItem="nhQ-Fe-wda" secondAttribute="width" id="9YL-W7-QUk"/>
-                            <constraint firstItem="IkL-eN-KDG" firstAttribute="top" secondItem="oYA-Re-T8m" secondAttribute="bottom" constant="8" symbolic="YES" id="DPp-I3-IYY"/>
-                            <constraint firstItem="z7Q-ml-dW1" firstAttribute="width" secondItem="oYA-Re-T8m" secondAttribute="width" id="GlO-5L-hIw"/>
-                            <constraint firstItem="nhQ-Fe-wda" firstAttribute="baseline" secondItem="z7Q-ml-dW1" secondAttribute="baseline" id="GsG-Ht-AOd"/>
-                            <constraint firstItem="kM2-8q-rFO" firstAttribute="baseline" secondItem="oYA-Re-T8m" secondAttribute="baseline" id="LKq-3y-U4Q"/>
-                            <constraint firstItem="IkL-eN-KDG" firstAttribute="leading" secondItem="P8N-51-gtK" secondAttribute="trailing" constant="8" symbolic="YES" id="RSl-Tf-hax"/>
-                            <constraint firstItem="oYA-Re-T8m" firstAttribute="leading" secondItem="kM2-8q-rFO" secondAttribute="trailing" constant="8" symbolic="YES" id="SDA-OS-fHY"/>
-                            <constraint firstItem="P8N-51-gtK" firstAttribute="baseline" secondItem="IkL-eN-KDG" secondAttribute="baseline" id="Tos-Lt-7US"/>
-                            <constraint firstItem="T6L-db-ITt" firstAttribute="top" secondItem="z7Q-ml-dW1" secondAttribute="bottom" constant="8" symbolic="YES" id="YJU-gT-aPD"/>
-                            <constraint firstItem="bbR-pV-ADa" firstAttribute="baseline" secondItem="T6L-db-ITt" secondAttribute="baseline" id="ZkN-9p-Wj4"/>
-                            <constraint firstItem="T6L-db-ITt" firstAttribute="width" secondItem="oYA-Re-T8m" secondAttribute="width" id="aek-Dy-Fw7"/>
-                            <constraint firstItem="P8N-51-gtK" firstAttribute="width" secondItem="kM2-8q-rFO" secondAttribute="width" id="hgv-AT-m3O"/>
-                            <constraint firstItem="IkL-eN-KDG" firstAttribute="width" secondItem="oYA-Re-T8m" secondAttribute="width" id="lkn-xZ-B0U"/>
-                            <constraint firstItem="nhQ-Fe-wda" firstAttribute="width" secondItem="P8N-51-gtK" secondAttribute="width" id="q5T-JX-uOp"/>
-                            <constraint firstItem="z7Q-ml-dW1" firstAttribute="top" secondItem="IkL-eN-KDG" secondAttribute="bottom" constant="8" symbolic="YES" id="y4N-jb-Ln4"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="eventAddress" destination="IkL-eN-KDG" id="VGj-L9-pj4"/>
-                        <outlet property="eventDescription" destination="z7Q-ml-dW1" id="Mfb-fl-Mfx"/>
-                        <outlet property="eventTitle" destination="oYA-Re-T8m" id="ZI0-w8-Xlo"/>
-                        <outlet property="expectedAttendees" destination="T6L-db-ITt" id="SZq-uf-M5w"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hap-EZ-fbk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3108" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="laH-vc-udY">
@@ -304,7 +194,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="login:" destination="60j-wq-Qcn" eventType="touchUpInside" id="dZE-ug-haR"/>
+                                    <segue destination="0s2-sK-SLE" kind="show" id="BXo-KB-lS9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u64-E8-YKU">
@@ -474,6 +364,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-hJ-UV5">
+                                <rect key="frame" x="185" y="410" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="0s2-sK-SLE" kind="show" id="ne6-82-sRm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -483,4 +381,7 @@
             <point key="canvasLocation" x="2850" y="-564"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BXo-KB-lS9"/>
+    </inferredMetricsTieBreakers>
 </document>
