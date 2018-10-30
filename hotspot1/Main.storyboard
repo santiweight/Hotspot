@@ -166,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="2389.5999999999999" y="133.5832083958021"/>
         </scene>
-<<<<<<< HEAD
+
         <!--MapViewController-->
         <scene sceneID="vjj-UG-The">
             <objects>
@@ -175,9 +175,7 @@
             </objects>
             <point key="canvasLocation" x="3142" y="133"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="E9h-gh-Djb">
-=======
+        
         <!--Navigation Controller-->
         <scene sceneID="laH-vc-udY">
             <objects>
@@ -198,7 +196,7 @@
         </scene>
         <!--Choose Login Controller-->
         <scene sceneID="S4x-eh-dU6">
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
+
             <objects>
                 <viewController id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
