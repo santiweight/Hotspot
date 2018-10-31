@@ -14,27 +14,21 @@ class Geocoder{
     //struct containing relevant info about an event location
     struct EventLocation {
         var formattedAddress: String?
-        var topLat:     Double?
-        var centerLat:  Double?
-        var bottomLat:  Double?
-        var leftLong:   Double?
-        var centerLong: Double?
-        var rightLong:  Double?
+        var latitude:  Double?
+        var longitude: Double?
+        var isEmpty : Bool
         
         init(formattedAddress: String? = nil,
-             topLat: Double?     = nil,
-             centerLat: Double?  = nil,
-             bottomLat: Double?  = nil,
-             leftLong: Double?   = nil,
-             centerLong: Double? = nil,
-             rightLong: Double?  = nil){
+             latitude: Double?  = nil,
+             longitude: Double? = nil){
             self.formattedAddress = formattedAddress
-            self.topLat     = topLat
-            self.centerLat  = centerLat
-            self.bottomLat  = bottomLat
-            self.leftLong   = leftLong
-            self.centerLong = centerLong
-            self.rightLong  = rightLong
+            self.latitude  = latitude
+            self.longitude = longitude
+            self.isEmpty = false
+        }
+        
+        init(){
+            self.isEmpty = true
         }
     }
     
@@ -61,33 +55,29 @@ class Geocoder{
     
     //translate Geocoder API response JSON Object to EventLocation struct
     func JSONToLocation(JSON: NSDictionary)->EventLocation{
+        print(JSON)
+        let status = JSON["status"] as! String
+        if(status != "OK"){
+            //return an empty EventLocation obj
+            return EventLocation()
+        }
+        
         //navigate nested JSON dictionaries
         let results = JSON["results"] as! [[String:Any]]
         let geometry   = results[0]["geometry"] as! NSDictionary
         let location   = geometry["location"] as! NSDictionary
-        let bounds = geometry["bounds"] as! NSDictionary
-        let northeastBounds = bounds["northeast"] as! NSDictionary
-        let southwestBounds = bounds["southwest"] as! NSDictionary
         
         //get relevant vals from appropriate JSON dictionaries
         let formattedAddress = results[0]["formatted_address"] as! String;
-        let topLat     = northeastBounds["lat"] as! Double
-        let centerLat  = location["lat"] as! Double
-        let bottomLat  = southwestBounds["lat"] as! Double
-        let leftLong   = southwestBounds["lng"] as! Double
-        let centerLong = location["lng"] as! Double
-        let rightLong  = northeastBounds["lng"] as! Double
+        let latitude  = location["lat"] as! Double
+        let longitude = location["lng"] as! Double
 
         //initialize & return a stuct with these vals
-        let locationStruct = EventLocation(
-            formattedAddress: formattedAddress,
-            topLat: topLat,
-            centerLat: centerLat,
-            bottomLat: bottomLat,
-            leftLong: leftLong,
-            centerLong: centerLong,
-            rightLong: rightLong)
+        let eventLocation = EventLocation(
+            formattedAddress:formattedAddress,
+            latitude: latitude,
+            longitude: longitude)
         
-        return locationStruct
+        return eventLocation
     }
 }
