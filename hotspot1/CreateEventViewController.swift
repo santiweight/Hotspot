@@ -29,7 +29,12 @@ class CreateEventViewController: UIViewController {
     }
     
     @IBAction func createEvent(_ sender: Any) {
-        geocoder.getLocation(address: eventAddress.text!)
+        geocoder.getLocation(address: eventAddress.text!){
+            responseObject, error in
+                // use responseObject and error here
+                print("responseObject = \(responseObject); error = \(error)")
+                return
+        }
         
         var startComponents = DateComponents()
         startComponents.year = 2018
