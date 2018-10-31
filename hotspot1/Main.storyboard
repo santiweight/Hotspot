@@ -194,7 +194,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="0s2-sK-SLE" kind="show" id="BXo-KB-lS9"/>
+                                    <action selector="login:" destination="60j-wq-Qcn" eventType="touchUpInside" id="fXy-Kl-YeB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u64-E8-YKU">
@@ -358,16 +358,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hotspot Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlr-xA-bYq">
-                                <rect key="frame" x="46" y="242" width="112" height="21"/>
+                                <rect key="frame" x="131" y="241" width="112" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-hJ-UV5">
-                                <rect key="frame" x="185" y="410" width="46" height="30"/>
+                                <rect key="frame" x="133" y="411" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Create an Event"/>
                                 <connections>
                                     <segue destination="0s2-sK-SLE" kind="show" id="ne6-82-sRm"/>
                                 </connections>
@@ -381,7 +381,4 @@
             <point key="canvasLocation" x="2850" y="-564"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="BXo-KB-lS9"/>
-    </inferredMetricsTieBreakers>
 </document>
