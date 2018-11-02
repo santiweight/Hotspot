@@ -21,6 +21,7 @@
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
 		35AEE47F218807B000EA9EB1 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
+		35BF137A218CCC2600B77357 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
 		35D4E812216FE77F0091D73F /* DDBDynamoDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */; };
 		35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */; };
 		35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */; };
@@ -61,6 +62,7 @@
 		35AEE47A218375DA00EA9EB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		35AEE47E218807B000EA9EB1 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		35BF1379218CCC2600B77357 /* OktaUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OktaUserModel.swift; sourceTree = "<group>"; };
 		35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; };
 		35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBMainTableViewController.swift; sourceTree = "<group>"; };
 		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
 				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
 				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
+				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
 				35AEE4782183755D00EA9EB1 /* Event.swift */,
 				35AEE47A218375DA00EA9EB1 /* User.swift */,
 				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
@@ -353,6 +356,7 @@
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
 				35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
+				35BF137A218CCC2600B77357 /* OktaUserModel.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 				35AEE4792183755D00EA9EB1 /* Event.swift in Sources */,
 			);
