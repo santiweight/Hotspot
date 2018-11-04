@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF2216EF49A003FF5BC /* AppDelegate.swift */; };
-<<<<<<< HEAD
 		3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF4216EF49A003FF5BC /* ViewController.swift */; };
-=======
+
 		3591ACFA216EF49A003FF5BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3591ACF9216EF49A003FF5BC /* Assets.xcassets */; };
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
 		3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */; };
 		3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */; };
 		3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
@@ -31,7 +29,6 @@
 		35D4E818216FEF510091D73F /* DDBDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4E817216FEF510091D73F /* DDBDetailViewController.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		4F8A6AEC21800B1A00BCCA36 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */; };
-<<<<<<< HEAD
 		4F8A6AEE2180124300BCCA36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A6AED2180124300BCCA36 /* LoginViewController.swift */; };
 		AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069D21823BAC002501F6 /* MapViewController.swift */; };
 		AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069E21823BAC002501F6 /* EventAnnotation.swift */; };
@@ -40,8 +37,7 @@
 		AA8D64EF2186CE9900389EAE /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA8D64EE2186CE9900389EAE /* CustomCalloutView.xib */; };
 		AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64DF2186C3B500389EAE /* AnnotationView.swift */; };
 		AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D64F5218765C700389EAE /* Assets.xcassets */; };
-=======
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
+
 		E906649B0A16AD10602B535D /* Pods_hotspot1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */; };
 		E97B4937E4502226388F2D13 /* Pods_hotspot1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */; };
 /* End PBXBuildFile section */
@@ -61,11 +57,9 @@
 		1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591ACEF216EF49A003FF5BC /* hotspot1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotspot1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591ACF2216EF49A003FF5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		3591ACF4216EF49A003FF5BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-=======
+
 		3591ACF9216EF49A003FF5BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
 		3591ACFC216EF49A003FF5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3591ACFE216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3591AD03216EF49A003FF5BC /* hotspot1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hotspot1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,21 +139,17 @@
 				35D4E819217014A10091D73F /* Main.storyboard */,
 				AA5A069A2182304D002501F6 /* Maps */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
-<<<<<<< HEAD
 				AA8D64F5218765C700389EAE /* Assets.xcassets */,
 				3591ACF4216EF49A003FF5BC /* ViewController.swift */,
-=======
+
 				3591ACF9216EF49A003FF5BC /* Assets.xcassets */,
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
 				35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */,
 				35D4E813216FEE9F0091D73F /* DDBMainTableViewController.swift */,
 				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E817216FEF510091D73F /* DDBDetailViewController.swift */,
-<<<<<<< HEAD
 				4F77D1E12175A80C008380FA /* UIViewController.h */,
-=======
+
 				35D4E819217014A10091D73F /* Main.storyboard */,
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
 				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
 				3591ACFE216EF49A003FF5BC /* Info.plist */,
 				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
@@ -394,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */,
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
 				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
@@ -404,11 +393,10 @@
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				4F8A6AEE2180124300BCCA36 /* LoginViewController.swift in Sources */,
-=======
+
 				35D4E812216FE77F0091D73F /* DDBDynamoDBManager.swift in Sources */,
 				4F8A6AEC21800B1A00BCCA36 /* RegisterViewController.swift in Sources */,
 				35D4E816216FEEB50091D73F /* DDBSearchViewController.swift in Sources */,
->>>>>>> be0d903a547a4c4366fe9036978e5b79b559fbea
 				35D4E814216FEE9F0091D73F /* DDBMainTableViewController.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
