@@ -1,4 +1,5 @@
 .DS_Store
+<<<<<<< HEAD
 *.swp
 *~.nib
 
@@ -7,3 +8,6 @@ build/
 *.pbxuser
 *.perspective
 *.perspectivev3
+=======
+hotspot1.xcworkspace/xcuserdata/zackrossman.xcuserdatad/UserInterfaceState.xcuserstate
+>>>>>>> zackdev

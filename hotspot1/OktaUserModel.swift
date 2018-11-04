@@ -57,6 +57,7 @@ class OktaUserModel {
                     print("Success! Received accessToken: \(tokenResponse.accessToken!)")
                     print("Success! Received idToken: \(tokenResponse.idToken!)")
                 }
+            }
     }
     
     //go to home screen for logged-in hotspot users

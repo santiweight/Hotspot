@@ -17,7 +17,6 @@
 		35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */; };
 		35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */; };
 		35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35AEE4742182DB5700EA9EB1 /* Okta.plist */; };
-		35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4762182E76000EA9EB1 /* OktaUserModel.swift */; };
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
@@ -59,10 +58,11 @@
 		35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		35AEE4742182DB5700EA9EB1 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
-		35AEE4762182E76000EA9EB1 /* OktaUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OktaUserModel.swift; path = ../../../Okta/OktaPractice/OktaPractice/OktaUserModel.swift; sourceTree = "<group>"; };
 		35AEE4782183755D00EA9EB1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		35AEE47A218375DA00EA9EB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		35AEE47E218807B000EA9EB1 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		35BF1379218CCC2600B77357 /* OktaUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OktaUserModel.swift; sourceTree = "<group>"; };
 		35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; };
 		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
 		35D4E819217014A10091D73F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -139,9 +139,10 @@
 				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
 				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
 				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
-				35AEE4762182E76000EA9EB1 /* OktaUserModel.swift */,
+				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
 				35AEE4782183755D00EA9EB1 /* Event.swift */,
 				35AEE47A218375DA00EA9EB1 /* User.swift */,
+				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
 			);
 			path = hotspot1;
 			sourceTree = "<group>";
@@ -373,6 +374,7 @@
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
 				35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
+				35BF137A218CCC2600B77357 /* OktaUserModel.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 				35AEE4792183755D00EA9EB1 /* Event.swift in Sources */,
 			);
