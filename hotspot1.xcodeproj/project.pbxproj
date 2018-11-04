@@ -20,6 +20,8 @@
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
+		35BF137E218F5FF300B77357 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
+		35BF137F218F600000B77357 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069D21823BAC002501F6 /* MapViewController.swift */; };
 		AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069E21823BAC002501F6 /* EventAnnotation.swift */; };
@@ -363,6 +365,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BF137F218F600000B77357 /* Geocoder.swift in Sources */,
+				35BF137E218F5FF300B77357 /* OktaUserModel.swift in Sources */,
 				AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */,
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
 				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
@@ -372,9 +376,7 @@
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
-				35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
-				35BF137A218CCC2600B77357 /* OktaUserModel.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 				35AEE4792183755D00EA9EB1 /* Event.swift in Sources */,
 			);
