@@ -20,10 +20,7 @@ class CustomCalloutView: UIView {
     @IBOutlet weak var infoButton: UIButton!
     
     func viewDidLoad() {
-        
-        
-        
-  
+
     }
     /*
      // Only override drawRect: if you perform custom drawing.
