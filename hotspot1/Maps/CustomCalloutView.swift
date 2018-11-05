@@ -17,6 +17,14 @@ class CustomCalloutView: UIView {
     @IBOutlet weak var eventTime: UILabel!
     
     
+    @IBOutlet weak var infoButton: UIButton!
+    
+    func viewDidLoad() {
+        
+        
+        
+  
+    }
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.
