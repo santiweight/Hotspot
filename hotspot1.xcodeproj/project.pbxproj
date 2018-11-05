@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3570BA122190FB4A00E2D652 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */; };
 		3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF2216EF49A003FF5BC /* AppDelegate.swift */; };
 		3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF4216EF49A003FF5BC /* ViewController.swift */; };
 		3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */; };
@@ -20,8 +21,6 @@
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
-		35BF137E218F5FF300B77357 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
-		35BF137F218F600000B77357 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
 		AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
@@ -105,6 +104,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3570BA112190FB2C00E2D652 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */,
+				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
+				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
+				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
+				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
+				35AEE47A218375DA00EA9EB1 /* User.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3570BA132190FB7400E2D652 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */,
+				35AEE4782183755D00EA9EB1 /* Event.swift */,
+				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		3591ACE6216EF49A003FF5BC = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +150,8 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
+				3570BA132190FB7400E2D652 /* Event */,
+				3570BA112190FB2C00E2D652 /* Login */,
 				AA5A069A2182304D002501F6 /* Maps */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
 				AA8D64F5218765C700389EAE /* Assets.xcassets */,
@@ -137,18 +161,9 @@
 				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E819217014A10091D73F /* Main.storyboard */,
 				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
-				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
 				3591ACFE216EF49A003FF5BC /* Info.plist */,
 				3591AD12216F11CE003FF5BC /* awsconfiguration.json */,
-				35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */,
-				35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */,
-				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
 				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
-				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
-				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
-				35AEE4782183755D00EA9EB1 /* Event.swift */,
-				35AEE47A218375DA00EA9EB1 /* User.swift */,
-				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
 			);
 			path = hotspot1;
 			sourceTree = "<group>";
@@ -377,6 +392,7 @@
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
 				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
+				3570BA122190FB4A00E2D652 /* RegisterViewController.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
