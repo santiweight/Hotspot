@@ -21,10 +21,13 @@
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
+		AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
+		AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
+		AA4ABB03218FFF6E00026C30 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4ABB02218FFF6E00026C30 /* Map.storyboard */; };
+		AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4ABB042190017200026C30 /* CustomCalloutView.xib */; };
 		AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069D21823BAC002501F6 /* MapViewController.swift */; };
 		AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069E21823BAC002501F6 /* EventAnnotation.swift */; };
 		AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */; };
-		AA8D64EF2186CE9900389EAE /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA8D64EE2186CE9900389EAE /* CustomCalloutView.xib */; };
 		AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64DF2186C3B500389EAE /* AnnotationView.swift */; };
 		AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D64F5218765C700389EAE /* Assets.xcassets */; };
 		E906649B0A16AD10602B535D /* Pods_hotspot1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */; };
@@ -71,11 +74,12 @@
 		871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A8941FB5911B4A25F2A8EF53 /* Pods-hotspot1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AA4ABB02218FFF6E00026C30 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		AA4ABB042190017200026C30 /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		AA5A069D21823BAC002501F6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AA5A069E21823BAC002501F6 /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
 		AA8D64DF2186C3B500389EAE /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
-		AA8D64EE2186CE9900389EAE /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		AA8D64F5218765C700389EAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +172,8 @@
 		AA5A069A2182304D002501F6 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				AA8D64EE2186CE9900389EAE /* CustomCalloutView.xib */,
+				AA4ABB042190017200026C30 /* CustomCalloutView.xib */,
+				AA4ABB02218FFF6E00026C30 /* Map.storyboard */,
 				AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */,
 				AA5A069E21823BAC002501F6 /* EventAnnotation.swift */,
 				AA5A069D21823BAC002501F6 /* MapViewController.swift */,
@@ -275,10 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */,
+				AA4ABB03218FFF6E00026C30 /* Map.storyboard in Resources */,
 				3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */,
 				35D4E81A217014A10091D73F /* Main.storyboard in Resources */,
 				3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */,
-				AA8D64EF2186CE9900389EAE /* CustomCalloutView.xib in Resources */,
+				AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */,
 				AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */,
+				AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */,
 				AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */,
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
 				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
@@ -372,9 +380,7 @@
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
-				35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
-				35BF137A218CCC2600B77357 /* OktaUserModel.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 				35AEE4792183755D00EA9EB1 /* Event.swift in Sources */,
 			);

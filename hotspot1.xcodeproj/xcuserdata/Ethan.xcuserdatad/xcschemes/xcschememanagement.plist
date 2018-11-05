@@ -7,7 +7,11 @@
 		<key>hotspot1.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>7</integer>
+=======
+			<integer>0</integer>
+>>>>>>> edev
 		</dict>
 	</dict>
 </dict>

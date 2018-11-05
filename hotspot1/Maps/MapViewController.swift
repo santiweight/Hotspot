@@ -5,7 +5,6 @@
 //  Created by Malek T. on 3/9/16.
 //  Copyright © 2016 Medigarage Studios LTD. All rights reserved.
 //
-
 import UIKit
 import MapKit
 
@@ -14,7 +13,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var coordinates: [[Double]]!
     var names:[String]!
     var hotness:[String]!
-    var desc:[String]!
+    var add:[String]!
+    var time:[String]!
     
     @IBOutlet var mapView: MKMapView!
     
@@ -34,10 +34,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         
         // 1
-        coordinates = [[21.283921,-157.831661],[21.273921,-157.821661]]// Latitude,Longitude
+        coordinates = [[34.0944,-117.7083],[34.0600,-117.7033]]// Latitude,Longitude
         names = ["Test1","Tes2"]
         hotness = ["3", "4"]
-        desc = ["Fun time! Soccer!","Polo match! Starts at 10:00"]
+        add = ["adresssss","adresssss"]
+        time = ["10pm","3pm"]
         
         
         
@@ -47,8 +48,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let coordinate = coordinates[i]
             let point = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: coordinate[0] , longitude: coordinate[1] ))
             point.name = names[i]
-            point.desc = desc[i]
+            point.add = add[i]
             point.hotness = hotness[i]
+            point.time = time[i]
             
             self.mapView.addAnnotation(point)
         }
@@ -57,7 +59,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         //        //  let initialLocation = CLLocation(latitude: 34.1018, longitude: -117.7079)
         //        centerMapOnLocation(location: initialLocation)
         // 3
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 34.0944, longitude: -117.7083), span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
         self.mapView.setRegion(region, animated: true)
     }
     override func didReceiveMemoryWarning() {
@@ -99,8 +101,9 @@ extension MapViewDelegate
         let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: nil, options: nil)
         let calloutView = views?[0] as! CustomCalloutView
         calloutView.eventName.text = eventAnnotation.name
-        calloutView.eventDesc.text = eventAnnotation.desc
-        calloutView.eventHotness.text = eventAnnotation.hotness
+        calloutView.eventAddress.text = eventAnnotation.add
+        calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
+        calloutView.eventTime.text = eventAnnotation.time
         //        calloutView.starbucksImage.image = starbucksAnnotation.image
         //        let button = UIButton(frame: calloutView.starbucksPhone.frame)
         //        button.addTarget(self, action: #selector(ViewController.callPhoneNumber(sender:)), for: .touchUpInside)

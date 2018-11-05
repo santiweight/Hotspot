@@ -12,9 +12,10 @@ import MapKit
 class EventAnnotation: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
-    var desc: String!
+    var add: String!
     var name: String!
     var hotness: String!
+    var time: String!
     
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
