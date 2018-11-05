@@ -7,7 +7,20 @@
 		<key>hotspot1.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3591ACEE216EF49A003FF5BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3591AD02216EF49A003FF5BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
