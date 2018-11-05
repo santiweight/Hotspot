@@ -20,6 +20,8 @@
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
+		35BF137E218F5FF300B77357 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
+		35BF137F218F600000B77357 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
 		AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
@@ -135,8 +137,8 @@
 				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E819217014A10091D73F /* Main.storyboard */,
 				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
-				3591ACFE216EF49A003FF5BC /* Info.plist */,
 				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
+				3591ACFE216EF49A003FF5BC /* Info.plist */,
 				3591AD12216F11CE003FF5BC /* awsconfiguration.json */,
 				35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */,
 				35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */,

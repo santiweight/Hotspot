@@ -18,7 +18,7 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     
-    @IBOutlet weak var btnDropDown: UITextField!
+    @IBOutlet weak var btnDropDown: UIButton!
     @IBOutlet weak var tableview: UITableView!
     var schoolList = ["CMC", "PO", "SCR", "PZ", "HMC"]
     
@@ -28,15 +28,15 @@ class CreateEventViewController: UIViewController {
     
     @IBAction func selectData(_ sender: Any) {
         
-        label.text = "\(pickerData.date)"
+        pickerLabel.text = "\(pickerData.date)"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        tblView.isHidden = true
-       // lbl.isHidden = true
-        //lbl.text = "FILL IN LATER"
+        tableview.isHidden = true
+       // pickerLabel.isHidden = true
+        //pickerLabel.text = "FILL IN LATER"
     }
     
     override func viewDidLoad() {
@@ -94,38 +94,37 @@ class CreateEventViewController: UIViewController {
         }
         
     }
+    
     @IBAction func DropDownClicked(_ sender: Any) {
-        
-        if tblView.isHidden {
-            animate(toogle: true, type: btnDrop)
+        if tableview.isHidden {
+            animate(toogle: true, type: btnDropDown)
         } else {
-            animate(toogle: false, type: btnDrop)
+            animate(toogle: false, type: btnDropDown)
         }
-        
     }
     
     
     func animate(toogle: Bool, type: UIButton) {
         
-        if type == btnDrop {
+        if type == btnDropDown {
             
             if toogle {
                 UIView.animate(withDuration: 0.3) {
-                    self.tblView.isHidden = false
+                    self.tableview.isHidden = false
                 }
             } else {
                 UIView.animate(withDuration: 0.3) {
-                    self.tblView.isHidden = true
+                    self.tableview.isHidden = true
                 }
             }
         } else {
             if toogle {
                 UIView.animate(withDuration: 0.3) {
-                    self.lbl.isHidden = false
+                    self.pickerLabel.isHidden = false
                 }
             } else {
                 UIView.animate(withDuration: 0.3) {
-                    self.lbl.isHidden = true
+                    self.pickerLabel.isHidden = true
                 }
             }
         }
@@ -135,18 +134,18 @@ class CreateEventViewController: UIViewController {
 
 extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruitList.count
+        return schoolList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = fruitList[indexPath.row]
+        cell.textLabel?.text = schoolList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        btnDrop.setTitle("\(fruitList[indexPath.row])", for: .normal)
-        animate(toogle: false, type: btnDrop)
+//        btnDropDown.Title("\(schoolList[indexPath.row])", for: .normal)
+        animate(toogle: false, type: btnDropDown)
     }
     
     
