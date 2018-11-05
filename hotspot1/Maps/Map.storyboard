@@ -17,12 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="MapViewController" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="caF-NB-ull">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MapViewController" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="caF-NB-ull">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="caF-NB-ull" firstAttribute="top" secondItem="Nrz-dL-kt2" secondAttribute="top" id="KW9-UK-I41"/>
+                            <constraint firstItem="dzT-Dt-ArD" firstAttribute="bottom" secondItem="caF-NB-ull" secondAttribute="bottom" constant="96" id="NfH-rD-8jD"/>
+                            <constraint firstItem="caF-NB-ull" firstAttribute="leading" secondItem="dzT-Dt-ArD" secondAttribute="leading" id="f5f-qW-Y1L"/>
+                            <constraint firstItem="caF-NB-ull" firstAttribute="trailing" secondItem="dzT-Dt-ArD" secondAttribute="trailing" id="xt5-3E-F8W"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dzT-Dt-ArD"/>
                     </view>
                     <connections>
