@@ -18,13 +18,30 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     
+    @IBOutlet weak var btnDropDown: UITextField!
+    @IBOutlet weak var tableview: UITableView!
+    var schoolList = ["CMC", "PO", "SCR", "PZ", "HMC"]
+    
+    @IBOutlet weak var pickerLabel: UILabel!
+    
+    @IBOutlet weak var pickerData: UIDatePicker!
+    
+    @IBAction func selectData(_ sender: Any) {
+        
+        label.text = "\(pickerData.date)"
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        tblView.isHidden = true
+       // lbl.isHidden = true
+        //lbl.text = "FILL IN LATER"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -75,8 +92,68 @@ class CreateEventViewController: UIViewController {
                 self.present(badAddressAlert, animated: true)
             }
         }
+        
     }
+    @IBAction func DropDownClicked(_ sender: Any) {
+        
+        if tblView.isHidden {
+            animate(toogle: true, type: btnDrop)
+        } else {
+            animate(toogle: false, type: btnDrop)
+        }
+        
+    }
+    
+    
+    func animate(toogle: Bool, type: UIButton) {
+        
+        if type == btnDrop {
+            
+            if toogle {
+                UIView.animate(withDuration: 0.3) {
+                    self.tblView.isHidden = false
+                }
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    self.tblView.isHidden = true
+                }
+            }
+        } else {
+            if toogle {
+                UIView.animate(withDuration: 0.3) {
+                    self.lbl.isHidden = false
+                }
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    self.lbl.isHidden = true
+                }
+            }
+        }
+    }
+    
 }
+
+extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fruitList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = fruitList[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        btnDrop.setTitle("\(fruitList[indexPath.row])", for: .normal)
+        animate(toogle: false, type: btnDrop)
+    }
+    
+    
+    
+    
+}
+
 
 
 

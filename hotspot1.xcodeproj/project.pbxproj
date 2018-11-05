@@ -372,9 +372,7 @@
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
-				35AEE4772182E76000EA9EB1 /* OktaUserModel.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
-				35BF137A218CCC2600B77357 /* OktaUserModel.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 				35AEE4792183755D00EA9EB1 /* Event.swift in Sources */,
 			);
