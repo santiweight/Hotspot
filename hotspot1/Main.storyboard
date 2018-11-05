@@ -170,7 +170,7 @@
                 <viewControllerPlaceholder storyboardName="Map" referencedIdentifier="MapViewController" id="EcL-Fz-rBi" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09e-r2-5v6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="133"/>
+            <point key="canvasLocation" x="2957" y="586"/>
         </scene>
         <!--Create Event View Controller-->
         <scene sceneID="Iwl-Q4-GbL">

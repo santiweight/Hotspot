@@ -21,7 +21,7 @@ class CustomCalloutView: UIView {
     
     func viewDidLoad() {
         
-        infoButton.layer.cornerRadius = 10
+        
         
   
     }
