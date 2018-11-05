@@ -10,16 +10,19 @@ import UIKit
 
 class CustomCalloutView: UIView {
     
-   
+    
     @IBOutlet weak var eventName: UILabel!
-    @IBOutlet weak var eventDesc: UILabel!
+    @IBOutlet weak var eventAddress: UILabel!
     @IBOutlet weak var eventHotness: UILabel!
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- override func drawRect(rect: CGRect) {
- // Drawing code
- }
- */
+    @IBOutlet weak var eventTime: UILabel!
+    
+    
+    /*
+     // Only override drawRect: if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func drawRect(rect: CGRect) {
+     // Drawing code
+     }
+     */
 }
+
