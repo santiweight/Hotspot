@@ -42,28 +42,24 @@ class OktaUserModel {
     }
     
     //direct user to login page
-    func login(viewController: UIViewController){
+    func login(viewController: UIViewController, completionHandler: @escaping (Bool?, Error?) -> ()){
         OktaAuth
             .login()
             .start(viewController) { response, error in
-                if error != nil { print(error!) }
+                if error != nil {
+                    print(error!)
+                    completionHandler(false, nil)
+                }
 
                 // Success
                 if let tokenResponse = response {
-                    //go to home screen for logged-in hotspot users
-                    self.toHomeView(viewController: viewController)
+                    completionHandler(true, nil)
                     OktaAuth.tokens?.set(value: tokenResponse.accessToken!, forKey: "accessToken")
                     OktaAuth.tokens?.set(value: tokenResponse.idToken!, forKey: "idToken")
                     print("Success! Received accessToken: \(tokenResponse.accessToken!)")
                     print("Success! Received idToken: \(tokenResponse.idToken!)")
                 }
             }
-    }
-    
-    //go to home screen for logged-in hotspot users
-    func toHomeView(viewController: UIViewController){
-        let homeViewController = viewController.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        viewController.navigationController?.present(homeViewController, animated: true)
     }
 }
 

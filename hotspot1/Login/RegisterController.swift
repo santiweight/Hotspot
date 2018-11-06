@@ -27,6 +27,7 @@ class RegisterController: UIViewController {
     func completionHandler(value: Bool) {
         print("Function completion handler value: )")
     }
+    
         //MARK: Action
     @IBAction func Register(_ sender: Any) {
         let requestBody: [String: Any] = [
@@ -46,10 +47,21 @@ class RegisterController: UIViewController {
             ]
         ]
 
-        //create & activate user in Okta group, direct to login page
+        //create an active user in Okta group, direct to login page
         oktaModel = OktaUserModel()
         if oktaModel.createUser(APIKey: oktaAPIKey, params: requestBody){
-            oktaModel.login(viewController: self)
+            self.oktaModel.login(viewController: self){
+                responseObject, error in
+                if(responseObject!){
+                    //go to Hotspot home iff successful login
+                    let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    self.navigationController?.present(homeViewController, animated: true)
+                }else{
+                    //else go to login home
+                    let chooseLoginController = self.storyboard?.instantiateViewController(withIdentifier: "ChooseLoginController") as! ChooseLoginController
+                    self.navigationController?.present(chooseLoginController, animated: true)
+                }
+            }
         }
     }
 }

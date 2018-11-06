@@ -393,7 +393,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="60j-wq-Qcn" eventType="touchUpInside" id="fXy-Kl-YeB"/>
-                                    <segue destination="6CJ-tB-15Q" kind="presentation" identifier="loginToHome" id="vdd-qu-t0G"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u64-E8-YKU">
@@ -513,7 +512,6 @@
                                 <connections>
                                     <action selector="Register:" destination="YFD-hr-NxQ" eventType="touchUpInside" id="xhN-JO-wph"/>
                                     <action selector="login:" destination="60j-wq-Qcn" eventType="touchUpInside" id="Sz6-qR-o2u"/>
-                                    <segue destination="60j-wq-Qcn" kind="presentation" identifier="Login" id="DwL-h6-72m"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRg-6g-aI6">
@@ -581,7 +579,4 @@
             <point key="canvasLocation" x="1089" y="231"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="DwL-h6-72m"/>
-    </inferredMetricsTieBreakers>
 </document>
