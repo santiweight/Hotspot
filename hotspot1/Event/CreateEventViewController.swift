@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CreateEventViewController: UIViewController {
+    private let dataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
     
     //Obj for making API calls to Google Geocoder
     var geocoder = Geocoder()
@@ -17,10 +18,11 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var detailLabel: UILabel!
     
-    @IBOutlet weak var btnDropDown: UIButton!
-    @IBOutlet weak var tableview: UITableView!
-    var schoolList = ["CMC", "PO", "SCR", "PZ", "HMC"]
+    
+    
     
     @IBOutlet weak var pickerLabel: UILabel!
     
@@ -32,18 +34,17 @@ class CreateEventViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
         
-        tableview.isHidden = true
-       // pickerLabel.isHidden = true
-        //pickerLabel.text = "FILL IN LATER"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pickerView.dataSource = self
+        pickerView.delegate = self
         
-        // Do any additional setup after loading the view.
+        
+        
     }
     
     @IBAction func createEvent(_ sender: Any) {
@@ -92,65 +93,26 @@ class CreateEventViewController: UIViewController {
                 self.present(badAddressAlert, animated: true)
             }
         }
-        
     }
-    
-    @IBAction func DropDownClicked(_ sender: Any) {
-        if tableview.isHidden {
-            animate(toogle: true, type: btnDropDown)
-        } else {
-            animate(toogle: false, type: btnDropDown)
-        }
-    }
-    
-    
-    func animate(toogle: Bool, type: UIButton) {
-        
-        if type == btnDropDown {
-            
-            if toogle {
-                UIView.animate(withDuration: 0.3) {
-                    self.tableview.isHidden = false
-                }
-            } else {
-                UIView.animate(withDuration: 0.3) {
-                    self.tableview.isHidden = true
-                }
-            }
-        } else {
-            if toogle {
-                UIView.animate(withDuration: 0.3) {
-                    self.pickerLabel.isHidden = false
-                }
-            } else {
-                UIView.animate(withDuration: 0.3) {
-                    self.pickerLabel.isHidden = true
-                }
-            }
-        }
-    }
-    
 }
 
-extension CreateEventViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return schoolList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = schoolList[indexPath.row]
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        btnDropDown.Title("\(schoolList[indexPath.row])", for: .normal)
-        animate(toogle: false, type: btnDropDown)
-    }
-    
-    
-    
-    
+extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return dataSource.count
+        }
+        
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        }
+        
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return dataSource[row]
+        }
 }
 
 
