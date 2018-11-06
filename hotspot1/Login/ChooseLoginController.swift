@@ -37,6 +37,7 @@ class ChooseLoginController: UIViewController {
         self.oktaModel.login(viewController: self){
             responseObject, error in
             if(responseObject!){
+                print("logged in")
                 //go to Hotspot home iff successful login
                 let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 self.navigationController?.present(homeViewController, animated: true)

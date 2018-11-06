@@ -21,7 +21,7 @@ class OktaUserModel {
     }
     
     //create & activate user in Okta group, direct to login page
-    func createUser(APIKey: String, params: [String: Any]) -> Bool{
+    func createUser(APIKey: String, params: [String: Any], completionHandler: @escaping (Bool?, Error?) -> ()){
         
         let oktaRequestHeaders : HTTPHeaders =  [
             "Accept": "application/json",
@@ -34,11 +34,12 @@ class OktaUserModel {
             response in switch response.result {
                 case .success(let JSON):
                     print(JSON)
+                    completionHandler(true, nil)
                 case .failure(let error):
                     print("Request failed with error: \(error)")
+                    completionHandler(false, error)
             }
         }
-        return true
     }
     
     //direct user to login page

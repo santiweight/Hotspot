@@ -376,7 +376,7 @@
         <!--Choose Login Controller-->
         <scene sceneID="S4x-eh-dU6">
             <objects>
-                <viewController id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseLoginController" id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vXW-yt-0XS"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6H-8R-wVS"/>
