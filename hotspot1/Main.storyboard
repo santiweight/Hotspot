@@ -102,7 +102,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="School:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goy-75-LXl">
-                                <rect key="frame" x="11" y="283" width="58" height="21"/>
+                                <rect key="frame" x="11" y="283" width="58" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -209,6 +209,7 @@
                         <outlet property="pickerData" destination="3Ar-FB-80d" id="XSf-uY-I0g"/>
                         <outlet property="pickerLabel" destination="bqy-nP-MB1" id="Mab-Py-CD0"/>
                         <outlet property="pickerView" destination="pUe-tg-XyU" id="ymO-lD-6sO"/>
+                        <outlet property="selectSchool" destination="Goy-75-LXl" id="Sih-YM-Zo7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyq-l0-xX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
