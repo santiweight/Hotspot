@@ -27,8 +27,7 @@
 		AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4ABB042190017200026C30 /* CustomCalloutView.xib */; };
 		AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069D21823BAC002501F6 /* MapViewController.swift */; };
 		AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069E21823BAC002501F6 /* EventAnnotation.swift */; };
-		AA7A94742190F8FA00C12325 /* DisplayEventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A94732190F8FA00C12325 /* DisplayEventController.swift */; };
-		AA7A94772190FB9300C12325 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA7A94762190FB9300C12325 /* Event.storyboard */; };
+		AA61FC382191549D00073463 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA61FC372191549D00073463 /* EventViewController.swift */; };
 		AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */; };
 		AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64DF2186C3B500389EAE /* AnnotationView.swift */; };
 		AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D64F5218765C700389EAE /* Assets.xcassets */; };
@@ -80,8 +79,7 @@
 		AA4ABB042190017200026C30 /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		AA5A069D21823BAC002501F6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AA5A069E21823BAC002501F6 /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
-		AA7A94732190F8FA00C12325 /* DisplayEventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEventController.swift; sourceTree = "<group>"; };
-		AA7A94762190FB9300C12325 /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		AA61FC372191549D00073463 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		AA8D64DF2186C3B500389EAE /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		AA8D64F5218765C700389EAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +175,7 @@
 		AA5A069A2182304D002501F6 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				AA61FC372191549D00073463 /* EventViewController.swift */,
 				AA4ABB042190017200026C30 /* CustomCalloutView.xib */,
 				AA4ABB02218FFF6E00026C30 /* Map.storyboard */,
 				AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */,
@@ -190,8 +189,6 @@
 		AA7A94752190FB5B00C12325 /* DisplayEvent */ = {
 			isa = PBXGroup;
 			children = (
-				AA7A94732190F8FA00C12325 /* DisplayEventController.swift */,
-				AA7A94762190FB9300C12325 /* Event.storyboard */,
 			);
 			path = DisplayEvent;
 			sourceTree = "<group>";
@@ -298,7 +295,6 @@
 				3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */,
 				35D4E81A217014A10091D73F /* Main.storyboard in Resources */,
 				3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */,
-				AA7A94772190FB9300C12325 /* Event.storyboard in Resources */,
 				AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */,
 				AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */,
 			);
@@ -384,12 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA7A94742190F8FA00C12325 /* DisplayEventController.swift in Sources */,
 				AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */,
 				AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */,
 				AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */,
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
 				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
+				AA61FC382191549D00073463 /* EventViewController.swift in Sources */,
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
