@@ -66,6 +66,38 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    // MARK - Action Handler
+    @objc func callPhoneNumber(sender: UIButton)
+    {
+        
+        print("clicked")
+        
+//        let v = sender.superview as! CustomCalloutView
+//        if let url = URL(string: "telprompt://\(v.infoButtonLabel.text!)"), UIApplication.shared.canOpenURL(url)
+//        {
+//            UIApplication.shared.openURL(url)
+//        }
+        
+//        let vc = EventViewController(nibName: "EventViewController", bundle: nil)
+//        vc.text = "Next level blog photo booth, tousled authentic tote bag kogi"
+//
+//        navigationController?.pushViewController(vc, animated: true)
+        
+        let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        self.present(eventViewController, animated: true)
+        
+
+//        let destination = self.storyboard!.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+//        self.navigationController!.pushViewController(destination, animated: true)
+        
+//        let vc = EventViewController() //your view controller
+//        self.present(vc, animated: true, completion: nil)
+        
+//        let eventViewController = EventViewController(nibName: "EventViewController", bundle: nil)
+//        self.present(eventViewController, animated: true, completion: nil)
+        
+        
+    }
     
 }
 
@@ -104,10 +136,9 @@ extension MapViewDelegate
         calloutView.eventAddress.text = eventAnnotation.add
         calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
         calloutView.eventTime.text = eventAnnotation.time
-        //        calloutView.starbucksImage.image = starbucksAnnotation.image
-        //        let button = UIButton(frame: calloutView.starbucksPhone.frame)
-        //        button.addTarget(self, action: #selector(ViewController.callPhoneNumber(sender:)), for: .touchUpInside)
-        //        calloutView.addSubview(button)
+        let button = UIButton(frame: calloutView.infoButtonLabel.frame)
+        button.addTarget(self, action: #selector(MapViewController.callPhoneNumber(sender:)), for: .touchUpInside)
+        calloutView.addSubview(button)
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)

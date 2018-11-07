@@ -26,6 +26,7 @@
 		AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4ABB042190017200026C30 /* CustomCalloutView.xib */; };
 		AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069D21823BAC002501F6 /* MapViewController.swift */; };
 		AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A069E21823BAC002501F6 /* EventAnnotation.swift */; };
+		AA61FC382191549D00073463 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA61FC372191549D00073463 /* EventViewController.swift */; };
 		AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */; };
 		AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D64DF2186C3B500389EAE /* AnnotationView.swift */; };
 		AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA8D64F5218765C700389EAE /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		AA4ABB042190017200026C30 /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		AA5A069D21823BAC002501F6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AA5A069E21823BAC002501F6 /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
+		AA61FC372191549D00073463 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		AA8D64DF2186C3B500389EAE /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		AA8D64F5218765C700389EAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,9 +153,13 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
+
 				3570BA1421913D4600E2D652 /* Home */,
 				3570BA132190FB7400E2D652 /* Event */,
 				3570BA112190FB2C00E2D652 /* Login */,
+
+				AA7A94752190FB5B00C12325 /* DisplayEvent */,
+
 				AA5A069A2182304D002501F6 /* Maps */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
 				AA8D64F5218765C700389EAE /* Assets.xcassets */,
@@ -185,6 +191,7 @@
 		AA5A069A2182304D002501F6 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				AA61FC372191549D00073463 /* EventViewController.swift */,
 				AA4ABB042190017200026C30 /* CustomCalloutView.xib */,
 				AA4ABB02218FFF6E00026C30 /* Map.storyboard */,
 				AA8D64EC2186CE6500389EAE /* CustomCalloutView.swift */,
@@ -193,6 +200,13 @@
 				AA8D64DF2186C3B500389EAE /* AnnotationView.swift */,
 			);
 			path = Maps;
+			sourceTree = "<group>";
+		};
+		AA7A94752190FB5B00C12325 /* DisplayEvent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DisplayEvent;
 			sourceTree = "<group>";
 		};
 		AB358B98440D435BE598EFDF /* Pods */ = {
@@ -385,6 +399,10 @@
 				AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */,
 				AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */,
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
+
+				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
+				AA61FC382191549D00073463 /* EventViewController.swift in Sources */,
+                
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
 				3570BA122190FB4A00E2D652 /* RegisterViewController.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,

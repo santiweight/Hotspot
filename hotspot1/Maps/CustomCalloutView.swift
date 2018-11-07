@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCalloutView: UIView {
+class CustomCalloutView: UIView{
     
     
     @IBOutlet weak var eventName: UILabel!
@@ -17,14 +17,9 @@ class CustomCalloutView: UIView {
     @IBOutlet weak var eventTime: UILabel!
     
     
-    @IBOutlet weak var infoButton: UIButton!
     
-    func viewDidLoad() {
-        
-        
-        
-  
-    }
+    @IBOutlet weak var infoButtonLabel: UILabel!
+    
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.
