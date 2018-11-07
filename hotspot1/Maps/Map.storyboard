@@ -30,13 +30,57 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dzT-Dt-ArD"/>
                     </view>
+                    <navigationItem key="navigationItem" id="06O-73-Qob"/>
                     <connections>
                         <outlet property="mapView" destination="caF-NB-ull" id="NeR-2l-QIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REp-aU-qkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162.40000000000001" y="-126.38680659670166"/>
+            <point key="canvasLocation" x="1716" y="-126.38680659670166"/>
+        </scene>
+        <!--Event View Controller-->
+        <scene sceneID="WMg-RN-by2">
+            <objects>
+                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f4g-iB-xQ5" customClass="EventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xzt-F0-EiJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5O9-Xj-0HF">
+                                <rect key="frame" x="79" y="217" width="86" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="6UK-Qw-7ET"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G3B-86-SXh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vJ-5x-aRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000.8" y="44.527736131934034"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xUc-jN-Jha">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pXP-5u-5LO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IiH-E5-FSi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f4g-iB-xQ5" kind="relationship" relationship="rootViewController" id="jP5-SV-pSe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Cs-Te-9vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610.39999999999998" y="-544.67766116941539"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Gd0-ed-Wep">
