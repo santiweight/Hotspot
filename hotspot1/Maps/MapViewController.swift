@@ -104,10 +104,10 @@ extension MapViewDelegate
         calloutView.eventAddress.text = eventAnnotation.add
         calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
         calloutView.eventTime.text = eventAnnotation.time
-        //        calloutView.starbucksImage.image = starbucksAnnotation.image
-        //        let button = UIButton(frame: calloutView.starbucksPhone.frame)
-        //        button.addTarget(self, action: #selector(ViewController.callPhoneNumber(sender:)), for: .touchUpInside)
-        //        calloutView.addSubview(button)
+                calloutView.starbucksImage.image = starbucksAnnotation.image
+                let button = UIButton(frame: calloutView.starbucksPhone.frame)
+                button.addTarget(self, action: #selector(ViewController.callPhoneNumber(sender:)), for: .touchUpInside)
+                calloutView.addSubview(button)
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
