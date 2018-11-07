@@ -30,7 +30,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dzT-Dt-ArD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="06O-73-Qob"/>
                     <connections>
                         <outlet property="mapView" destination="caF-NB-ull" id="NeR-2l-QIP"/>
                     </connections>
@@ -47,22 +46,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5O9-Xj-0HF">
-                                <rect key="frame" x="79" y="217" width="86" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5O9-Xj-0HF">
+                                <rect key="frame" x="144" y="114" width="86" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-4J-bOW">
+                                <rect key="frame" x="12" y="76" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;- Back"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4n-OY-SmI">
+                                <rect key="frame" x="12" y="76" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;- Back"/>
+                                <connections>
+                                    <segue destination="1Qz-L8-UYU" kind="show" id="rou-bV-EsZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6UK-Qw-7ET"/>
                     </view>
                     <navigationItem key="navigationItem" id="G3B-86-SXh"/>
+                    <connections>
+                        <outlet property="backButton" destination="O4n-OY-SmI" id="UO0-AM-XyW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vJ-5x-aRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000.8" y="44.527736131934034"/>
+            <point key="canvasLocation" x="916" y="-126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xUc-jN-Jha">

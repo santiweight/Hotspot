@@ -13,6 +13,7 @@ class EventViewController: UIViewController {
     var text:String = ""
     
     @IBOutlet weak var test: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
    
     

@@ -136,6 +136,7 @@ extension MapViewDelegate
         calloutView.eventAddress.text = eventAnnotation.add
         calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
         calloutView.eventTime.text = eventAnnotation.time
+        
         let button = UIButton(frame: calloutView.infoButtonLabel.frame)
         button.addTarget(self, action: #selector(MapViewController.callPhoneNumber(sender:)), for: .touchUpInside)
         calloutView.addSubview(button)

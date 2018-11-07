@@ -128,7 +128,6 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
-				AA7A94752190FB5B00C12325 /* DisplayEvent */,
 				AA5A069A2182304D002501F6 /* Maps */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
 				AA8D64F5218765C700389EAE /* Assets.xcassets */,
@@ -184,13 +183,6 @@
 				AA8D64DF2186C3B500389EAE /* AnnotationView.swift */,
 			);
 			path = Maps;
-			sourceTree = "<group>";
-		};
-		AA7A94752190FB5B00C12325 /* DisplayEvent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DisplayEvent;
 			sourceTree = "<group>";
 		};
 		AB358B98440D435BE598EFDF /* Pods */ = {
