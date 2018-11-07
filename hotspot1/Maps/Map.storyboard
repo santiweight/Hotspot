@@ -20,9 +20,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MapViewController" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="caF-NB-ull">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNX-AM-1NC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNX-AM-1NC">
                                 <rect key="frame" x="121" y="602" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back to Event page"/>
                                 <connections>
                                     <segue destination="aTN-eg-tqX" kind="show" id="ziZ-7a-6LQ"/>
@@ -31,9 +30,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dzT-Dt-ArD" firstAttribute="bottom" secondItem="PNX-AM-1NC" secondAttribute="bottom" constant="35" id="AWJ-If-dhX"/>
                             <constraint firstItem="caF-NB-ull" firstAttribute="top" secondItem="Nrz-dL-kt2" secondAttribute="top" id="KW9-UK-I41"/>
                             <constraint firstItem="dzT-Dt-ArD" firstAttribute="bottom" secondItem="caF-NB-ull" secondAttribute="bottom" constant="96" id="NfH-rD-8jD"/>
+                            <constraint firstItem="PNX-AM-1NC" firstAttribute="top" secondItem="caF-NB-ull" secondAttribute="bottom" constant="31" id="QMp-8r-neg"/>
+                            <constraint firstItem="PNX-AM-1NC" firstAttribute="leading" secondItem="dzT-Dt-ArD" secondAttribute="leading" constant="121" id="bjb-dn-jlx"/>
                             <constraint firstItem="caF-NB-ull" firstAttribute="leading" secondItem="dzT-Dt-ArD" secondAttribute="leading" id="f5f-qW-Y1L"/>
+                            <constraint firstItem="dzT-Dt-ArD" firstAttribute="trailing" secondItem="PNX-AM-1NC" secondAttribute="trailing" constant="121" id="gs1-OG-Rl4"/>
                             <constraint firstItem="caF-NB-ull" firstAttribute="trailing" secondItem="dzT-Dt-ArD" secondAttribute="trailing" id="xt5-3E-F8W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dzT-Dt-ArD"/>

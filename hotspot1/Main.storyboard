@@ -11,7 +11,7 @@
         <!--Create Event View Controller-->
         <scene sceneID="awL-hZ-U6N">
             <objects>
-                <viewController id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateEventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8J-P8-mks"/>
                         <viewControllerLayoutGuide type="bottom" id="k4I-Yg-C5C"/>
