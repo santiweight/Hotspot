@@ -20,6 +20,14 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="MapViewController" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="caF-NB-ull">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNX-AM-1NC">
+                                <rect key="frame" x="121" y="602" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back to Event page"/>
+                                <connections>
+                                    <segue destination="aTN-eg-tqX" kind="show" id="ziZ-7a-6LQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -37,6 +45,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REp-aU-qkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1716" y="-126.38680659670166"/>
+        </scene>
+        <!--CreateEventViewController-->
+        <scene sceneID="RFh-c7-QfT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="CreateEventViewController" id="aTN-eg-tqX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GzJ-AJ-VMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="401"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="WMg-RN-by2">
