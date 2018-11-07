@@ -20,9 +20,10 @@ class Event{
     var _expectedAttendees: Int!
     var _latitude:      Double!
     var _longitude:     Double!
-    var _filters:       [Int]!
+    var _year_filters:  [String]!
+    var _school_filters: [String]!
     
-    init(event_id: Int, creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, filters: [Int]){
+    init(event_id: Int, creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
         _event_id      = event_id
         _creator_email = creator_email
         _title         = title
@@ -34,7 +35,8 @@ class Event{
         _expectedAttendees = expectedAttendees
         _latitude      = latitude
         _longitude     = longitude
-        _filters       = filters
+        _year_filters  = year_filters
+        _school_filters = school_filters
     }
     
     func setDate(start: DateComponents, end: DateComponents){

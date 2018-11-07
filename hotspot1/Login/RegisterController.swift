@@ -27,6 +27,7 @@ class RegisterController: UIViewController {
     func completionHandler(value: Bool) {
         print("Function completion handler value: )")
     }
+    
         //MARK: Action
     @IBAction func Register(_ sender: Any) {
         let requestBody: [String: Any] = [
@@ -46,10 +47,23 @@ class RegisterController: UIViewController {
             ]
         ]
 
-        //create & activate user in Okta group, direct to login page
+        //create an active user in Okta group, direct to login page
         oktaModel = OktaUserModel()
-        if oktaModel.createUser(APIKey: oktaAPIKey, params: requestBody){
-            oktaModel.login(viewController: self)
+        oktaModel.createUser(APIKey: oktaAPIKey, params: requestBody){
+            responseObject, error in
+                if(responseObject!){
+                    let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
+                    userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+                        action in
+                            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                            self.navigationController?.present(homeViewController, animated: true)
+                    }))
+                    self.present(userCreatedAlert, animated: true)
+                }else{
+                    let userErrorAlert = UIAlertController(title: "Error Creating User", message: "\(error ?? "" as! Error)", preferredStyle: .alert)
+                    userErrorAlert.addAction(UIAlertAction(title: "Edit Info", style: .cancel, handler: nil))
+                    self.present(userErrorAlert, animated: true)
+                }
         }
     }
 }

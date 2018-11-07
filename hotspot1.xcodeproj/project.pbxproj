@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3570BA122190FB4A00E2D652 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */; };
 		3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF2216EF49A003FF5BC /* AppDelegate.swift */; };
-		3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF4216EF49A003FF5BC /* ViewController.swift */; };
-		3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */; };
 		3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */; };
 		3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
 		3591AD14216F12A1003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
@@ -50,9 +49,6 @@
 		1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591ACEF216EF49A003FF5BC /* hotspot1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotspot1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591ACF2216EF49A003FF5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3591ACF4216EF49A003FF5BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3591ACF9216EF49A003FF5BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3591ACFC216EF49A003FF5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3591ACFE216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3591AD03216EF49A003FF5BC /* hotspot1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hotspot1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotspot1Tests.swift; sourceTree = "<group>"; };
@@ -67,8 +63,6 @@
 		35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		35AEE47E218807B000EA9EB1 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		35BF1379218CCC2600B77357 /* OktaUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OktaUserModel.swift; sourceTree = "<group>"; };
-		35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBDynamoDBManager.swift; sourceTree = "<group>"; };
-		35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDBSearchViewController.swift; sourceTree = "<group>"; };
 		35D4E819217014A10091D73F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +99,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3570BA112190FB2C00E2D652 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */,
+				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
+				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
+				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
+				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
+				35AEE47A218375DA00EA9EB1 /* User.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3570BA132190FB7400E2D652 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */,
+				35AEE4782183755D00EA9EB1 /* Event.swift */,
+				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		3570BA1421913D4600E2D652 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		3591ACE6216EF49A003FF5BC = {
 			isa = PBXGroup;
 			children = (
@@ -128,27 +153,17 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
+
+				3570BA1421913D4600E2D652 /* Home */,
+				3570BA132190FB7400E2D652 /* Event */,
+				3570BA112190FB2C00E2D652 /* Login */,
+
 				AA5A069A2182304D002501F6 /* Maps */,
 				3591ACF2216EF49A003FF5BC /* AppDelegate.swift */,
 				AA8D64F5218765C700389EAE /* Assets.xcassets */,
-				3591ACF4216EF49A003FF5BC /* ViewController.swift */,
-				3591ACF9216EF49A003FF5BC /* Assets.xcassets */,
-				35D4E811216FE77F0091D73F /* DDBDynamoDBManager.swift */,
-				35D4E815216FEEB50091D73F /* DDBSearchViewController.swift */,
 				35D4E819217014A10091D73F /* Main.storyboard */,
-				3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */,
-				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
 				3591ACFE216EF49A003FF5BC /* Info.plist */,
 				3591AD12216F11CE003FF5BC /* awsconfiguration.json */,
-				35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */,
-				35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */,
-				4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */,
-				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
-				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
-				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
-				35AEE4782183755D00EA9EB1 /* Event.swift */,
-				35AEE47A218375DA00EA9EB1 /* User.swift */,
-				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
 			);
 			path = hotspot1;
 			sourceTree = "<group>";
@@ -286,7 +301,6 @@
 				AA4ABB03218FFF6E00026C30 /* Map.storyboard in Resources */,
 				3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */,
 				35D4E81A217014A10091D73F /* Main.storyboard in Resources */,
-				3591ACFD216EF49A003FF5BC /* LaunchScreen.storyboard in Resources */,
 				AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */,
 				AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */,
 			);
@@ -376,9 +390,9 @@
 				AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */,
 				AA8D64ED2186CE6500389EAE /* CustomCalloutView.swift in Sources */,
 				AA8D64F32186D88100389EAE /* AnnotationView.swift in Sources */,
-				3591ACF5216EF49A003FF5BC /* ViewController.swift in Sources */,
 				AA61FC382191549D00073463 /* EventViewController.swift in Sources */,
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
+				3570BA122190FB4A00E2D652 /* RegisterViewController.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
@@ -407,17 +421,6 @@
 			targetProxy = 3591AD04216EF49A003FF5BC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3591ACFB216EF49A003FF5BC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3591ACFC216EF49A003FF5BC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3591AD0A216EF49A003FF5BC /* Debug */ = {
