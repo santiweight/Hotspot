@@ -10,23 +10,24 @@ import Foundation
 import Alamofire
 import OktaAuth
 
-class OktaUserModel {
+class OktaModel {
     
-    let oktaRequestURL : String = "https://dev-158434.oktapreview.com/api/v1/users?activate=true"
     
     //check if user already signed in, token is valid
-    func isAuthenticated() -> Bool{
+    static func isAuthenticated() -> Bool{
         return false;
 //        return ((OktaAuth.tokens?.get(forKey: "accessToken")) != nil)
     }
     
     //create & activate user in Okta group, direct to login page
-    func createUser(APIKey: String, params: [String: Any], completionHandler: @escaping (Bool?, Error?) -> ()){
-        
+    static func createUser(params: [String: Any], completionHandler: @escaping (Bool?, Error?) -> ()){
+        let oktaAPIKey : String = "00-_6NVmANndYasYRWVmXN9u4YfvY5-S7OrEhawRQC"
+        let oktaRequestURL : String = "https://dev-158434.oktapreview.com/api/v1/users?activate=true"
+
         let oktaRequestHeaders : HTTPHeaders =  [
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization": "SSWS \(APIKey)"
+            "Authorization": "SSWS \(oktaAPIKey)"
         ]
         
         Alamofire.request(oktaRequestURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: oktaRequestHeaders)
@@ -43,7 +44,7 @@ class OktaUserModel {
     }
     
     //direct user to login page
-    func login(viewController: UIViewController, completionHandler: @escaping (Bool?, Error?) -> ()){
+    static func login(viewController: UIViewController, completionHandler: @escaping (Bool?, Error?) -> ()){
         OktaAuth
             .login()
             .start(viewController) { response, error in

@@ -11,8 +11,6 @@ import OktaAuth
 
 class RegisterController: UIViewController {
 
-    let oktaAPIKey = "00-_6NVmANndYasYRWVmXN9u4YfvY5-S7OrEhawRQC"
-    var oktaModel: OktaUserModel!
     @IBOutlet weak var newUserName: UITextField!
     @IBOutlet weak var newUserEmail: UITextField!
     @IBOutlet weak var newUserPswd: UITextField!
@@ -48,8 +46,7 @@ class RegisterController: UIViewController {
         ]
 
         //create an active user in Okta group, direct to login page
-        oktaModel = OktaUserModel()
-        oktaModel.createUser(APIKey: oktaAPIKey, params: requestBody){
+        OktaModel.createUser(params: requestBody){
             responseObject, error in
                 if(responseObject!){
                     let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)

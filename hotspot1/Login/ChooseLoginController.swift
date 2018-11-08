@@ -10,7 +10,6 @@ import UIKit
 import OktaAuth
 
 class ChooseLoginController: UIViewController {
-    let oktaModel = OktaUserModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +17,7 @@ class ChooseLoginController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.oktaModel.isAuthenticated() {
+        if OktaModel.isAuthenticated() {
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
             self.navigationController?.present(homeViewController, animated: true)
         }
@@ -34,7 +33,7 @@ class ChooseLoginController: UIViewController {
     //MARK: Action
     //login to hotspot using Okta Authentication
     @IBAction func login(_ sender: Any) {
-        self.oktaModel.login(viewController: self){
+        OktaModel.login(viewController: self){
             responseObject, error in
             if(responseObject!){
                 print("logged in")

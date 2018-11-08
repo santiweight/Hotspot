@@ -11,8 +11,6 @@ import OktaAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let oktaModel = OktaUserModel()
     
     var window: UIWindow?
     
