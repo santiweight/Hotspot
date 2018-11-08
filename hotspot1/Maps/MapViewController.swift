@@ -70,34 +70,23 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @objc func callPhoneNumber(sender: UIButton)
     {
         
-        print("clicked")
+        var name: String
+        let v = sender.superview as! CustomCalloutView
+        name = v.eventName.text!
         
-//        let v = sender.superview as! CustomCalloutView
-//        if let url = URL(string: "telprompt://\(v.infoButtonLabel.text!)"), UIApplication.shared.canOpenURL(url)
-//        {
-//            UIApplication.shared.openURL(url)
-//        }
+        print("clicked: " + name)
         
-//        let vc = EventViewController(nibName: "EventViewController", bundle: nil)
-//        vc.text = "Next level blog photo booth, tousled authentic tote bag kogi"
-//
+        
+        let vc = EventViewController(nibName: "EventViewController", bundle: nil)
+        vc.text = "please write something"
 //        navigationController?.pushViewController(vc, animated: true)
         
         let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-        self.present(eventViewController, animated: true)
-        
-
-//        let destination = self.storyboard!.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-//        self.navigationController!.pushViewController(destination, animated: true)
-        
-//        let vc = EventViewController() //your view controller
-//        self.present(vc, animated: true, completion: nil)
-        
-//        let eventViewController = EventViewController(nibName: "EventViewController", bundle: nil)
-//        self.present(eventViewController, animated: true, completion: nil)
+        self.present(eventViewController, animated: true, completion: nil)
         
         
     }
+    
     
 }
 
@@ -119,6 +108,7 @@ extension MapViewDelegate
         annotationView?.image = UIImage(named: "starbucks")
         return annotationView
     }
+    
     func mapView(_ mapView: MKMapView,
                  didSelect view: MKAnnotationView)
     {
@@ -132,14 +122,19 @@ extension MapViewDelegate
         let eventAnnotation = view.annotation as! EventAnnotation
         let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: nil, options: nil)
         let calloutView = views?[0] as! CustomCalloutView
+        
         calloutView.eventName.text = eventAnnotation.name
+        // var name = eventAnnotation.name
+        
         calloutView.eventAddress.text = eventAnnotation.add
         calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
         calloutView.eventTime.text = eventAnnotation.time
         
         let button = UIButton(frame: calloutView.infoButtonLabel.frame)
+        
         button.addTarget(self, action: #selector(MapViewController.callPhoneNumber(sender:)), for: .touchUpInside)
         calloutView.addSubview(button)
+        
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)

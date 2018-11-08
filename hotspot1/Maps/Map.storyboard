@@ -85,6 +85,13 @@
                                     <segue destination="1Qz-L8-UYU" kind="show" id="rou-bV-EsZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYb-r4-PWV">
+                                <rect key="frame" x="144" y="256" width="86" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6UK-Qw-7ET"/>
@@ -92,11 +99,12 @@
                     <navigationItem key="navigationItem" id="G3B-86-SXh"/>
                     <connections>
                         <outlet property="backButton" destination="O4n-OY-SmI" id="UO0-AM-XyW"/>
+                        <outlet property="test" destination="kYb-r4-PWV" id="Edo-zX-D7T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vJ-5x-aRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-126"/>
+            <point key="canvasLocation" x="916" y="-126.38680659670166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xUc-jN-Jha">
@@ -114,7 +122,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Cs-Te-9vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-610.39999999999998" y="-544.67766116941539"/>
+            <point key="canvasLocation" x="66" y="-126"/>
         </scene>
     </scenes>
 </document>
