@@ -10,7 +10,7 @@ import UIKit
 
 class EventViewController: UIViewController {
 
-    var text:String = ""
+    var text: String? = ""
     
 
     @IBOutlet weak var backButton: UIButton!

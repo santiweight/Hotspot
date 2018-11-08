@@ -74,14 +74,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let v = sender.superview as! CustomCalloutView
         name = v.eventName.text!
         
-        print("clicked: " + name)
+        //print("clicked: " + name)
         
-        
-        let vc = EventViewController(nibName: "EventViewController", bundle: nil)
-        vc.text = "please write something"
-//        navigationController?.pushViewController(vc, animated: true)
         
         let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        
+        eventViewController.text = name
+        
         self.present(eventViewController, animated: true, completion: nil)
         
         
