@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hvJ-TD-ywF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hvJ-TD-ywF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -90,7 +90,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="createEvent:" destination="0s2-sK-SLE" eventType="touchUpInside" id="IdQ-Dn-9Zy"/>
+                                    <action selector="submit:" destination="0s2-sK-SLE" eventType="touchUpInside" id="U4h-f7-HLX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlg-OB-JYs">
@@ -391,10 +391,10 @@
             </objects>
             <point key="canvasLocation" x="1089" y="-488"/>
         </scene>
-        <!--Register Controller-->
+        <!--Register View Controller-->
         <scene sceneID="O2B-bf-gS1">
             <objects>
-                <viewController id="YFD-hr-NxQ" customClass="RegisterController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="YFD-hr-NxQ" customClass="RegisterViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TbP-lB-uN3"/>
                         <viewControllerLayoutGuide type="bottom" id="MZK-bI-VKy"/>
@@ -487,8 +487,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="Register:" destination="YFD-hr-NxQ" eventType="touchUpInside" id="xhN-JO-wph"/>
-                                    <action selector="login:" destination="60j-wq-Qcn" eventType="touchUpInside" id="Sz6-qR-o2u"/>
+                                    <action selector="submit:" destination="YFD-hr-NxQ" eventType="touchUpInside" id="C4l-D0-r6W"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRg-6g-aI6">
@@ -518,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPc-F8-EIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887" y="-1260"/>
+            <point key="canvasLocation" x="1885.5999999999999" y="-1260.7196401799101"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tow-gZ-IrN">

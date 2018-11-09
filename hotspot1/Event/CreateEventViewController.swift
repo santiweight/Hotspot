@@ -48,7 +48,7 @@ class CreateEventViewController: UIViewController {
         
     }
     
-    @IBAction func createEvent(_ sender: Any) {
+    @IBAction func submit(_ sender: Any) {
         geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){

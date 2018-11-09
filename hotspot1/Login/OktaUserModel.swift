@@ -55,11 +55,11 @@ class OktaModel {
 
                 // Success
                 if let tokenResponse = response {
-                    completionHandler(true, nil)
                     OktaAuth.tokens?.set(value: tokenResponse.accessToken!, forKey: "accessToken")
                     OktaAuth.tokens?.set(value: tokenResponse.idToken!, forKey: "idToken")
                     print("Success! Received accessToken: \(tokenResponse.accessToken!)")
                     print("Success! Received idToken: \(tokenResponse.idToken!)")
+                    completionHandler(true, nil)
                 }
             }
     }

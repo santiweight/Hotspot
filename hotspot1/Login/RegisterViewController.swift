@@ -1,82 +1,66 @@
 //
-//  RegisterPageViewController.swift
-//  UserLoginAndRegistration
+//  CreateUserController.swift
+//  OktaPractice
 //
-//  Created by Jacqueline Choe on 10/20/18.
-//  Copyright © 2018 G7S1. All rights reserved.
+//  Created by Zack Rossman on 10/18/18.
+//  Copyright © 2018 Personal. All rights reserved.
 //
 
 import UIKit
+import OktaAuth
 
+class RegisterViewController: UIViewController {
 
-class RegisterPageViewController: UIViewController {
+    @IBOutlet weak var newUserName: UITextField!
+    @IBOutlet weak var newUserEmail: UITextField!
+    @IBOutlet weak var newUserPswd: UITextField!
+    @IBOutlet weak var newUserSchool: UITextField!
+    @IBOutlet weak var newUserYear: UITextField!
     
-    @IBOutlet weak var userEmailTextField: UITextField!
-    @IBOutlet weak var userPasswordTextField: UITextField!
-    
-    @IBOutlet weak var userConfirmPasswordTextField: UITextField!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func completionHandler(value: Bool) {
+        print("Function completion handler value: )")
     }
     
-    @IBAction func registerButtonTapped(_ sender: Any) {
-        let userEmail = userEmailTextField.text;
-        let userPassword = userPasswordTextField.text;
-        let userConfirmPassword = userConfirmPasswordTextField.text;
-        
-        //Check for empty fields
-        if((userEmail?.isEmpty)! || (userPassword?.isEmpty)! || (userConfirmPassword?.isEmpty)!)
-        {
-            //Display alert message
-            displayMyAlertMessage(userMessage: "All fields are required");
-            
-            return;
+    //MARK: Action
+    @IBAction func submit(_ sender: Any) {
+        let requestBody: [String: Any] = [
+            "profile": [
+                "firstName": "\(newUserName.text ?? "")",
+                "lastName": "\(newUserName.text ?? "")",
+                "email": "\(newUserEmail.text ?? "")",
+                "login": "\(newUserEmail.text ?? "")",
+                "mobilePhone": "555-415-1337"
+            ],
+            "credentials": [
+                "recovery_question": [
+                    "question": "What's your mother's maiden name?",
+                    "answer": "Hoisington"
+                ],
+                "password" : [ "value": "\(newUserPswd.text ?? "")" ]
+            ]
+        ]
+
+        //create an active user in Okta group, direct to login page
+        OktaModel.createUser(params: requestBody){
+            responseObject, error in
+                if(responseObject!){
+                    let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
+                    userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+                        action in
+                            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                            self.navigationController?.present(homeViewController, animated: true)
+                    }))
+                    self.present(userCreatedAlert, animated: true)
+                }else{
+                    let userErrorAlert = UIAlertController(title: "Error Creating User", message: "\(error ?? "" as! Error)", preferredStyle: .alert)
+                    userErrorAlert.addAction(UIAlertAction(title: "Edit Info", style: .cancel, handler: nil))
+                    self.present(userErrorAlert, animated: true)
+                }
         }
-        
-        //Check if passwords match
-        if(userPassword != userConfirmPassword)
-        {
-            //Display alert message
-            displayMyAlertMessage(userMessage: "Passwords do not match");
-            return;
-        }
-        
-        
-        //Store Data
-        UserDefaults.standard.set(userEmail, forKey:"userEmail");
-        UserDefaults.standard.set(userPassword, forKey:"userPassword");
-        UserDefaults.standard.synchronize();
-        
-        //Display alert message with confirmation
-        var myAlert = UIAlertController(title:"Alert", message:"Registration is successful. Thank you!", preferredStyle:UIAlertController.Style.alert);
-        
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default){ action in
-            self.dismiss(animated: true, completion:nil);
-        }
-        myAlert.addAction(okAction);
-        self.present(myAlert, animated:true, completion:nil);
-        
     }
-    func displayMyAlertMessage(userMessage:String)
-    {
-        var myAlert = UIAlertController(title:"Alert", message:userMessage, preferredStyle:UIAlertController.Style.alert);
-        
-        let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
-        
-        myAlert.addAction(okAction);
-        
-        self.present(myAlert, animated: true, completion:nil);
-        
-        
-    }
-    
 }
