@@ -19,8 +19,8 @@ class ChooseLoginController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.oktaModel.isAuthenticated() {
-            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            self.navigationController?.present(homeViewController, animated: true)
+            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            self.navigationController?.present(mapViewController, animated: true)
         }
     }
     
@@ -39,8 +39,8 @@ class ChooseLoginController: UIViewController {
             if(responseObject!){
                 print("logged in")
                 //go to Hotspot home iff successful login
-                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.navigationController?.present(homeViewController, animated: true)
+                let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                self.navigationController?.present(mapViewController, animated: true)
             }
         }
     }
