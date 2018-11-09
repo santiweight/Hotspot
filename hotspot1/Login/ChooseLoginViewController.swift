@@ -38,8 +38,8 @@ class ChooseLoginController: UIViewController {
             if(responseObject!){
                 print("logged in")
                 //go to Hotspot home iff successful login
-                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.navigationController?.present(homeViewController, animated: true)
+                let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                self.navigationController?.present(mapViewController, animated: true)
             }
         }
     }
