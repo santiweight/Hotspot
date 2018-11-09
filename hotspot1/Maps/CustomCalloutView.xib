@@ -56,6 +56,13 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92o-RN-Wmn">
+                    <rect key="frame" x="0.0" y="4" width="15" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.90695584829999998" green="0.87994360800000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -90,6 +97,7 @@
             <connections>
                 <outlet property="eventAddress" destination="vbz-X3-0mT" id="M0Q-ix-wEU"/>
                 <outlet property="eventHotness" destination="fGs-uv-TV7" id="ygN-WH-5mD"/>
+                <outlet property="eventID" destination="92o-RN-Wmn" id="Jzk-Xf-p9a"/>
                 <outlet property="eventName" destination="HF6-1M-H5a" id="9oK-Uh-Yvz"/>
                 <outlet property="eventTime" destination="Jix-yG-UqL" id="0QN-Og-dN8"/>
                 <outlet property="infoButtonLabel" destination="6sW-X7-e6h" id="fEL-Ye-3sO"/>

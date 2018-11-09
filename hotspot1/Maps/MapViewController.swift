@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     var hotness:[String]!
     var add:[String]!
     var time:[String]!
+    var id2:[String]!
     
     @IBOutlet var mapView: MKMapView!
     
@@ -38,6 +39,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         hotness = ["3", "4"]
         add = ["adresssss","adresssss"]
         time = ["10pm","3pm"]
+        id2 = ["1","2"]
         
         // 2
         for i in 0...1
@@ -48,6 +50,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             point.add = add[i]
             point.hotness = hotness[i]
             point.time = time[i]
+            point.id2 = id2[i]
             
             self.mapView.addAnnotation(point)
         }
@@ -67,8 +70,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     {
         // get data from view controller
         var name: String
-        let v = sender.superview as! CustomCalloutView
-        name = v.eventName.text!
+        var id2: String
+        let ccv = sender.superview as! CustomCalloutView
+        
+        id2 = ccv.eventID.text!
+        name = ccv.eventName.text!
         
         //print("clicked: " + name)
         
@@ -76,14 +82,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         
         // pass data from mapVC to eventVC
-        eventViewController.text = name
+        eventViewController.name = name
+        eventViewController.id2 = id2
         
         // Switch over to the eventVC
         self.present(eventViewController, animated: true, completion: nil)
         
-        
     }
-    
     
 }
 
@@ -126,6 +131,7 @@ extension MapViewDelegate
         calloutView.eventAddress.text = eventAnnotation.add
         calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
         calloutView.eventTime.text = eventAnnotation.time
+        calloutView.eventID.text = eventAnnotation.id2
         
         let button = UIButton(frame: calloutView.infoButtonLabel.frame)
         
@@ -137,6 +143,7 @@ extension MapViewDelegate
         view.addSubview(calloutView)
         mapView.setCenter((view.annotation?.coordinate)!, animated: true)
     }
+    
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: AnnotationView.self)
         {
@@ -146,4 +153,5 @@ extension MapViewDelegate
             }
         }
     }
+    
 }

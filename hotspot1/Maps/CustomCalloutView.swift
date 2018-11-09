@@ -15,6 +15,8 @@ class CustomCalloutView: UIView{
     @IBOutlet weak var eventAddress: UILabel!
     @IBOutlet weak var eventHotness: UILabel!
     @IBOutlet weak var eventTime: UILabel!
+    @IBOutlet weak var eventID: UILabel!
+    
     
     
     
