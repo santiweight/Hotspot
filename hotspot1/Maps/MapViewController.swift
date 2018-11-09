@@ -32,15 +32,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         self.mapView.delegate = self
         
-        
         // 1
         coordinates = [[34.0944,-117.7083],[34.0600,-117.7033]]// Latitude,Longitude
         names = ["Test1","Tes2"]
         hotness = ["3", "4"]
         add = ["adresssss","adresssss"]
         time = ["10pm","3pm"]
-        
-        
         
         // 2
         for i in 0...1
@@ -54,50 +51,39 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             self.mapView.addAnnotation(point)
         }
-        //        // set initial location in Honolulu
-        //          let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-        //        //  let initialLocation = CLLocation(latitude: 34.1018, longitude: -117.7079)
-        //        centerMapOnLocation(location: initialLocation)
+
         // 3
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 34.0944, longitude: -117.7083), span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
         self.mapView.setRegion(region, animated: true)
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     // MARK - Action Handler
-    @objc func callPhoneNumber(sender: UIButton)
+    @objc func redirectToEvent(sender: UIButton)
     {
+        // get data from view controller
+        var name: String
+        let v = sender.superview as! CustomCalloutView
+        name = v.eventName.text!
         
-        print("clicked")
+        //print("clicked: " + name)
         
-//        let v = sender.superview as! CustomCalloutView
-//        if let url = URL(string: "telprompt://\(v.infoButtonLabel.text!)"), UIApplication.shared.canOpenURL(url)
-//        {
-//            UIApplication.shared.openURL(url)
-//        }
-        
-//        let vc = EventViewController(nibName: "EventViewController", bundle: nil)
-//        vc.text = "Next level blog photo booth, tousled authentic tote bag kogi"
-//
-//        navigationController?.pushViewController(vc, animated: true)
-        
+        // instantiate a version of the eventVC
         let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-        self.present(eventViewController, animated: true)
         
-
-//        let destination = self.storyboard!.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
-//        self.navigationController!.pushViewController(destination, animated: true)
+        // pass data from mapVC to eventVC
+        eventViewController.text = name
         
-//        let vc = EventViewController() //your view controller
-//        self.present(vc, animated: true, completion: nil)
-        
-//        let eventViewController = EventViewController(nibName: "EventViewController", bundle: nil)
-//        self.present(eventViewController, animated: true, completion: nil)
+        // Switch over to the eventVC
+        self.present(eventViewController, animated: true, completion: nil)
         
         
     }
+    
     
 }
 
@@ -119,6 +105,7 @@ extension MapViewDelegate
         annotationView?.image = UIImage(named: "starbucks")
         return annotationView
     }
+    
     func mapView(_ mapView: MKMapView,
                  didSelect view: MKAnnotationView)
     {
@@ -128,17 +115,23 @@ extension MapViewDelegate
             // Don't proceed with custom callout
             return
         }
+        
         // 2
         let eventAnnotation = view.annotation as! EventAnnotation
         let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: nil, options: nil)
         let calloutView = views?[0] as! CustomCalloutView
+        
+        // set each variable in the calloutview to its corresponding ones in annotation
         calloutView.eventName.text = eventAnnotation.name
         calloutView.eventAddress.text = eventAnnotation.add
         calloutView.eventHotness.text = "Hotness = " + eventAnnotation.hotness
         calloutView.eventTime.text = eventAnnotation.time
+        
         let button = UIButton(frame: calloutView.infoButtonLabel.frame)
-        button.addTarget(self, action: #selector(MapViewController.callPhoneNumber(sender:)), for: .touchUpInside)
+        
+        button.addTarget(self, action: #selector(MapViewController.redirectToEvent(sender:)), for: .touchUpInside)
         calloutView.addSubview(button)
+        
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
