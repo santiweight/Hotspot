@@ -20,6 +20,7 @@
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
+		9395AB81219830910038FACA /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395AB80219830900038FACA /* EventManager.swift */; };
 		AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
 		AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
 		AA4ABB03218FFF6E00026C30 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA4ABB02218FFF6E00026C30 /* Map.storyboard */; };
@@ -67,6 +68,7 @@
 		4F8A6AEB21800B1A00BCCA36 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7201F19EDB0148D0FC7C8A26 /* Pods-hotspot1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.debug.xcconfig"; sourceTree = "<group>"; };
 		871FA4D7E88AE34DA6843148 /* Pods_hotspot1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9395AB80219830900038FACA /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		96EE3FABFDEF69839D395236 /* Pods-hotspot1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A8941FB5911B4A25F2A8EF53 /* Pods-hotspot1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1Tests/Pods-hotspot1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA4ABB02218FFF6E00026C30 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */,
 				35AEE4782183755D00EA9EB1 /* Event.swift */,
+				9395AB80219830900038FACA /* EventManager.swift */,
 				35AEE47E218807B000EA9EB1 /* Geocoder.swift */,
 			);
 			path = Event;
@@ -394,6 +397,7 @@
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
+				9395AB81219830910038FACA /* EventManager.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */,
