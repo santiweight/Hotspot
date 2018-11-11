@@ -25,7 +25,9 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
     var localLocationManager: CLLocationManager = CLLocationManager()
     var startLocation: CLLocation!
     
-    func trackEvent(event: Event) {
+    func startMonitoring(event: Event) {
+        
+        
         if trackedEvents.count < 20 {
             makeEventRegion(localLocationManager, latitude: event._latitude, longitude: event._longitude, radius: defaultRadius, identifier: String(event._event_id))
             trackedEvents.append(event)
@@ -48,13 +50,18 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
             return
         }
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
-            
+            localLocationManager.requestAlwaysAuthorization()
+            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
+                localLocationManager.requestWhenInUseAuthorization()
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if CLLocationManager.locationServicesEnabled() {
+            startLocationServices()
+        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -98,12 +105,14 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func locationManager(_ manager: CLLocationManager, latitude: Double, longitude: Double, identifier: String) {
-        self.locationManager(defaultRadius, latitude: latitude, longitude: latitude, identifier: identifier)
-    }
-    
     func makeEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
         let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius: radius, identifier: identifier )
+        
+        if !CLLocationManager.isMonitoringAvailable(for: Event.self) {
+            //ERROR - monitoring not available on device
+            return
+        }
+        
         manager.startMonitoring(for: region)
     }
  
