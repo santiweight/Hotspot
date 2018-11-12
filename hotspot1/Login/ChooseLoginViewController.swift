@@ -18,7 +18,7 @@ class ChooseLoginController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if OktaModel.isAuthenticated() {
-            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
             self.navigationController?.present(homeViewController, animated: true)
         }
     }

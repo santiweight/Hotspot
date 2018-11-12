@@ -11,10 +11,8 @@
 		3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */; };
 		3591AD13216F11CE003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
 		3591AD14216F12A1003FF5BC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 3591AD12216F11CE003FF5BC /* awsconfiguration.json */; };
-
-		35AEE46D2182D99700EA9EB1 /* ChooseLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */; };
+		35AEE46D2182D99700EA9EB1 /* ChooseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE46C2182D99700EA9EB1 /* ChooseLoginViewController.swift */; };
 		35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */; };
-
 		35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35AEE4742182DB5700EA9EB1 /* Okta.plist */; };
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
@@ -53,10 +51,8 @@
 		3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotspot1Tests.swift; sourceTree = "<group>"; };
 		3591AD09216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3591AD12216F11CE003FF5BC /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
-
-		35AEE46C2182D99700EA9EB1 /* ChooseLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLoginController.swift; sourceTree = "<group>"; };
+		35AEE46C2182D99700EA9EB1 /* ChooseLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLoginViewController.swift; sourceTree = "<group>"; };
 		35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
-
 		35AEE4742182DB5700EA9EB1 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
 		35AEE4782183755D00EA9EB1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		35AEE47A218375DA00EA9EB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -103,7 +99,7 @@
 				35AEE46C2182D99700EA9EB1 /* ChooseLoginViewController.swift */,
 				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
 				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
-				35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */,
+				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
 				35AEE47A218375DA00EA9EB1 /* User.swift */,
 			);
 			path = Login;
@@ -379,7 +375,7 @@
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
-				35AEE4732182DA5F00EA9EB1 /* RegisterViewController.swift in Sources */,
+				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginViewController.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
 				35AEE4792183755D00EA9EB1 /* Event.swift in Sources */,
