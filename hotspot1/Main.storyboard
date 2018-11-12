@@ -513,41 +513,6 @@
             </objects>
             <point key="canvasLocation" x="1887" y="-1260"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="tow-gZ-IrN">
-            <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="6CJ-tB-15Q" customClass="HomeViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0HJ-PZ-baL"/>
-                        <viewControllerLayoutGuide type="bottom" id="fL3-Em-loN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JT9-Oz-xts">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hotspot Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlr-xA-bYq">
-                                <rect key="frame" x="131" y="241" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-hJ-UV5">
-                                <rect key="frame" x="133" y="411" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create an Event"/>
-                                <connections>
-                                    <segue destination="0s2-sK-SLE" kind="show" identifier="createEvent" id="ne6-82-sRm"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9b7-Ui-jjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1089" y="231"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="2IW-MU-tXx">
             <objects>
@@ -659,6 +624,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="HjC-OO-mYL"/>
-        <segue reference="6Kg-hP-sVK"/>
     </inferredMetricsTieBreakers>
 </document>
