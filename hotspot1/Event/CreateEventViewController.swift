@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import AWSCore
+import AWSDynamoDB
 
 class CreateEventViewController: UIViewController {
     private let dataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
@@ -22,7 +24,7 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var detailLabel: UILabel!
     
-    
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     
     @IBOutlet weak var pickerLabel: UILabel!
@@ -77,10 +79,12 @@ class CreateEventViewController: UIViewController {
                     endComponents.month = 2
                     endComponents.minute = 30
                     
-                    var newEvent = Event(event_id: 1, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
+                    var newEvent = Event(event_id: 1,user_id: self.deviceID,creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
                     
                     print("New event created")
                     //insert into db
+                    
+                    self.updateEventDb(event: newEvent)
                     
                     //call segue back to home page/event page
                     
@@ -95,6 +99,23 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
+    
+    func updateEventDb(event: Event){
+        
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let itemToCreate:EventTable = event.userEventToQueryObj()
+        
+        objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
+            if let error = error{
+                print("Amazon DynamoDB Save Error: \(error)")
+            }
+            else{
+                print("Event Data saved")
+            }
+        })
+    }
+    
+    
 }
 
 extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSource{

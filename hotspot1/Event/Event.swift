@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+import AWSCore
+import AWSDynamoDB
 
 class Event{
     var _event_id:      Int!
@@ -62,6 +65,31 @@ class Event{
     func setDate(start: DateComponents, end: DateComponents){
         _start = start
         _end   = end
+    }
+    
+    func userEventToQueryObj() -> EventTable{
+        let qObj:EventTable = EventTable()
+        
+        let deviceid:String = (UIDevice.current.identifierForVendor?.uuidString)!
+        //TODO
+        //qObj._event_id = _event_id
+        qObj._userId = _user_id
+        qObj._userEmail = _creator_email
+        qObj._title = _title
+        qObj._address = _address
+        qObj._description = _description
+        qObj._startTime = "NULL"
+        qObj._endTime = "NULL"
+        qObj._expectedAttendence = ["NULL"]
+        qObj._latitude = _latitude as NSNumber
+        qObj._longitude = _longitude as NSNumber
+        qObj._school = "NULL"
+        qObj._year = 0 as NSNumber
+        
+        qObj._eventType = "NULL"
+        
+        return qObj
+        
     }
     
     func setLocation(latitude: Double, longitude: Double){
