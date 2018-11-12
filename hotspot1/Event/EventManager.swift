@@ -26,11 +26,8 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
     var startLocation: CLLocation!
     
     func startMonitoring(event: Event) {
-        
-        
-        if trackedEvents.count < 20 {
+        if localLocationManager.monitoredRegions.count < 20 {
             makeEventRegion(localLocationManager, latitude: event._latitude, longitude: event._longitude, radius: defaultRadius, identifier: String(event._event_id))
-            trackedEvents.append(event)
         }
     }
     
@@ -101,8 +98,11 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        //TODO Check specific location authorization
         
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        //DO NOTHING
     }
     
     func makeEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
