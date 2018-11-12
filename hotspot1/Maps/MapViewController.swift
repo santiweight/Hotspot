@@ -65,6 +65,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func increaseAttendance(sender: UIButton)
+    {
+        print("clicked: attendance")
+    }
+    
     // MARK - Action Handler
     @objc func redirectToEvent(sender: UIButton)
     {
@@ -133,10 +138,15 @@ extension MapViewDelegate
         calloutView.eventTime.text = eventAnnotation.time
         calloutView.eventID.text = eventAnnotation.id2
         
-        let button = UIButton(frame: calloutView.infoButtonLabel.frame)
+        let infoButton = UIButton(frame: calloutView.infoButtonLabel.frame)
+        let attendButton = UIButton(frame: calloutView.attendButton.frame)
+
         
-        button.addTarget(self, action: #selector(MapViewController.redirectToEvent(sender:)), for: .touchUpInside)
-        calloutView.addSubview(button)
+        infoButton.addTarget(self, action: #selector(MapViewController.redirectToEvent(sender:)), for: .touchUpInside)
+        calloutView.addSubview(infoButton)
+        
+        attendButton.addTarget(self, action: #selector(MapViewController.increaseAttendance(sender:)), for: .touchUpInside)
+        calloutView.addSubview(attendButton)
         
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)

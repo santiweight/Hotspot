@@ -20,6 +20,7 @@ class CustomCalloutView: UIView{
     
     
     
+    @IBOutlet weak var attendButton: UIButton!
     @IBOutlet weak var infoButtonLabel: UILabel!
     
     /*
