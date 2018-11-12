@@ -32,13 +32,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-yG-UqL">
-                    <rect key="frame" x="0.0" y="106" width="191" height="43"/>
+                    <rect key="frame" x="0.0" y="105" width="191" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGs-uv-TV7">
-                    <rect key="frame" x="0.0" y="168" width="191" height="36"/>
+                    <rect key="frame" x="0.0" y="168" width="118" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="118" id="g5t-7f-NNc"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -56,30 +59,55 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92o-RN-Wmn">
+                    <rect key="frame" x="0.0" y="4" width="15" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="abd-S8-dps">
+                    <rect key="frame" x="126" y="157" width="65" height="60"/>
+                    <color key="backgroundColor" red="0.17512538459999999" green="0.63073262929999996" blue="0.667523478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="EYS-sb-U87"/>
+                        <constraint firstAttribute="width" constant="65" id="Lc0-6L-TfS"/>
+                    </constraints>
+                    <state key="normal" title="Tap if you plan to attend">
+                        <color key="titleColor" red="0.97044903039999997" green="0.98377305270000004" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.90695584829999998" green="0.87994360800000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="top" secondItem="vbz-X3-0mT" secondAttribute="bottom" constant="14" id="1m5-JU-al3"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="leading" secondItem="HF6-1M-H5a" secondAttribute="leading" id="39O-MP-uNL"/>
+                <constraint firstItem="Jix-yG-UqL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6DN-Dr-QUN"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="top" secondItem="HF6-1M-H5a" secondAttribute="bottom" constant="13" id="9BI-r5-ueU"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GGy-1n-Ub1"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GW9-u5-wER"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="trailing" secondItem="vbz-X3-0mT" secondAttribute="trailing" id="HkS-3L-dQJ"/>
-                <constraint firstItem="HF6-1M-H5a" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="LDa-ao-h7v"/>
+                <constraint firstItem="fGs-uv-TV7" firstAttribute="top" secondItem="Jix-yG-UqL" secondAttribute="bottom" constant="19" id="Hxf-U1-pEx"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MhL-cZ-3rq"/>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="leading" secondItem="vbz-X3-0mT" secondAttribute="leading" id="OZO-M5-8Dh"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pbf-rV-2Mx"/>
                 <constraint firstAttribute="bottom" secondItem="fGs-uv-TV7" secondAttribute="bottom" constant="34" id="QG9-wD-Kl1"/>
-                <constraint firstAttribute="trailing" secondItem="fGs-uv-TV7" secondAttribute="trailing" id="RNz-Td-5bX"/>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="trailing" secondItem="vbz-X3-0mT" secondAttribute="trailing" id="RTL-OF-yvT"/>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TrI-Qb-xmQ"/>
                 <constraint firstItem="fGs-uv-TV7" firstAttribute="top" secondItem="Jix-yG-UqL" secondAttribute="bottom" constant="30" id="b7p-mq-Rzg"/>
-                <constraint firstAttribute="trailing" secondItem="fGs-uv-TV7" secondAttribute="trailing" id="bd9-nm-g3K"/>
                 <constraint firstAttribute="trailing" secondItem="HF6-1M-H5a" secondAttribute="trailing" id="cDT-Dy-E4N"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="egA-av-HrX"/>
                 <constraint firstAttribute="trailing" secondItem="Jix-yG-UqL" secondAttribute="trailing" id="f8g-Hh-YCK"/>
+                <constraint firstItem="abd-S8-dps" firstAttribute="leading" secondItem="fGs-uv-TV7" secondAttribute="trailing" constant="8" id="fAc-Bc-b5w"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fs9-Tn-Jkc"/>
+                <constraint firstItem="Jix-yG-UqL" firstAttribute="top" secondItem="vbz-X3-0mT" secondAttribute="bottom" constant="22" id="hdO-g2-udg"/>
                 <constraint firstItem="fGs-uv-TV7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ipQ-ff-9H1"/>
+                <constraint firstItem="abd-S8-dps" firstAttribute="top" secondItem="Jix-yG-UqL" secondAttribute="bottom" constant="9" id="mFb-ld-aCQ"/>
                 <constraint firstAttribute="trailing" secondItem="vbz-X3-0mT" secondAttribute="trailing" id="okP-Wm-qOG"/>
                 <constraint firstAttribute="trailing" secondItem="Jix-yG-UqL" secondAttribute="trailing" constant="1" id="qp6-uv-UVU"/>
                 <constraint firstItem="fGs-uv-TV7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wJ1-PV-AUe"/>
@@ -88,8 +116,10 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="attendButton" destination="abd-S8-dps" id="TSp-3a-zvY"/>
                 <outlet property="eventAddress" destination="vbz-X3-0mT" id="M0Q-ix-wEU"/>
                 <outlet property="eventHotness" destination="fGs-uv-TV7" id="ygN-WH-5mD"/>
+                <outlet property="eventID" destination="92o-RN-Wmn" id="Jzk-Xf-p9a"/>
                 <outlet property="eventName" destination="HF6-1M-H5a" id="9oK-Uh-Yvz"/>
                 <outlet property="eventTime" destination="Jix-yG-UqL" id="0QN-Og-dN8"/>
                 <outlet property="infoButtonLabel" destination="6sW-X7-e6h" id="fEL-Ye-3sO"/>
