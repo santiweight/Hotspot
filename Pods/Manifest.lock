@@ -1,32 +1,42 @@
 PODS:
   - Alamofire (4.7.3)
   - AppAuth (0.91.0)
+  - AWSAuthCore (2.6.31):
+    - AWSCore (= 2.6.31)
   - AWSCore (2.6.31)
   - AWSDynamoDB (2.6.31):
     - AWSCore (= 2.6.31)
+  - AWSMobileClient (2.6.31):
+    - AWSAuthCore (= 2.6.31)
   - OktaAuth (0.3.0):
     - AppAuth (~> 0.91.0)
 
 DEPENDENCIES:
   - Alamofire
-  - AWSDynamoDB
+  - AWSCore (~> 2.6.13)
+  - AWSDynamoDB (~> 2.6.13)
+  - AWSMobileClient (~> 2.6.13)
   - OktaAuth (~> 0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AppAuth
+    - AWSAuthCore
     - AWSCore
     - AWSDynamoDB
+    - AWSMobileClient
     - OktaAuth
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AppAuth: 3e0dc9c00ef333dc62064e4830aa89b597ae8d2f
+  AWSAuthCore: 48c38a368b75de8d86341727e6e4226245ff2fe9
   AWSCore: c7abfb87ef802d1c4b5dd56db64ac8b4a7823ef0
   AWSDynamoDB: eb3eb7d49b14f1e523afa80373a8ab0fbde935a9
+  AWSMobileClient: 16b123da959f2c4f735eec9386b9b19f25231126
   OktaAuth: 95067065bc8827b7f4821a77cd15062c438fb95b
 
-PODFILE CHECKSUM: facc360e0d5f492da29e58652737b60232330d8a
+PODFILE CHECKSUM: 7b6757a295b549c871da0e217dc3f2ab728937ca
 
 COCOAPODS: 1.5.3
