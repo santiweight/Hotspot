@@ -13,12 +13,10 @@ class RegisterController: UIViewController {
 
     let oktaAPIKey = "00-_6NVmANndYasYRWVmXN9u4YfvY5-S7OrEhawRQC"
     var oktaModel: OktaModel!
+
     @IBOutlet weak var newUserName: UITextField!
     @IBOutlet weak var newUserEmail: UITextField!
-    @IBOutlet weak var newUserPswd: UITextField!
-    @IBOutlet weak var newUserSchool: UITextField!
-    @IBOutlet weak var newUserYear: UITextField!
-    
+    @IBOutlet weak var newUserPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +27,7 @@ class RegisterController: UIViewController {
     }
     
         //MARK: Action
-    @IBAction func Register(_ sender: Any) {
+    @IBAction func submit(_ sender: Any) {
         let requestBody: [String: Any] = [
             "profile": [
                 "firstName": "\(newUserName.text ?? "")",
@@ -43,7 +41,7 @@ class RegisterController: UIViewController {
                     "question": "What's your mother's maiden name?",
                     "answer": "Hoisington"
                 ],
-                "password" : [ "value": "\(newUserPswd.text ?? "")" ]
+                "password" : [ "value": "\(newUserPassword.text ?? "")" ]
             ]
         ]
 

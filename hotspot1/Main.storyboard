@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="1089" y="-488"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Register Controller-->
         <scene sceneID="O2B-bf-gS1">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" id="YFD-hr-NxQ" customClass="RegisterViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterController" id="YFD-hr-NxQ" customClass="RegisterController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TbP-lB-uN3"/>
                         <viewControllerLayoutGuide type="bottom" id="MZK-bI-VKy"/>
@@ -480,7 +480,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="submit:" destination="YFD-hr-NxQ" eventType="touchUpInside" id="C4l-D0-r6W"/>
+                                    <action selector="submit:" destination="YFD-hr-NxQ" eventType="touchUpInside" id="Fhi-ld-hNn"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRg-6g-aI6">
@@ -501,11 +501,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="newUserEmail" destination="OIE-qn-mSg" id="iqJ-dt-Yd5"/>
-                        <outlet property="newUserName" destination="rtI-1t-K7z" id="M50-5B-AsS"/>
-                        <outlet property="newUserPswd" destination="Vat-n2-lwY" id="v2z-ij-ame"/>
-                        <outlet property="newUserSchool" destination="HjJ-Ea-SC6" id="1Fx-9N-HGI"/>
-                        <outlet property="newUserYear" destination="JSX-cP-l12" id="tow-Dd-icI"/>
+                        <outlet property="newUserEmail" destination="OIE-qn-mSg" id="ugz-wD-0ly"/>
+                        <outlet property="newUserName" destination="rtI-1t-K7z" id="ubX-Fc-J0c"/>
+                        <outlet property="newUserPassword" destination="Vat-n2-lwY" id="qPe-8q-SnV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPc-F8-EIP" userLabel="First Responder" sceneMemberID="firstResponder"/>

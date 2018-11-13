@@ -32,9 +32,29 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3570BA34219A8D5600E2D652"
+               BuildableName = "hotspot1UITests.xctest"
+               BlueprintName = "hotspot1UITests"
+               ReferencedContainer = "container:hotspot1.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "3591AD02216EF49A003FF5BC"
                BuildableName = "hotspot1Tests.xctest"
                BlueprintName = "hotspot1Tests"
+               ReferencedContainer = "container:hotspot1.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3570BA26219A7D3D00E2D652"
+               BuildableName = "alamoFireTest.xctest"
+               BlueprintName = "alamoFireTest"
                ReferencedContainer = "container:hotspot1.xcodeproj">
             </BuildableReference>
          </TestableReference>
