@@ -46,10 +46,10 @@ class RegisterController: UIViewController {
         ]
 
         //create an active user in Okta group, direct to login page
-        //oktaModel = OktaModel()
         OktaModel.createUser(params: requestBody){
             responseObject, error in
                 if(responseObject!){
+                    //alert tells user that user was succesfully created
                     let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
                     userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
                         action in
@@ -58,7 +58,8 @@ class RegisterController: UIViewController {
                     }))
                     self.present(userCreatedAlert, animated: true)
                 }else{
-                    let userErrorAlert = UIAlertController(title: "Error Creating User", message: "\(error ?? "" as! Error)", preferredStyle: .alert)
+                    //alert prompts user to edit registration info
+                    let userErrorAlert = UIAlertController(title: "Error Creating User", message: "", preferredStyle: .alert)
                     userErrorAlert.addAction(UIAlertAction(title: "Edit Info", style: .cancel, handler: nil))
                     self.present(userErrorAlert, animated: true)
                 }

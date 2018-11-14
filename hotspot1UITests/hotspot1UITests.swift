@@ -35,16 +35,16 @@ class hotspot1UITests: XCTestCase {
         var registerButton = app.buttons["Register"]
         XCTAssertTrue(registerButton.exists)
         XCTAssertTrue(loginButton.exists)
-        
+
         registerButton.tap()
         app.buttons["Back"].tap()
-        
+
         loginButton = app.buttons["Login"]
         registerButton = app.buttons["Register"]
         XCTAssertTrue(registerButton.exists)
         XCTAssertTrue(loginButton.exists)
         loginButton.tap()
-        
+
         //rest is encapsulated in Okta API, no need to test
     }
     
@@ -57,14 +57,22 @@ class hotspot1UITests: XCTestCase {
         XCTAssertTrue(nameField.exists)
         XCTAssertTrue(emailField.exists)
         XCTAssertTrue(submitButton.exists)
-        
-        submitButton.tap()
     }
     
     
-    func testOpeningMapView(){
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc: MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+    func testBadRegistration(){
+        app.buttons["Register"].tap()
+        app.buttons["Submit"].tap()
+        app.alerts["Error Creating User"].buttons["Edit Info"].tap()
+        app.buttons["Back"].tap()
+        
+        //should arrive back on ChooseLoginView
+        var loginButton = app.buttons["Login"]
+        var registerButton = app.buttons["Register"]
+        XCTAssertTrue(loginButton.exists)
+        XCTAssertTrue(registerButton.exists)
+
+        
     }
 
 }
