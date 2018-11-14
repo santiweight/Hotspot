@@ -22,13 +22,6 @@ class hotspot1UITests: XCTestCase {
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app = XCUIApplication()
         app.launch()
-//        UIViewController = navigationController.topViewController as! ViewController
-//
-//        UIApplication.sharedApplication().keyWindow!.rootViewController = viewController
-//
-//        // Test and Load the View at the Same Time!
-//        XCTAssertNotNil(navigationController.view)
-//        XCTAssertNotNil(viewController.view)
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -37,32 +30,41 @@ class hotspot1UITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testOpenLoginWindow() {
-        let loginButton = app.buttons["Login"]
+    func testOpenChooseLoginWindow() {
+        var loginButton = app.buttons["Login"]
+        var registerButton = app.buttons["Register"]
+        XCTAssertTrue(registerButton.exists)
+        XCTAssertTrue(loginButton.exists)
+        
+        registerButton.tap()
+        app.buttons["Back"].tap()
+        
+        loginButton = app.buttons["Login"]
+        registerButton = app.buttons["Register"]
+        XCTAssertTrue(registerButton.exists)
         XCTAssertTrue(loginButton.exists)
         loginButton.tap()
-//        app.alerts["“hotspot1” Wants to Use “oktapreview.com” to Sign In"].buttons["Continue"].tap()
-//
-//        
-//        let webViewsQuery = XCUIApplication().webViews
-//        let usernameField = webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Harvey Mudd College-dev-158434 - Sign In\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        let passwordField = webViewsQuery/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".otherElements[\"Harvey Mudd College-dev-158434 - Sign In\"].secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-//        let rememberMeCheck = webViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["Remember me"]/*[[".otherElements[\"Harvey Mudd College-dev-158434 - Sign In\"]",".otherElements[\"Remember me\"].staticTexts[\"Remember me\"]",".staticTexts[\"Remember me\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-//        
-//        XCTAssertTrue(usernameField.exists)
-//        XCTAssertFalse(passwordField.exists)
-//        XCTAssertFalse(rememberMeCheck.exists)
-
         
+        //rest is encapsulated in Okta API, no need to test
+    }
+    
+    func testOpenRegisterView() {
+        app.buttons["Register"].tap()
+        let nameField = app.textFields["Name"]
+        let emailField = app.textFields["Email"]
+        let submitButton = app.buttons["Submit"]
 
+        XCTAssertTrue(nameField.exists)
+        XCTAssertTrue(emailField.exists)
+        XCTAssertTrue(submitButton.exists)
         
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        submitButton.tap()
     }
     
     
-        func testOpenRegisterWindow(){
-        
+    func testOpeningMapView(){
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc: MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
     }
 
 }
