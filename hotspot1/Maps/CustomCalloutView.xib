@@ -16,38 +16,41 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-X3-0mT">
                     <rect key="frame" x="0.0" y="52" width="191" height="32"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.96832442541121755" blue="0.81302580542732161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <size key="shadowOffset" width="1" height="-1"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF6-1M-H5a">
                     <rect key="frame" x="0.0" y="0.0" width="191" height="39"/>
-                    <color key="backgroundColor" red="0.52755817729999999" green="1" blue="0.83862930099999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="39" id="2OY-El-BAK"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-yG-UqL">
-                    <rect key="frame" x="0.0" y="106" width="191" height="43"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="0.0" y="98" width="191" height="51"/>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.96722650420775458" blue="0.9115316025235064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGs-uv-TV7">
-                    <rect key="frame" x="0.0" y="168" width="191" height="36"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="0.0" y="157" width="118" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="118" id="g5t-7f-NNc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                    <color key="textColor" red="1" green="0.940587337858107" blue="0.88098922447299188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="i" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sW-X7-e6h">
                     <rect key="frame" x="159" y="4" width="25" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.17512538459999999" green="0.63073262929999996" blue="0.667523478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
@@ -56,30 +59,58 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92o-RN-Wmn">
+                    <rect key="frame" x="0.0" y="4" width="15" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="abd-S8-dps">
+                    <rect key="frame" x="119" y="157" width="65" height="40"/>
+                    <color key="backgroundColor" red="0.97278600972588836" green="0.57975675274796834" blue="0.083657760771962075" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="C82-o4-w5I"/>
+                        <constraint firstAttribute="height" constant="60" id="EYS-sb-U87"/>
+                        <constraint firstAttribute="width" constant="65" id="Lc0-6L-TfS"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="Vla-i4-Bcz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="14"/>
+                    <state key="normal" title="Attend">
+                        <color key="titleColor" red="1" green="0.99307698094311347" blue="0.97437681938053489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.90695584829999998" green="0.87994360800000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="top" secondItem="vbz-X3-0mT" secondAttribute="bottom" constant="14" id="1m5-JU-al3"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="leading" secondItem="HF6-1M-H5a" secondAttribute="leading" id="39O-MP-uNL"/>
+                <constraint firstItem="Jix-yG-UqL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6DN-Dr-QUN"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="top" secondItem="HF6-1M-H5a" secondAttribute="bottom" constant="13" id="9BI-r5-ueU"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GGy-1n-Ub1"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GW9-u5-wER"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="trailing" secondItem="vbz-X3-0mT" secondAttribute="trailing" id="HkS-3L-dQJ"/>
-                <constraint firstItem="HF6-1M-H5a" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="LDa-ao-h7v"/>
+                <constraint firstItem="fGs-uv-TV7" firstAttribute="top" secondItem="Jix-yG-UqL" secondAttribute="bottom" constant="19" id="Hxf-U1-pEx"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MhL-cZ-3rq"/>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="leading" secondItem="vbz-X3-0mT" secondAttribute="leading" id="OZO-M5-8Dh"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Pbf-rV-2Mx"/>
                 <constraint firstAttribute="bottom" secondItem="fGs-uv-TV7" secondAttribute="bottom" constant="34" id="QG9-wD-Kl1"/>
-                <constraint firstAttribute="trailing" secondItem="fGs-uv-TV7" secondAttribute="trailing" id="RNz-Td-5bX"/>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="trailing" secondItem="vbz-X3-0mT" secondAttribute="trailing" id="RTL-OF-yvT"/>
                 <constraint firstItem="Jix-yG-UqL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TrI-Qb-xmQ"/>
                 <constraint firstItem="fGs-uv-TV7" firstAttribute="top" secondItem="Jix-yG-UqL" secondAttribute="bottom" constant="30" id="b7p-mq-Rzg"/>
-                <constraint firstAttribute="trailing" secondItem="fGs-uv-TV7" secondAttribute="trailing" id="bd9-nm-g3K"/>
                 <constraint firstAttribute="trailing" secondItem="HF6-1M-H5a" secondAttribute="trailing" id="cDT-Dy-E4N"/>
                 <constraint firstItem="HF6-1M-H5a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="egA-av-HrX"/>
                 <constraint firstAttribute="trailing" secondItem="Jix-yG-UqL" secondAttribute="trailing" id="f8g-Hh-YCK"/>
+                <constraint firstItem="abd-S8-dps" firstAttribute="leading" secondItem="fGs-uv-TV7" secondAttribute="trailing" constant="8" id="fAc-Bc-b5w"/>
                 <constraint firstItem="vbz-X3-0mT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fs9-Tn-Jkc"/>
+                <constraint firstItem="Jix-yG-UqL" firstAttribute="top" secondItem="vbz-X3-0mT" secondAttribute="bottom" constant="22" id="hdO-g2-udg"/>
                 <constraint firstItem="fGs-uv-TV7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ipQ-ff-9H1"/>
+                <constraint firstItem="abd-S8-dps" firstAttribute="top" secondItem="Jix-yG-UqL" secondAttribute="bottom" constant="9" id="mFb-ld-aCQ"/>
                 <constraint firstAttribute="trailing" secondItem="vbz-X3-0mT" secondAttribute="trailing" id="okP-Wm-qOG"/>
                 <constraint firstAttribute="trailing" secondItem="Jix-yG-UqL" secondAttribute="trailing" constant="1" id="qp6-uv-UVU"/>
                 <constraint firstItem="fGs-uv-TV7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wJ1-PV-AUe"/>
@@ -88,8 +119,10 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="attendButton" destination="abd-S8-dps" id="TSp-3a-zvY"/>
                 <outlet property="eventAddress" destination="vbz-X3-0mT" id="M0Q-ix-wEU"/>
                 <outlet property="eventHotness" destination="fGs-uv-TV7" id="ygN-WH-5mD"/>
+                <outlet property="eventID" destination="92o-RN-Wmn" id="Jzk-Xf-p9a"/>
                 <outlet property="eventName" destination="HF6-1M-H5a" id="9oK-Uh-Yvz"/>
                 <outlet property="eventTime" destination="Jix-yG-UqL" id="0QN-Og-dN8"/>
                 <outlet property="infoButtonLabel" destination="6sW-X7-e6h" id="fEL-Ye-3sO"/>

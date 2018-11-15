@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3570BA2A219A7D3D00E2D652 /* alamoFireTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3570BA29219A7D3D00E2D652 /* alamoFireTest.swift */; };
+		3570BA38219A8D5600E2D652 /* hotspot1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3570BA37219A8D5600E2D652 /* hotspot1UITests.swift */; };
+		3570BA41219A9E3600E2D652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591ACF2216EF49A003FF5BC /* AppDelegate.swift */; };
 		3591AD08216EF49A003FF5BC /* hotspot1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */; };
 		35AEE46D2182D99700EA9EB1 /* ChooseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE46C2182D99700EA9EB1 /* ChooseLoginViewController.swift */; };
-		35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */; };
-		35AEE4732182DA5F00EA9EB1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */; };
+		35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */; };
 		35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35AEE4742182DB5700EA9EB1 /* Okta.plist */; };
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
 		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
+
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		6FA210D8219A36190034E6C7 /* EventTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA210D5219A36190034E6C7 /* EventTable.swift */; };
 		6FA210D9219A36190034E6C7 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA210D6219A36190034E6C7 /* Events.swift */; };
 		6FA210DA219A36190034E6C7 /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA210D7219A36190034E6C7 /* UserTable.swift */; };
 		6FA210DC219A366B0034E6C7 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FA210DB219A366B0034E6C7 /* awsconfiguration.json */; };
 		6FA210DE219A7C780034E6C7 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA210DD219A7C780034E6C7 /* DatabaseController.swift */; };
+
 		AA4ABB00218FFEF400026C30 /* OktaUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BF1379218CCC2600B77357 /* OktaUserModel.swift */; };
 		AA4ABB01218FFF0700026C30 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47E218807B000EA9EB1 /* Geocoder.swift */; };
 		AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4ABB042190017200026C30 /* CustomCalloutView.xib */; };
@@ -37,6 +41,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3570BA1E219A7D2000E2D652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3591ACE7216EF49A003FF5BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3591ACEE216EF49A003FF5BC;
+			remoteInfo = hotspot1;
+		};
+		3570BA2C219A7D3D00E2D652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3591ACE7216EF49A003FF5BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3591ACEE216EF49A003FF5BC;
+			remoteInfo = hotspot1;
+		};
+		3570BA3A219A8D5600E2D652 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3591ACE7216EF49A003FF5BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3591ACEE216EF49A003FF5BC;
+			remoteInfo = hotspot1;
+		};
 		3591AD04216EF49A003FF5BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3591ACE7216EF49A003FF5BC /* Project object */;
@@ -49,7 +74,17 @@
 /* Begin PBXFileReference section */
 		02C558B1B8F35983C568AB7C /* Pods-hotspot1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hotspot1.release.xcconfig"; path = "Pods/Target Support Files/Pods-hotspot1/Pods-hotspot1.release.xcconfig"; sourceTree = "<group>"; };
 		1E9D729C8E64DD124CEA7CD5 /* Pods_hotspot1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		2BC3DACAC1947073F069FCB0 /* Pods_hotspot1_hotspot1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hotspot1_hotspot1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+
+		3570BA19219A7D2000E2D652 /* APITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3570BA27219A7D3D00E2D652 /* alamoFireTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alamoFireTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3570BA29219A7D3D00E2D652 /* alamoFireTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alamoFireTest.swift; sourceTree = "<group>"; };
+		3570BA2B219A7D3D00E2D652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3570BA35219A8D5600E2D652 /* hotspot1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hotspot1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3570BA37219A8D5600E2D652 /* hotspot1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotspot1UITests.swift; sourceTree = "<group>"; };
+		3570BA39219A8D5600E2D652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+
 		3591ACEF216EF49A003FF5BC /* hotspot1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hotspot1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3591ACF2216EF49A003FF5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3591ACFE216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,8 +92,7 @@
 		3591AD07216EF49A003FF5BC /* hotspot1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hotspot1Tests.swift; sourceTree = "<group>"; };
 		3591AD09216EF49A003FF5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35AEE46C2182D99700EA9EB1 /* ChooseLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLoginViewController.swift; sourceTree = "<group>"; };
-		35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		35AEE4742182DB5700EA9EB1 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
 		35AEE4782183755D00EA9EB1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		35AEE47A218375DA00EA9EB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -87,6 +121,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3570BA16219A7D2000E2D652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3570BA24219A7D3D00E2D652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3570BA32219A8D5600E2D652 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3591ACEC216EF49A003FF5BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,7 +168,7 @@
 				35AEE46C2182D99700EA9EB1 /* ChooseLoginViewController.swift */,
 				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
 				35BF1379218CCC2600B77357 /* OktaUserModel.swift */,
-				35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */,
+				35AEE4722182DA5F00EA9EB1 /* RegisterController.swift */,
 				35AEE47A218375DA00EA9EB1 /* User.swift */,
 			);
 			path = Login;
@@ -129,12 +184,22 @@
 			path = Event;
 			sourceTree = "<group>";
 		};
-		3570BA1421913D4600E2D652 /* Home */ = {
+		3570BA28219A7D3D00E2D652 /* alamoFireTest */ = {
 			isa = PBXGroup;
 			children = (
-				35AEE4702182DA5900EA9EB1 /* HomeViewController.swift */,
+				3570BA29219A7D3D00E2D652 /* alamoFireTest.swift */,
+				3570BA2B219A7D3D00E2D652 /* Info.plist */,
 			);
-			path = Home;
+			path = alamoFireTest;
+			sourceTree = "<group>";
+		};
+		3570BA36219A8D5600E2D652 /* hotspot1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				3570BA37219A8D5600E2D652 /* hotspot1UITests.swift */,
+				3570BA39219A8D5600E2D652 /* Info.plist */,
+			);
+			path = hotspot1UITests;
 			sourceTree = "<group>";
 		};
 		3591ACE6216EF49A003FF5BC = {
@@ -142,6 +207,8 @@
 			children = (
 				3591ACF1216EF49A003FF5BC /* hotspot1 */,
 				3591AD06216EF49A003FF5BC /* hotspot1Tests */,
+				3570BA28219A7D3D00E2D652 /* alamoFireTest */,
+				3570BA36219A8D5600E2D652 /* hotspot1UITests */,
 				3591ACF0216EF49A003FF5BC /* Products */,
 				AB358B98440D435BE598EFDF /* Pods */,
 				A793F0E15B255112A8A6A5DD /* Frameworks */,
@@ -153,6 +220,9 @@
 			children = (
 				3591ACEF216EF49A003FF5BC /* hotspot1.app */,
 				3591AD03216EF49A003FF5BC /* hotspot1Tests.xctest */,
+				3570BA19219A7D2000E2D652 /* APITests.xctest */,
+				3570BA27219A7D3D00E2D652 /* alamoFireTest.xctest */,
+				3570BA35219A8D5600E2D652 /* hotspot1UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,8 +230,10 @@
 		3591ACF1216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXGroup;
 			children = (
+
 				6FA210D4219A36030034E6C7 /* AWS Models */,
 				3570BA1421913D4600E2D652 /* Home */,
+
 				3570BA132190FB7400E2D652 /* Event */,
 				3570BA112190FB2C00E2D652 /* Login */,
 				AA5A069A2182304D002501F6 /* Maps */,
@@ -233,6 +305,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3570BA18219A7D2000E2D652 /* APITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3570BA22219A7D2000E2D652 /* Build configuration list for PBXNativeTarget "APITests" */;
+			buildPhases = (
+				3570BA15219A7D2000E2D652 /* Sources */,
+				3570BA16219A7D2000E2D652 /* Frameworks */,
+				3570BA17219A7D2000E2D652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3570BA1F219A7D2000E2D652 /* PBXTargetDependency */,
+			);
+			name = APITests;
+			productName = APITests;
+			productReference = 3570BA19219A7D2000E2D652 /* APITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3570BA26219A7D3D00E2D652 /* alamoFireTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3570BA2E219A7D3D00E2D652 /* Build configuration list for PBXNativeTarget "alamoFireTest" */;
+			buildPhases = (
+				3570BA23219A7D3D00E2D652 /* Sources */,
+				3570BA24219A7D3D00E2D652 /* Frameworks */,
+				3570BA25219A7D3D00E2D652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3570BA2D219A7D3D00E2D652 /* PBXTargetDependency */,
+			);
+			name = alamoFireTest;
+			productName = alamoFireTest;
+			productReference = 3570BA27219A7D3D00E2D652 /* alamoFireTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3570BA34219A8D5600E2D652 /* hotspot1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3570BA3C219A8D5600E2D652 /* Build configuration list for PBXNativeTarget "hotspot1UITests" */;
+			buildPhases = (
+				3570BA31219A8D5600E2D652 /* Sources */,
+				3570BA32219A8D5600E2D652 /* Frameworks */,
+				3570BA33219A8D5600E2D652 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3570BA3B219A8D5600E2D652 /* PBXTargetDependency */,
+			);
+			name = hotspot1UITests;
+			productName = hotspot1UITests;
+			productReference = 3570BA35219A8D5600E2D652 /* hotspot1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3591ACEE216EF49A003FF5BC /* hotspot1 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3591AD0C216EF49A003FF5BC /* Build configuration list for PBXNativeTarget "hotspot1" */;
@@ -277,10 +403,26 @@
 		3591ACE7216EF49A003FF5BC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CS121;
 				TargetAttributes = {
+					3570BA18219A7D2000E2D652 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3591ACEE216EF49A003FF5BC;
+					};
+					3570BA26219A7D3D00E2D652 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3591ACEE216EF49A003FF5BC;
+					};
+					3570BA34219A8D5600E2D652 = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3591ACEE216EF49A003FF5BC;
+					};
 					3591ACEE216EF49A003FF5BC = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
@@ -307,18 +449,44 @@
 			targets = (
 				3591ACEE216EF49A003FF5BC /* hotspot1 */,
 				3591AD02216EF49A003FF5BC /* hotspot1Tests */,
+				3570BA18219A7D2000E2D652 /* APITests */,
+				3570BA26219A7D3D00E2D652 /* alamoFireTest */,
+				3570BA34219A8D5600E2D652 /* hotspot1UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3570BA17219A7D2000E2D652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3570BA25219A7D3D00E2D652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3570BA33219A8D5600E2D652 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3591ACED216EF49A003FF5BC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6FA210DC219A366B0034E6C7 /* awsconfiguration.json in Resources */,
 				35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */,
+
 				35D4E81A217014A10091D73F /* Main.storyboard in Resources */,
+
 				AA4ABB052190017200026C30 /* CustomCalloutView.xib in Resources */,
 				AA8D64F6218765C700389EAE /* Assets.xcassets in Resources */,
 			);
@@ -403,6 +571,29 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3570BA15219A7D2000E2D652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3570BA23219A7D3D00E2D652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3570BA2A219A7D3D00E2D652 /* alamoFireTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3570BA31219A8D5600E2D652 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3570BA38219A8D5600E2D652 /* hotspot1UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3591ACEB216EF49A003FF5BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,10 +607,11 @@
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				6FA210D8219A36190034E6C7 /* EventTable.swift in Sources */,
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
-				35AEE4712182DA5900EA9EB1 /* HomeViewController.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
+
 				35AEE4732182DA5F00EA9EB1 /* RegisterViewController.swift in Sources */,
 				6FA210D9219A36190034E6C7 /* Events.swift in Sources */,
+
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginViewController.swift in Sources */,
 				6FA210DE219A7C780034E6C7 /* DatabaseController.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
@@ -439,6 +631,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3570BA1F219A7D2000E2D652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3591ACEE216EF49A003FF5BC /* hotspot1 */;
+			targetProxy = 3570BA1E219A7D2000E2D652 /* PBXContainerItemProxy */;
+		};
+		3570BA2D219A7D3D00E2D652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3591ACEE216EF49A003FF5BC /* hotspot1 */;
+			targetProxy = 3570BA2C219A7D3D00E2D652 /* PBXContainerItemProxy */;
+		};
+		3570BA3B219A8D5600E2D652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3591ACEE216EF49A003FF5BC /* hotspot1 */;
+			targetProxy = 3570BA3A219A8D5600E2D652 /* PBXContainerItemProxy */;
+		};
 		3591AD05216EF49A003FF5BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3591ACEE216EF49A003FF5BC /* hotspot1 */;
@@ -447,6 +654,187 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3570BA20219A7D2000E2D652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = APITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.APITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hotspot1.app/hotspot1";
+			};
+			name = Debug;
+		};
+		3570BA21219A7D2000E2D652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = APITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.APITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hotspot1.app/hotspot1";
+			};
+			name = Release;
+		};
+		3570BA2F219A7D3D00E2D652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = alamoFireTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alamoFireTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hotspot1.app/hotspot1";
+			};
+			name = Debug;
+		};
+		3570BA30219A7D3D00E2D652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = alamoFireTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.alamoFireTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hotspot1.app/hotspot1";
+			};
+			name = Release;
+		};
+		3570BA3D219A8D5600E2D652 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = hotspot1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = hotspot1;
+			};
+			name = Debug;
+		};
+		3570BA3E219A8D5600E2D652 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = hotspot1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = hotspot1;
+			};
+			name = Release;
+		};
 		3591AD0A216EF49A003FF5BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -619,6 +1007,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3570BA22219A7D2000E2D652 /* Build configuration list for PBXNativeTarget "APITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3570BA20219A7D2000E2D652 /* Debug */,
+				3570BA21219A7D2000E2D652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3570BA2E219A7D3D00E2D652 /* Build configuration list for PBXNativeTarget "alamoFireTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3570BA2F219A7D3D00E2D652 /* Debug */,
+				3570BA30219A7D3D00E2D652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3570BA3C219A8D5600E2D652 /* Build configuration list for PBXNativeTarget "hotspot1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3570BA3D219A8D5600E2D652 /* Debug */,
+				3570BA3E219A8D5600E2D652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3591ACEA216EF49A003FF5BC /* Build configuration list for PBXProject "hotspot1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

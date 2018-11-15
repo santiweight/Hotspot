@@ -17,6 +17,7 @@ class EventAnnotation: NSObject, MKAnnotation {
     var hotness: String!
     var time: String!
     var info: String!
+    var id2: String!
     
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
