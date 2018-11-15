@@ -16,10 +16,6 @@ class CustomCalloutView: UIView{
     @IBOutlet weak var eventHotness: UILabel!
     @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var eventID: UILabel!
-    
-    
-    
-    
     @IBOutlet weak var attendButton: UIButton!
     @IBOutlet weak var infoButtonLabel: UILabel!
     

@@ -11,9 +11,6 @@ import OktaAuth
 
 class RegisterController: UIViewController {
 
-    let oktaAPIKey = "00-_6NVmANndYasYRWVmXN9u4YfvY5-S7OrEhawRQC"
-    var oktaModel: OktaModel!
-
     @IBOutlet weak var newUserName: UITextField!
     @IBOutlet weak var newUserEmail: UITextField!
     @IBOutlet weak var newUserPassword: UITextField!

@@ -9,16 +9,17 @@
 import Foundation
 
 class User{
-    var _user_email: String!;
-    var _first_name: String;
-    var _last_name: String;
-    //need slider bars
-    var _filters: [String]!;
+    var _email: String!
+    var _firstName: String!
+    var _lastName: String!
+    var _school: String!
+    var _year: String!
     
-    init(user_email: String, first_name: String, last_name: String, filters: [String]){
-        _user_email = user_email;
-        _first_name = first_name;
-        _last_name = last_name;
-        _filters = filters;
+    init(userEmail: String, firstName: String, lastName: String, school: String, year: String){
+        _email = userEmail
+        _firstName = firstName
+        _lastName = lastName
+        _school = school
+        _year = year
     }
 }

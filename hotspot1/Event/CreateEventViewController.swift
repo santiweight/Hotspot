@@ -12,9 +12,6 @@ import UIKit
 class CreateEventViewController: UIViewController {
     private let dataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
     
-    //Obj for making API calls to Google Geocoder
-    var geocoder = Geocoder()
-    
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
@@ -24,7 +21,7 @@ class CreateEventViewController: UIViewController {
     
     
     
-    
+
     @IBOutlet weak var pickerLabel: UILabel!
     
     @IBOutlet weak var pickerData: UIDatePicker!
@@ -49,7 +46,7 @@ class CreateEventViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        geocoder.getLocation(address: eventAddress.text!){
+        Geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
                 let formattedAddress = responseObject!.formattedAddress!

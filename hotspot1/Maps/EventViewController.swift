@@ -15,8 +15,6 @@ class EventViewController: UIViewController {
     
 
     @IBOutlet weak var backButton: UIButton!
-    
-    
     @IBOutlet weak var test: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     

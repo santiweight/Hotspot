@@ -19,6 +19,7 @@ class AnnotationView: MKAnnotationView
         }
         return hitView
     }
+    
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         let rect = self.bounds
         var isInside: Bool = rect.contains(point)
