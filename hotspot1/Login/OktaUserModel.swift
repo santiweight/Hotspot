@@ -12,11 +12,9 @@ import OktaAuth
 
 class OktaModel {
     
-    
     //check if user already signed in, token is valid
     static func isAuthenticated() -> Bool{
-        return false;
-//        return ((OktaAuth.tokens?.get(forKey: "accessToken")) != nil)
+        return ((OktaAuth.tokens?.get(forKey: "accessToken")) != nil)
     }
     
     //create & activate user in Okta group, direct to login page
@@ -34,8 +32,11 @@ class OktaModel {
         .responseJSON {
             response in switch response.result {
                 case .success(let JSON):
-                    print(JSON)
-                    completionHandler(true, nil)
+                    if(createdUser(JSON: JSON as! NSDictionary)){
+                        completionHandler(true, nil)
+                    }else{
+                        completionHandler(false, nil)
+                    }
                 case .failure(let error):
                     print("Request failed with error: \(error)")
                     completionHandler(false, error)
@@ -62,6 +63,11 @@ class OktaModel {
                     completionHandler(true, nil)
                 }
             }
+    }
+    
+//    Parse JSOM response to determine a new Okta user was successfully created
+    static func createdUser(JSON: NSDictionary)->Bool{
+        return JSON["errorSummary"] == nil
     }
 }
 
