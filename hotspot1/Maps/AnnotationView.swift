@@ -4,7 +4,8 @@
 //
 //  Created by Ethan Lloyd Lewis on 10/28/18.
 //  Copyright © 2018 CS121. All rights reserved.
-//
+// The code above is necessary to track the touch click on the custom callout views since we are no longer use the default annotation view callout, but instead a custom UIView
+
 
 
 import MapKit
