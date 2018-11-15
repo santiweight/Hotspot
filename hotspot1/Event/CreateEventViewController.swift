@@ -83,9 +83,8 @@ class CreateEventViewController: UIViewController {
                     
                     print("New event created")
                     //insert into db
-                    
                     updateEventDb(event: newEvent)
-                    
+                    eventIdQuery(event: newEvent, eventTitle: "hi")
                     //call segue back to home page/event page
                     
                 }))

@@ -12,17 +12,20 @@ import AWSDynamoDB
 
 var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
 
-func eventIdQuery(event: Event){
+func eventIdQuery(event: Event, eventTitle: String){
+    
     let obejectMapper = AWSDynamoDBObjectMapper.default()
     let queryExpression = AWSDynamoDBQueryExpression()
     
-    queryExpression.keyConditionExpression = "#userID = :userID"
+    queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
     queryExpression.expressionAttributeNames = [
-        "#userID": "userID",
+        "#userId": "userId",
+        "#title": "title",
     ]
     
-    queryExpression.expressionAttributeNames = [
-        ":userID" : deviceID,
+    queryExpression.expressionAttributeValues = [
+        ":userId" : deviceID,
+        ":title" : eventTitle,
     ]
     
     obejectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
@@ -31,28 +34,30 @@ func eventIdQuery(event: Event){
             if let error = error{
                 print("Amazon DynamoDB Save Error: \(error)")
             }
-            DispatchQueue.main.async(execute: {
-                print("querying")
-                //got a response
-                if(response != nil){
-                    print("got a repsonse")
-                    
-                    if(response?.items.count == 0){
-                        print("count was 0")
-                        //then take our object and put it in DB?
-                    } else {
-                        for item in (response?.items)!{
-                            //we found the objects we want
-                            if(item.value(forKey: "_userID") != nil){
-                                
-                                if let existingID = item.value(forKey: "_userID"){
-                                    print(existingID)
-                                }
+            //DispatchQueue.main.async(execute: {
+            print("querying")
+            //got a response
+            if(response != nil){
+                print("got a repsonse")
+                
+                if(response?.items.count == 0){
+                    print("count was 0")
+                    //then take our object and put it in DB?
+                } else {
+                    //var eventList = []
+                    for item in (response?.items)!{
+                        //we found the objects we want
+                        if(item.value(forKey: "_userId") != nil){
+                            
+                            if let existingID = item.value(forKey: "_userId"){
+                                print("item")
+                                print(existingID)
                             }
                         }
                     }
                 }
-            })
+            }
+            //})
     })
 }
 
