@@ -112,7 +112,7 @@ extension MapViewDelegate
         }else{
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "starbucks")
+        annotationView?.image = UIImage(named: "fire-logo")
         return annotationView
     }
     
