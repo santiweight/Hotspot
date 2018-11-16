@@ -8,12 +8,11 @@
 
 import Foundation
 import UIKit
+import AWSCore
+import AWSDynamoDB
 
 class CreateEventViewController: UIViewController {
     private let dataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
-    
-    //Obj for making API calls to Google Geocoder
-    var geocoder = Geocoder()
     
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
@@ -22,9 +21,9 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var detailLabel: UILabel!
     
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
-    
-    
+
     @IBOutlet weak var pickerLabel: UILabel!
     
     @IBOutlet weak var pickerData: UIDatePicker!
@@ -49,7 +48,7 @@ class CreateEventViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        geocoder.getLocation(address: eventAddress.text!){
+        Geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
                 let formattedAddress = responseObject!.formattedAddress!
@@ -77,11 +76,12 @@ class CreateEventViewController: UIViewController {
                     endComponents.month = 2
                     endComponents.minute = 30
                     
-                    var newEvent = Event(event_id: 1, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
+                    var newEvent = Event(event_id: 1, user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
                     
                     print("New event created")
                     //insert into db
-                    
+                    updateEventDb(event: newEvent)
+                    eventIdQuery(event: newEvent, eventTitle: "hi")
                     //call segue back to home page/event page
                     
                 }))
@@ -95,6 +95,7 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSource{

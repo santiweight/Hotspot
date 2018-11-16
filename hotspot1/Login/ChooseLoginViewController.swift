@@ -9,10 +9,35 @@
 import UIKit
 import OktaAuth
 
-class ChooseLoginController: UIViewController {
+class ChooseLoginController: UIViewController{
+    
+    @IBOutlet var titleName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Create Attachment
+        let imageAttachment =  NSTextAttachment()
+        imageAttachment.image = UIImage(named:"fire-logo")
+        //Set bound to reposition
+//        let imageOffsetY:CGFloat = -5.0;
+//        imageAttachment.bounds = CGRect(x: 10, y: imageOffsetY, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
+        //Create string with attachment
+        let attachmentString = NSMutableAttributedString(attachment: imageAttachment)
+        //Initialize mutable string
+        let completeText = NSMutableAttributedString(string: "")
+        //Add image to mutable string
+        let textAfterIcon = NSMutableAttributedString(string: "tspot")
+        attachmentString.append(textAfterIcon)
+        completeText.append(attachmentString)
+        //Add your text to mutable string
+        let textBeforeIcon = NSMutableAttributedString(string: "H")
+        textBeforeIcon.append(completeText)
+        //completeText.append(textAfterIcon)
+        self.titleName.textAlignment = .center;
+        self.titleName.attributedText = textBeforeIcon;
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
