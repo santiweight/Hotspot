@@ -19,16 +19,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     
-    
-    //    let regionRadius: CLLocationDistance = 1000
-    //    func centerMapOnLocation(location: CLLocation) {
-    //        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-    //                                                                  regionRadius, regionRadius)
-    //    mapView.setRegion(coordinateRegion, animated: true)
-    
-    //}
+    //var db = DatabaseController()
     
     override func viewDidLoad() {
+        
+        //let eventsList = db.eventIdQuery(eventTitle: <#T##String#>)
+        
         super.viewDidLoad()
         
         self.mapView.delegate = self
