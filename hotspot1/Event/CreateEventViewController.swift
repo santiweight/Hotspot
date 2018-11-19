@@ -11,22 +11,32 @@ import UIKit
 import AWSCore
 import AWSDynamoDB
 
+
+@objc protocol SSRadioButtonControllerDelegate {
+@objc func didSelectButton(selectedButton: UIButton?)
+}
+
 class CreateEventViewController: UIViewController {
-    private let dataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
+    //private let dataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
     
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var selectSchool: UILabel!
-    @IBOutlet weak var pickerView: UIPickerView!
+    //@IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var detailLabel: UILabel!
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
 
     @IBOutlet weak var pickerLabel: UILabel!
+    @IBOutlet weak var endPickerLabel: UILabel!
     
     @IBOutlet weak var pickerData: UIDatePicker!
+    
+    @IBOutlet weak var endPickerData: UIDatePicker!
+    
+
     
     @IBAction func selectData(_ sender: Any) {
         
@@ -40,8 +50,8 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pickerView.dataSource = self
-        pickerView.delegate = self
+        //pickerView.dataSource = self
+        //pickerView.delegate = self
         
         
         
@@ -98,7 +108,7 @@ class CreateEventViewController: UIViewController {
     
 }
 
-extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+/*extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
         }
@@ -115,8 +125,6 @@ extension CreateEventViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
             return dataSource[row]
         }
-}
-
-
-
+ }
+ */
 
