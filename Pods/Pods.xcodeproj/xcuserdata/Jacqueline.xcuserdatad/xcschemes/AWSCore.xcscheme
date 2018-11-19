@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E462C454B45FCF652BB8B5D4F69429DE"
+               BlueprintIdentifier = "5AB80C6B2AFE9B5A6D398656A483ED5C"
                BuildableName = "AWSCore.framework"
                BlueprintName = "AWSCore"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3591ACEE216EF49A003FF5BC"
+            BuildableName = "hotspot1.app"
+            BlueprintName = "hotspot1"
+            ReferencedContainer = "container:../hotspot1.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E462C454B45FCF652BB8B5D4F69429DE"
-            BuildableName = "AWSCore.framework"
-            BlueprintName = "AWSCore"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "3591ACEE216EF49A003FF5BC"
+            BuildableName = "hotspot1.app"
+            BlueprintName = "hotspot1"
+            ReferencedContainer = "container:../hotspot1.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -63,7 +73,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E462C454B45FCF652BB8B5D4F69429DE"
+            BlueprintIdentifier = "5AB80C6B2AFE9B5A6D398656A483ED5C"
             BuildableName = "AWSCore.framework"
             BlueprintName = "AWSCore"
             ReferencedContainer = "container:Pods.xcodeproj">
