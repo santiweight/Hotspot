@@ -12,7 +12,7 @@ import AWSDynamoDB
 import UIKit
 
 var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-
+let HASH_MULT = 101
 
 
 
@@ -38,7 +38,7 @@ func eventIdQuery(event: Event, eventTitle: String){
             if let error = error{
                 print("Amazon DynamoDB Save Error: \(error)")
             }
-            DispatchQueue.main.async(execute: {
+            DispatchQueue.main.sync(execute: {
                 print("querying")
                 //got a response
                 if(response != nil){
@@ -47,40 +47,46 @@ func eventIdQuery(event: Event, eventTitle: String){
                     if(response?.items.count == 0){
                         print("count was 0")
                         //then take our object and put it in DB?
-                    } else {
-                        //var eventList = []
-                        for item in (response?.items)!{
+                    }
+                    else {
+                        for item in (response?.items)! as! [EventTable]{
                             //we found the objects we want
-                            if(item.value(forKey: "_userId") != nil){
-                                
-                                if let existingID = item.value(forKey: "_userId"){
-                                    print("item")
-                                    print(existingID)
-                            }
-                        }
+                            let userEvent = Event()
+                            userEvent.queryObjToUserEvent(qObj: item)
                     }
                 }
             }
         })
     })
 }
-/*
- * Function has to be split into 2 pieces. Helper function requires a return
- * type of Any for the continue block. TODO ask Prof. Wu for help on this.s
- *
- */
-//func getAllEvents() -> [Event]{
-//    eventList.removeAll()
-//    getAllEventsHelper()
-//    return eventList
+
+//#include "stringhash.hpp"
+//
+//using std::string;
+//
+//using uchar = unsigned char;
+//using uint = unsigned int;
+//const uint HASH_MULTIPLIER = 101;
+//
+//size_t myhash(const string& str)
+//{
+//    uint hashval = 0;
+//    for (uchar c: str) {
+//        hashval = hashval * HASH_MULTIPLIER + c;
+//    }
+//    return hashval;
 //}
 
-func getAllEventsHelper() -> [Event] {
+
+func getEvents(indexType: String, indexVal: String){
     let scanExpression = AWSDynamoDBScanExpression()
     scanExpression.limit = 50
     let om = AWSDynamoDBObjectMapper.default()
     
-    var eventList = [Event]()
+    if(indexType != "ALL"){
+        scanExpression.filterExpression = indexType + " = :val"
+        scanExpression.expressionAttributeValues = [":val": indexVal]
+    }
     
     om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
         if let error = task.error as NSError? {
@@ -90,13 +96,14 @@ func getAllEventsHelper() -> [Event] {
             for event in paginatedOutput.items as! [EventTable] {
                 let userEvent = Event()
                 userEvent.queryObjToUserEvent(qObj: event)
-                eventList.append(userEvent)
-                print(userEvent)
+                
+                print(event)
+                //EthanPlotFunc()
             }
         }
-        return eventList
+        return 0
     })
-    return eventList
+    
 }
 
 func updateEventDb(event: Event){

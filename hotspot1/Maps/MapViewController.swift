@@ -30,8 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //}
     @IBOutlet weak var testBtn: UIButton!
     @IBAction func testBtnPress(_ sender: Any) {
-        let eList = getAllEventsHelper()
-        print(eList)
+        getEvents(indexType: "school", indexVal: "CMC")
     }
     
     override func viewDidLoad() {
