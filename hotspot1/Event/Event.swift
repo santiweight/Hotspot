@@ -92,6 +92,25 @@ class Event{
         
     }
     
+    func queryObjToUserEvent(qObj:EventTable) {
+        
+        _user_id = qObj._userId
+        _creator_email = qObj._userEmail
+        _title = qObj._title
+        _address = qObj._address
+        _description = qObj._description
+//        usrEvnt._start = qObj._startTime
+//        usrEvnt._end = qObj._endTime
+//        usrEvnt._expectedAttendees = qObj._expectedAttendence
+//        usrEvnt._latitude = qObj._latitude
+//        usrEvnt._longitude = qObj._longitude
+//        usrEvnt._school_filters = qObj._school
+//        usrEvnt._year_filters = qObj._year
+//        usrEvnt._eventType = qObj.EventType
+        
+    }
+    
+    
     func setLocation(latitude: Double, longitude: Double){
         _latitude  = latitude
         _longitude = longitude

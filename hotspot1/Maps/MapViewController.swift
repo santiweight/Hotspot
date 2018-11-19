@@ -19,6 +19,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     
+   
     
     //    let regionRadius: CLLocationDistance = 1000
     //    func centerMapOnLocation(location: CLLocation) {
@@ -27,6 +28,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     //    mapView.setRegion(coordinateRegion, animated: true)
     
     //}
+    @IBOutlet weak var testBtn: UIButton!
+    @IBAction func testBtnPress(_ sender: Any) {
+        let eList = getAllEventsHelper()
+        print(eList)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

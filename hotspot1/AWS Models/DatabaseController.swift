@@ -9,8 +9,12 @@
 import Foundation
 import AWSCore
 import AWSDynamoDB
+import UIKit
 
 var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+
+
+
 
 func eventIdQuery(event: Event, eventTitle: String){
     
@@ -34,31 +38,65 @@ func eventIdQuery(event: Event, eventTitle: String){
             if let error = error{
                 print("Amazon DynamoDB Save Error: \(error)")
             }
-            //DispatchQueue.main.async(execute: {
-            print("querying")
-            //got a response
-            if(response != nil){
-                print("got a repsonse")
-                
-                if(response?.items.count == 0){
-                    print("count was 0")
-                    //then take our object and put it in DB?
-                } else {
-                    //var eventList = []
-                    for item in (response?.items)!{
-                        //we found the objects we want
-                        if(item.value(forKey: "_userId") != nil){
-                            
-                            if let existingID = item.value(forKey: "_userId"){
-                                print("item")
-                                print(existingID)
+            DispatchQueue.main.async(execute: {
+                print("querying")
+                //got a response
+                if(response != nil){
+                    print("got a repsonse")
+                    
+                    if(response?.items.count == 0){
+                        print("count was 0")
+                        //then take our object and put it in DB?
+                    } else {
+                        //var eventList = []
+                        for item in (response?.items)!{
+                            //we found the objects we want
+                            if(item.value(forKey: "_userId") != nil){
+                                
+                                if let existingID = item.value(forKey: "_userId"){
+                                    print("item")
+                                    print(existingID)
                             }
                         }
                     }
                 }
             }
-            //})
+        })
     })
+}
+/*
+ * Function has to be split into 2 pieces. Helper function requires a return
+ * type of Any for the continue block. TODO ask Prof. Wu for help on this.s
+ *
+ */
+//func getAllEvents() -> [Event]{
+//    eventList.removeAll()
+//    getAllEventsHelper()
+//    return eventList
+//}
+
+func getAllEventsHelper() -> [Event] {
+    let scanExpression = AWSDynamoDBScanExpression()
+    scanExpression.limit = 50
+    let om = AWSDynamoDBObjectMapper.default()
+    
+    var eventList = [Event]()
+    
+    om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+        if let error = task.error as NSError? {
+            print("The request failed. Error: \(error)")
+        }
+        else if let paginatedOutput = task.result {
+            for event in paginatedOutput.items as! [EventTable] {
+                let userEvent = Event()
+                userEvent.queryObjToUserEvent(qObj: event)
+                eventList.append(userEvent)
+                print(userEvent)
+            }
+        }
+        return eventList
+    })
+    return eventList
 }
 
 func updateEventDb(event: Event){
