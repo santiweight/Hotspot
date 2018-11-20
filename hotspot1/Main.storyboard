@@ -563,6 +563,12 @@
                                 <color key="textColor" red="0.97278600969999995" green="0.92515072369999996" blue="0.77298740190000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuE-n5-gZ8">
+                                <rect key="frame" x="158" y="427" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.97278600969999995" green="0.48627266130951263" blue="0.054978769832762509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCa-rG-Tcf">
                                 <rect key="frame" x="0.0" y="446" width="375" height="44"/>
                                 <constraints>
@@ -596,22 +602,40 @@
                                 <color key="textColor" red="0.97278600969999995" green="0.92515072374985008" blue="0.77298740188746129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyT-K3-xcB">
+                                <rect key="frame" x="161" y="328" width="53" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.91647255792335025" green="0.460382601122513" blue="0.020426427592156373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosted by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxO-uE-x2b">
+                                <rect key="frame" x="146" y="559" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.97278600969999995" green="0.47015062918901246" blue="0.046209034804519281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="D1u-Y3-A6c" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="6zD-II-orX"/>
+                            <constraint firstItem="cyT-K3-xcB" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="4.5" id="9wd-ZR-nXe"/>
                             <constraint firstItem="On7-2x-4xN" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="-174.5" id="FvW-x1-0uI"/>
                             <constraint firstItem="eeu-IJ-A5f" firstAttribute="trailing" secondItem="On7-2x-4xN" secondAttribute="trailing" id="WC0-O7-oo0"/>
                             <constraint firstItem="fCa-rG-Tcf" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="134.5" id="Z9L-Gg-lvm"/>
+                            <constraint firstItem="LxO-uE-x2b" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="236" id="dq3-d0-A9N"/>
                             <constraint firstItem="D1u-Y3-A6c" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="32.5" id="eYD-qg-5Ju"/>
                             <constraint firstItem="sBM-u7-ho2" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="-74.5" id="ebT-la-kKO"/>
                             <constraint firstItem="04J-n4-gVE" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="f9K-kK-nUB"/>
+                            <constraint firstItem="UuE-n5-gZ8" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="104" id="hkX-3p-1Ig"/>
                             <constraint firstItem="fCa-rG-Tcf" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="ibJ-Jj-por"/>
                             <constraint firstItem="sBM-u7-ho2" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="lVm-ww-Fuz"/>
                             <constraint firstItem="On7-2x-4xN" firstAttribute="leading" secondItem="eeu-IJ-A5f" secondAttribute="leading" id="lZV-tW-Nay"/>
                             <constraint firstItem="On7-2x-4xN" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="qUw-3g-hJA"/>
+                            <constraint firstItem="UuE-n5-gZ8" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="r3f-BH-4Nh"/>
                             <constraint firstItem="04J-n4-gVE" firstAttribute="centerY" secondItem="NOI-cy-SfX" secondAttribute="centerY" constant="261" id="sVb-Jx-fQe"/>
+                            <constraint firstItem="LxO-uE-x2b" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="tQH-Jx-zWe"/>
                             <constraint firstItem="On7-2x-4xN" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="ujn-Bb-pKj"/>
+                            <constraint firstItem="cyT-K3-xcB" firstAttribute="centerX" secondItem="NOI-cy-SfX" secondAttribute="centerX" id="xSe-SP-T83"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eeu-IJ-A5f"/>
                     </view>

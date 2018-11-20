@@ -10,54 +10,74 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
-    var coordinates: [[Double]]!
-    var names:[String]!
-    var hotness:[String]!
-    var add:[String]!
-    var time:[String]!
-    var id2:[String]!
+//    var coordinates: [[Double]]!
+//    var names:[String]!
+//    var hotness:[String]!
+//    var add:[String]!
+//    var time:[String]!
+//    var id2:[String]!
     
     @IBOutlet var mapView: MKMapView!
-    
-    
-    //    let regionRadius: CLLocationDistance = 1000
-    //    func centerMapOnLocation(location: CLLocation) {
-    //        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-    //                                                                  regionRadius, regionRadius)
-    //    mapView.setRegion(coordinateRegion, animated: true)
-    
-    //}
+  
+    //var db = DatabaseController()
     
     override func viewDidLoad() {
+        
+        //let eventsList = db.eventIdQuery(eventTitle: <#T##String#>)
+        
         super.viewDidLoad()
         
         self.mapView.delegate = self
         
-        // 1
-        coordinates = [[34.0944,-117.7083],[34.0600,-117.7033]]// Latitude,Longitude
-        names = ["Test1","Tes2"]
-        hotness = ["3", "4"]
-        add = ["adresssss","adresssss"]
-        time = ["10pm","3pm"]
-        id2 = ["1","2"]
-        
-        // 2
-        for i in 0...1
-        {
-            let coordinate = coordinates[i]
-            let point = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: coordinate[0] , longitude: coordinate[1] ))
-            point.name = names[i]
-            point.add = add[i]
-            point.hotness = hotness[i]
-            point.time = time[i]
-            point.id2 = id2[i]
-            
-            self.mapView.addAnnotation(point)
-        }
+        //addEventToMap()
 
         // 3
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 34.0944, longitude: -117.7083), span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
         self.mapView.setRegion(region, animated: true)
+    }
+    
+    func addEventToMap(newEvent: Event){
+        
+        let calendar = Calendar.current
+        
+//        var startComponents = DateComponents()
+//        startComponents.year = 2018
+//        startComponents.day = 10
+//        startComponents.month = 2
+//        startComponents.minute = 30
+//
+//        var endComponents = DateComponents()
+//        endComponents.year = 2019
+//        endComponents.month = 11
+//        endComponents.day = 9
+//        endComponents.minute = 29
+//
+//        var newEvent = Event(event_id: 1, user_id: "1", creator_email: "zackrossman10@gmail.com", title: "Dodgeball", address: "3927 Old Pali Road", description: "come throw some balls at one another", start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: 34.0944, longitude: -117.7083, year_filters: ["CMC"], school_filters: ["CMC"])
+        
+        //instantiate a new EventAnnotation and set its values to the event parameter
+        let point = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: newEvent._latitude , longitude: newEvent._longitude ))
+        point.name = newEvent._title
+        point.add = newEvent._address
+        point.hotness = String(describing: newEvent._attendees.count)
+        point.id2 = String(describing: newEvent._event_id)
+        
+        // convert component to date
+        let sDate = calendar.date(from: newEvent._start)
+        let eDate = calendar.date(from: newEvent._end)
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "dd/MM H:mm"
+        
+        // convert date to string
+        let sString = dateFormatter.string(from: sDate!)
+        let eString = dateFormatter.string(from: eDate!)
+        
+        point.time = eString + " - " + sString
+        
+        // adding event point to map
+        self.mapView.addAnnotation(point)
+        
     }
     
     override func didReceiveMemoryWarning() {
