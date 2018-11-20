@@ -20,11 +20,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet var mapView: MKMapView!
 
   
-    //var db = DatabaseController()
+    var db = DatabaseController()
     
     override func viewDidLoad() {
         
-        //let eventsList = db.eventIdQuery(eventTitle: <#T##String#>)
+        //call ryans DB function to grab events
+        db.getEvents(indexType: "ALL", indexVal: "")
         
         super.viewDidLoad()
         

@@ -19,6 +19,8 @@ protocol DBInterface {
 
 class DatabaseController: DBInterface {
     
+    //var MVController = MapViewController()
+    
     func atEvent(eventID: Int, attendee: String) {
         //TODO
     }
@@ -100,7 +102,7 @@ class DatabaseController: DBInterface {
                     userEvent.queryObjToUserEvent(qObj: event)
                     
                     print(event)
-                    //addEventToMap(userEvent)
+                    //self.MVController.addEventToMap(newEvent: userEvent)
                 }
             }
             return nil
