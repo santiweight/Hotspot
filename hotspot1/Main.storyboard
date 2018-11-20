@@ -109,10 +109,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="b6x-TJ-SlW">
-                                <rect key="frame" x="135" y="278" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Ar-FB-80d">
                                 <rect key="frame" x="79" y="371" width="253" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -159,6 +155,96 @@
                                     <!--2018-11-05 10:22:24 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aK-r6-fYV">
+                                <rect key="frame" x="94" y="317" width="35" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="off"/>
+                                <state key="selected" image="on"/>
+                                <connections>
+                                    <action selector="cmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="8vP-tm-xPQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVA-IW-BSY">
+                                <rect key="frame" x="152" y="317" width="35" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="off"/>
+                                <state key="selected" image="on"/>
+                                <connections>
+                                    <action selector="cmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="csp-vP-lsP"/>
+                                    <action selector="poCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="xNn-6a-6k6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69R-Ns-EEF">
+                                <rect key="frame" x="204" y="317" width="35" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="off"/>
+                                <state key="selected" image="on"/>
+                                <connections>
+                                    <action selector="cmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="ZfG-y8-KMM"/>
+                                    <action selector="poCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="NiI-20-5b7"/>
+                                    <action selector="scrCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="kx9-Vr-GeN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhB-UM-qhi">
+                                <rect key="frame" x="256" y="317" width="35" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="off"/>
+                                <state key="selected" image="on"/>
+                                <connections>
+                                    <action selector="cmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="QlI-py-hhB"/>
+                                    <action selector="hmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="6XM-4s-hYJ"/>
+                                    <action selector="poCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="HDd-n3-3f7"/>
+                                    <action selector="scrCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="Ooc-m1-RZB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNO-e5-sPf">
+                                <rect key="frame" x="308" y="317" width="35" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="off"/>
+                                <state key="selected" image="on"/>
+                                <connections>
+                                    <action selector="cmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="kwx-E5-uV1"/>
+                                    <action selector="hmcCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="h0m-f4-p4Y"/>
+                                    <action selector="poCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="SDw-V1-GeD"/>
+                                    <action selector="pzCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="ou3-ON-wyG"/>
+                                    <action selector="scrCheckTapped:" destination="0s2-sK-SLE" eventType="touchUpInside" id="Jge-Gs-mRv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CMC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzN-hX-sdf">
+                                <rect key="frame" x="94" y="283" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2b-51-KPa">
+                                <rect key="frame" x="152" y="283" width="24" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FR-Mq-Bwr">
+                                <rect key="frame" x="204" y="283" width="33" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HMC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEl-dP-3pA">
+                                <rect key="frame" x="256" y="283" width="39" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTl-cd-Igv">
+                                <rect key="frame" x="308" y="283" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -673,6 +759,10 @@
             <point key="canvasLocation" x="2585" y="-763"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="off" width="37" height="34"/>
+        <image name="on" width="39" height="39"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Kg-hP-sVK"/>
         <segue reference="4aS-9D-5A5"/>
