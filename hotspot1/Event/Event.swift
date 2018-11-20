@@ -5,13 +5,13 @@
 //  Created by Zack Rossman on 10/26/18.
 //  Copyright © 2018 CS121. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import AWSCore
 import AWSDynamoDB
 
 class Event: Hashable{
+    
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     static func == (lhs: Event, rhs: Event) -> Bool {
@@ -109,14 +109,14 @@ class Event: Hashable{
         _title = qObj._title
         _address = qObj._address
         _description = qObj._description
-//        usrEvnt._start = qObj._startTime
-//        usrEvnt._end = qObj._endTime
-//        usrEvnt._expectedAttendees = qObj._expectedAttendence
-//        usrEvnt._latitude = qObj._latitude
-//        usrEvnt._longitude = qObj._longitude
-//        usrEvnt._school_filters = qObj._school
-//        usrEvnt._year_filters = qObj._year
-//        usrEvnt._eventType = qObj.EventType
+        //        usrEvnt._start = qObj._startTime
+        //        usrEvnt._end = qObj._endTime
+        //        usrEvnt._expectedAttendees = qObj._expectedAttendence
+        //        usrEvnt._latitude = qObj._latitude
+        //        usrEvnt._longitude = qObj._longitude
+        //        usrEvnt._school_filters = qObj._school
+        //        usrEvnt._year_filters = qObj._year
+        //        usrEvnt._eventType = qObj.EventType
         
     }
     
