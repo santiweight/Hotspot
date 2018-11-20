@@ -37,12 +37,9 @@ class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var endPickerData: UIDatePicker!
     
-
-
-    //
     var db = DatabaseController()
+    var geocoder = Geocoder()
 
-    
     @IBAction func selectData(_ sender: Any) {
         
         pickerLabel.text = "\(pickerData.date)"
@@ -54,16 +51,10 @@ class CreateEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //pickerView.dataSource = self
-        //pickerView.delegate = self
-        
-        
-        
     }
     
     @IBAction func submit(_ sender: Any) {
-        Geocoder.getLocation(address: eventAddress.text!){
+        geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
                 let formattedAddress = responseObject!.formattedAddress!

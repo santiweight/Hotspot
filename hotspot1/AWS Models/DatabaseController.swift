@@ -20,7 +20,7 @@ protocol DBInterface {
 class DatabaseController: DBInterface {
 
     func atEvent(eventID: Int, attendee: String) {
-        //TODO
+        //TODOe
     }
     
     func attendEvent(event: Event, attendee: String) {
