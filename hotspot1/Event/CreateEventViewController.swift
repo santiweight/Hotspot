@@ -37,8 +37,6 @@ class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var endPickerData: UIDatePicker!
     
-
-
     //
     var db = DatabaseController()
 
