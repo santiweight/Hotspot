@@ -10,13 +10,13 @@ import UIKit
 
 class EventViewController: UIViewController {
 
-    var name: String? = ""
-    var id2: String? = ""
+    var name = ""
+    var id2 = ""
     
-    var address: String? = "3920 Old Pali Road"
-    var time: String? = "10:00 AM - 11:00 AM"
-    var desc: String? = "Play date with the pugs, all are welcome"
-    var host: String? = "elewis20@stuents.claremontmckenna.edu"
+    var address = ""
+    var time = ""
+    var desc = ""
+    var host = ""
     
     
 
@@ -32,6 +32,7 @@ class EventViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hostLabel: UILabel!
     
+    let db = DatabaseController()
     
     override func viewDidLoad()
     {
@@ -43,6 +44,9 @@ class EventViewController: UIViewController {
         
         test?.text = name
         idLabel?.text = id2
+        
+        // let event: Event = db.eventIdQuery(eventTitle: name)
+        
         
         // querery database for rest of info.
         descLabel?.text = desc

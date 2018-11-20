@@ -410,6 +410,7 @@
 					};
 					3591ACEE216EF49A003FF5BC = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6GJYCTC2U3;
 						ProvisioningStyle = Automatic;
 					};
 					3591AD02216EF49A003FF5BC = {
@@ -592,6 +593,9 @@
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				35AEE4732182DA5F00EA9EB1 /* RegisterController.swift in Sources */,
+
+				6FA210D9219A36190034E6C7 /* Events.swift in Sources */,
+
 				35AEE46D2182D99700EA9EB1 /* ChooseLoginViewController.swift in Sources */,
 				6FA210DE219A7C780034E6C7 /* DatabaseController.swift in Sources */,
 				3591ACF3216EF49A003FF5BC /* AppDelegate.swift in Sources */,
@@ -914,7 +918,8 @@
 			baseConfigurationReference = 540E092DE2D9E4B8745B5A96 /* Pods-hotspot1-hotspot1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6GJYCTC2U3;
 				INFOPLIST_FILE = hotspot1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -924,7 +929,7 @@
 					"-framework",
 					"\"AWSDynamoDB\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1;
+				PRODUCT_BUNDLE_IDENTIFIER = hotspot111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
@@ -936,7 +941,8 @@
 			baseConfigurationReference = 44A836985D7ED87B7C127D40 /* Pods-hotspot1-hotspot1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6GJYCTC2U3;
 				INFOPLIST_FILE = hotspot1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -946,7 +952,7 @@
 					"-framework",
 					"\"AWSDynamoDB\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.hotspot1;
+				PRODUCT_BUNDLE_IDENTIFIER = hotspot111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
