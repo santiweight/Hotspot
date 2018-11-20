@@ -18,8 +18,29 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //    var id2:[String]!
     
     @IBOutlet var mapView: MKMapView!
+
+    @IBOutlet weak var btnO: UIButton!
+    
+    @IBAction func pressTempBtn(_ sender: Any) {
+        //test asynchronous query function
+        let testEvent = Event()
+        let retEvent = eventIdQuery(event: testEvent, eventTitle: "hi")
+        print("after ret",retEvent)
+        
+    }
+    
+    
+    //    let regionRadius: CLLocationDistance = 1000
+    //    func centerMapOnLocation(location: CLLocation) {
+    //        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+    //                                                                  regionRadius, regionRadius)
+    //    mapView.setRegion(coordinateRegion, animated: true)
+    
+    //}
+
   
     //var db = DatabaseController()
+
     
     override func viewDidLoad() {
         
