@@ -10,6 +10,13 @@ import Foundation
 import AWSCore
 import AWSDynamoDB
 
+protocol DBInterface {
+    func eventIdQuery(event: Event, eventTitle: String)
+    func updateEventDb(event: Event)
+    func atEvent(eventID: Int, attendee: String)
+    func attendEvent(event: Event, attendee: String)
+}
+
 var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
 
 func eventIdQuery(event: Event, eventTitle: String){
