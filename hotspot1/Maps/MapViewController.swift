@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //    var id2:[String]!
     
     @IBOutlet var mapView: MKMapView!
+
   
     //var db = DatabaseController()
     

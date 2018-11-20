@@ -5,13 +5,23 @@
 //  Created by Zack Rossman on 10/26/18.
 //  Copyright © 2018 CS121. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import AWSCore
 import AWSDynamoDB
 
-class Event{
+class Event: Hashable{
+    
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        if(lhs._event_id == rhs._event_id){
+            return true
+        }
+        return false
+    }
+    
+    
     var _event_id:      Int!
     var _user_id:       String!
     var _creator_email: String!
@@ -27,8 +37,8 @@ class Event{
     var _year_filters:  [String]!
     var _school_filters: [String]!
     
-    init(event_id: Int, user_id: String, creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
-        _event_id      = event_id
+    init(user_id: String, creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
+        _event_id      = 0
         _user_id       = user_id
         _creator_email = creator_email
         _title         = title
@@ -46,7 +56,7 @@ class Event{
     
     init(){
         _event_id      = 0
-        _user_id       = "NULL"
+        _user_id       = deviceID
         _creator_email = "NULL"
         _title         = "NULL"
         _address       = "NULL"
@@ -92,8 +102,31 @@ class Event{
         
     }
     
+    func queryObjToUserEvent(qObj:EventTable) {
+        
+        _user_id = qObj._userId
+        _creator_email = qObj._userEmail
+        _title = qObj._title
+        _address = qObj._address
+        _description = qObj._description
+        //        usrEvnt._start = qObj._startTime
+        //        usrEvnt._end = qObj._endTime
+        //        usrEvnt._expectedAttendees = qObj._expectedAttendence
+        //        usrEvnt._latitude = qObj._latitude
+        //        usrEvnt._longitude = qObj._longitude
+        //        usrEvnt._school_filters = qObj._school
+        //        usrEvnt._year_filters = qObj._year
+        //        usrEvnt._eventType = qObj.EventType
+        
+    }
+    
+    
     func setLocation(latitude: Double, longitude: Double){
         _latitude  = latitude
         _longitude = longitude
+    }
+    
+    var hashValue: Int {
+        return (_title + deviceID).hashValue
     }
 }

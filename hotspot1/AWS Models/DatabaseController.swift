@@ -18,7 +18,7 @@ protocol DBInterface {
 }
 
 class DatabaseController: DBInterface {
-
+    
     func atEvent(eventID: Int, attendee: String) {
         //TODOe
     }
@@ -27,7 +27,9 @@ class DatabaseController: DBInterface {
         //TODO
     }
 
+    
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    
 
     func eventIdQuery(eventTitle: String){
         
@@ -76,6 +78,34 @@ class DatabaseController: DBInterface {
                 }
                 //})
         })
+    }
+
+    func getEvents(indexType: String, indexVal: String){
+        let scanExpression = AWSDynamoDBScanExpression()
+        scanExpression.limit = 50
+        let om = AWSDynamoDBObjectMapper.default()
+        
+        if(indexType != "ALL"){
+            scanExpression.filterExpression = indexType + " = :val"
+            scanExpression.expressionAttributeValues = [":val": indexVal]
+        }
+        
+        om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            }
+            else if let paginatedOutput = task.result {
+                for event in paginatedOutput.items as! [EventTable] {
+                    let userEvent = Event()
+                    userEvent.queryObjToUserEvent(qObj: event)
+                    
+                    print(event)
+                    //addEventToMap(userEvent)
+                }
+            }
+            return nil
+        })
+        
     }
 
     func updateEventDb(event: Event){

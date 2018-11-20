@@ -60,8 +60,8 @@ class ChooseLoginController: UIViewController{
             if(responseObject!){
                 
                 //access session email
-                let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
-                print("Logged in: \(sessionEmail)")
+//                let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
+//                print("Logged in: \(sessionEmail)")
                 
                 //go to map view
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
