@@ -33,6 +33,9 @@ class OktaModel {
             response in switch response.result {
                 case .success(let JSON):
                     if(createdUser(JSON: JSON as! NSDictionary)){
+                        let sessionParams = params["profile"] as! [String: Any]
+                        let sessionEmail = sessionParams["email"] as! String
+                        setSessionEmail(sessionEmail: sessionEmail)
                         completionHandler(true, nil)
                     }else{
                         completionHandler(false, nil)
@@ -45,6 +48,7 @@ class OktaModel {
     }
     
     //direct user to login page
+    //Password requirements: at least 8 characters, a lowercase letter, an uppercase letter, a number, no parts of your username.
     static func login(viewController: UIViewController, completionHandler: @escaping (Bool?, Error?) -> ()){
         OktaAuth
             .login()
@@ -54,20 +58,36 @@ class OktaModel {
                     completionHandler(false, nil)
                 }
 
-                // Success
                 if let tokenResponse = response {
+                    //set Okta tokens
                     OktaAuth.tokens?.set(value: tokenResponse.accessToken!, forKey: "accessToken")
                     OktaAuth.tokens?.set(value: tokenResponse.idToken!, forKey: "idToken")
-                    print("Success! Received accessToken: \(tokenResponse.accessToken!)")
-                    print("Success! Received idToken: \(tokenResponse.idToken!)")
+
+                    OktaAuth.userinfo() { response, error in
+                        if error != nil {
+                            setSessionEmail(sessionEmail: "SESSION EMAIL ERROR")
+                        }
+                        
+                        if let userinfo = response {
+                            let sessionEmail = userinfo["preferred_username"] as! String
+                            setSessionEmail(sessionEmail: sessionEmail)
+                        }
+                    }
+                    
                     completionHandler(true, nil)
                 }
             }
     }
     
-//    Parse JSOM response to determine a new Okta user was successfully created
+    //parse JSOM response to determine a new Okta user was successfully created
     static func createdUser(JSON: NSDictionary)->Bool{
         return JSON["errorSummary"] == nil
+    }
+    
+    //set session variables (only email right now)
+    static func setSessionEmail(sessionEmail: String){
+            UserDefaults.standard.set(sessionEmail, forKey:"sessionEmail");
+            UserDefaults.standard.synchronize();
     }
 }
 

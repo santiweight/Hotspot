@@ -76,6 +76,11 @@ class RegisterController: UIViewController  {
         OktaModel.createUser(params: requestBody){
             responseObject, error in
                 if(responseObject!){
+                    
+                    //access session email
+                    let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
+                    print("Logged in: \(sessionEmail)")
+                    
                     //alert tells user that user was succesfully created
                     let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
                     userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
