@@ -12,9 +12,6 @@ import AWSDynamoDB
 import UIKit
 
 var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-let HASH_MULT = 101
-
-
 
 func eventIdQuery(event: Event, eventTitle: String){
     
@@ -49,34 +46,18 @@ func eventIdQuery(event: Event, eventTitle: String){
                         //then take our object and put it in DB?
                     }
                     else {
+                        
                         for item in (response?.items)! as! [EventTable]{
                             //we found the objects we want
                             let userEvent = Event()
                             userEvent.queryObjToUserEvent(qObj: item)
+                            print(userEvent)
                     }
                 }
             }
         })
     })
 }
-
-//#include "stringhash.hpp"
-//
-//using std::string;
-//
-//using uchar = unsigned char;
-//using uint = unsigned int;
-//const uint HASH_MULTIPLIER = 101;
-//
-//size_t myhash(const string& str)
-//{
-//    uint hashval = 0;
-//    for (uchar c: str) {
-//        hashval = hashval * HASH_MULTIPLIER + c;
-//    }
-//    return hashval;
-//}
-
 
 func getEvents(indexType: String, indexVal: String){
     let scanExpression = AWSDynamoDBScanExpression()
@@ -98,10 +79,10 @@ func getEvents(indexType: String, indexVal: String){
                 userEvent.queryObjToUserEvent(qObj: event)
                 
                 print(event)
-                //EthanPlotFunc()
+                //addEventToMap(userEvent)
             }
         }
-        return 0
+        return nil
     })
     
 }

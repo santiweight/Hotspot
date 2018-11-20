@@ -473,17 +473,6 @@
                                     <segue destination="0s2-sK-SLE" kind="show" id="6Kg-hP-sVK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgx-K1-r35" userLabel="tempBtn">
-                                <rect key="frame" x="298" y="602" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.69853029989882454" blue="0.092479037711722722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="testBtnPress:" destination="21Z-3q-jvL" eventType="touchUpInside" id="7xu-pN-yDk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -500,7 +489,6 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="NHL-c3-DKk" id="cd4-DJ-UsX"/>
-                        <outlet property="testBtn" destination="Mgx-K1-r35" id="3fC-7R-e8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4f-T4-xG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
