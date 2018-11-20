@@ -19,19 +19,40 @@ protocol DBInterface {
 }
 
 class DatabaseController: DBInterface {
-
+    
     func atEvent(eventID: Int, attendee: String) {
         //TODO
     }
     
-    obejectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
-        {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
-            
-            if let error = error{
-                print("Amazon DynamoDB Save Error: \(error)")
-            }
-            DispatchQueue.main.sync(execute: {
-
+    func attendEvent(event: Event, attendee: String) {
+        //TODO
+    }
+    
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    
+    func eventIdQuery(eventTitle: String){
+        
+        let obejectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
+        queryExpression.expressionAttributeNames = [
+            "#userId": "userId",
+            "#title": "title",
+        ]
+        
+        queryExpression.expressionAttributeValues = [
+            ":userId" : deviceID,
+            ":title" : eventTitle,
+        ]
+        
+        obejectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
+            {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
+                
+                if let error = error{
+                    print("Amazon DynamoDB Save Error: \(error)")
+                }
+                //DispatchQueue.main.async(execute: {
                 print("querying")
                 //got a response
                 if(response != nil){
@@ -40,20 +61,23 @@ class DatabaseController: DBInterface {
                     if(response?.items.count == 0){
                         print("count was 0")
                         //then take our object and put it in DB?
-                    }
-                    else {
-                        
-                        for item in (response?.items)! as! [EventTable]{
+                    } else {
+                        //var eventList = []
+                        for item in (response?.items)!{
                             //we found the objects we want
-                            let userEvent = Event()
-                            userEvent.queryObjToUserEvent(qObj: item)
-                            print(userEvent)
+                            if(item.value(forKey: "_userId") != nil){
+                                
+                                if let existingID = item.value(forKey: "_userId"){
+                                    print("item")
+                                    print(existingID)
+                                }
+                            }
+                        }
                     }
                 }
-            }
+                //})
         })
-    })
-}
+    }
 
 func getEvents(indexType: String, indexVal: String){
     let scanExpression = AWSDynamoDBScanExpression()

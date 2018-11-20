@@ -12,6 +12,7 @@ import AWSCore
 import AWSDynamoDB
 
 class Event: Hashable{
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     static func == (lhs: Event, rhs: Event) -> Bool {
         if(lhs._event_id == rhs._event_id){
