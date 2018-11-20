@@ -34,8 +34,13 @@ class CreateEventViewController: UIViewController {
     
     @IBOutlet weak var pickerData: UIDatePicker!
     
+
     @IBOutlet weak var endPickerData: UIDatePicker!
     
+
+
+    //
+    var db = DatabaseController()
 
     
     @IBAction func selectData(_ sender: Any) {
@@ -90,8 +95,8 @@ class CreateEventViewController: UIViewController {
                     
                     print("New event created")
                     //insert into db
-                    updateEventDb(event: newEvent)
-                    eventIdQuery(event: newEvent, eventTitle: "hi")
+                    self.db.updateEventDb(event: newEvent)
+                    self.db.eventIdQuery(eventTitle: "hi")
                     //call segue back to home page/event page
                     
                 }))

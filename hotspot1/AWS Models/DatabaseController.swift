@@ -10,9 +10,12 @@ import Foundation
 import AWSCore
 import AWSDynamoDB
 
+class DatabaseController {
+    
+
 var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
 
-func eventIdQuery(event: Event, eventTitle: String){
+func eventIdQuery(eventTitle: String){
     
     let obejectMapper = AWSDynamoDBObjectMapper.default()
     let queryExpression = AWSDynamoDBQueryExpression()
@@ -74,4 +77,6 @@ func updateEventDb(event: Event){
             print("Event Data saved")
         }
     })
+}
+
 }
