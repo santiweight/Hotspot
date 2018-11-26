@@ -10,17 +10,10 @@ import Foundation
 import AWSCore
 import AWSDynamoDB
 
-protocol DBInterface {
-    func eventIdQuery(eventTitle: String)
-    func updateEventDb(event: Event)
-    func atEvent(eventID: Int, attendee: String)
-    func attendEvent(event: Event, attendee: String)
-}
-
-class DatabaseController: DBInterface {
+class DatabaseController {
     
     func atEvent(eventID: Int, attendee: String) {
-        //TODOe
+        //TODO
     }
     
     func attendEvent(event: Event, attendee: String) {

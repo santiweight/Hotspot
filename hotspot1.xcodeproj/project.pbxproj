@@ -416,7 +416,7 @@
 					};
 					3591ACEE216EF49A003FF5BC = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 6GJYCTC2U3;
+						DevelopmentTeam = 826HYL62CJ;
 						ProvisioningStyle = Automatic;
 					};
 					3591AD02216EF49A003FF5BC = {
@@ -924,7 +924,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6GJYCTC2U3;
+				DEVELOPMENT_TEAM = 826HYL62CJ;
 				INFOPLIST_FILE = hotspot1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -934,7 +934,7 @@
 					"-framework",
 					"\"AWSDynamoDB\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hotspot111;
+				PRODUCT_BUNDLE_IDENTIFIER = hotspot1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
@@ -947,7 +947,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 6GJYCTC2U3;
+				DEVELOPMENT_TEAM = 826HYL62CJ;
 				INFOPLIST_FILE = hotspot1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -957,7 +957,7 @@
 					"-framework",
 					"\"AWSDynamoDB\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = hotspot111;
+				PRODUCT_BUNDLE_IDENTIFIER = hotspot1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
