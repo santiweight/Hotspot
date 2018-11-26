@@ -22,7 +22,7 @@ class DatabaseController: DBInterface {
     //var MVController = MapViewController()
     
     func atEvent(eventID: Int, attendee: String) {
-        //TODO
+        //TODOe
     }
     
     func attendEvent(event: Event, attendee: String) {

@@ -32,7 +32,7 @@ class Geocoder{
         }
     }
     
-    static func getLocation(address: String, completionHandler: @escaping (EventLocation?, Error?) -> ()){
+    func getLocation(address: String, completionHandler: @escaping (EventLocation?, Error?) -> ()){
         
         //construct API request for a given address
         let formattedAddress = address.replacingOccurrences(of: " ", with: "+")
@@ -54,7 +54,7 @@ class Geocoder{
     }
     
     //translate Geocoder API response JSON Object to EventLocation struct
-    static func JSONToLocation(JSON: NSDictionary)->EventLocation{
+    func JSONToLocation(JSON: NSDictionary)->EventLocation{
         print(JSON)
         let status = JSON["status"] as! String
         if(status != "OK"){
