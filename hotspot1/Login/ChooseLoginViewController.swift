@@ -59,9 +59,8 @@ class ChooseLoginController: UIViewController{
             responseObject, error in
             if(responseObject!){
                 
-                //access session email
-//                let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
-//                print("Logged in: \(sessionEmail)")
+                //confirm that session vars were set
+                OktaModel.printSessionVars()
                 
                 //go to map view
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
