@@ -19,7 +19,7 @@ protocol DBInterface {
 
 class DatabaseController: DBInterface {
     
-    //var MVController = MapViewController()
+//    var MVController = MapViewController()
     
     func atEvent(eventID: Int, attendee: String) {
         //TODOe
@@ -31,7 +31,6 @@ class DatabaseController: DBInterface {
 
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-    
 
     func eventIdQuery(eventTitle: String){
         
@@ -83,6 +82,7 @@ class DatabaseController: DBInterface {
     }
 
     func getEvents(indexType: String, indexVal: String){
+        
         let scanExpression = AWSDynamoDBScanExpression()
         scanExpression.limit = 50
         let om = AWSDynamoDBObjectMapper.default()
@@ -100,14 +100,11 @@ class DatabaseController: DBInterface {
                 for event in paginatedOutput.items as! [EventTable] {
                     let userEvent = Event()
                     userEvent.queryObjToUserEvent(qObj: event)
-                    
                     print(event)
-                    //self.MVController.addEventToMap(newEvent: userEvent)
                 }
             }
             return nil
         })
-        
     }
 
     func updateEventDb(event: Event){
