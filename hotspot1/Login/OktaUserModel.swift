@@ -100,10 +100,10 @@ class OktaModel {
     
     static func printSessionVars(){
         //access session email
-        let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
-        let sessionYear = UserDefaults.standard.object(forKey: "sessionYear") as! String
-        let sessionSchool = UserDefaults.standard.object(forKey: "sessionSchool") as! String
-        print("Logged in: \(sessionEmail), \(sessionYear) @ \(sessionSchool)")
+        let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as? String
+        let sessionYear = UserDefaults.standard.object(forKey: "sessionYear") as? String
+        let sessionSchool = UserDefaults.standard.object(forKey: "sessionSchool") as? String
+        print("Logged in: \(sessionEmail ?? "ERROR"), \(sessionYear ?? "ERROR") @ \(sessionSchool ?? "ERROR")")
     }
 }
 
