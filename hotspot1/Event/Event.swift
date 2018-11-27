@@ -12,7 +12,7 @@ import AWSDynamoDB
 
 class Event: Hashable{
     
-    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    let deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     static func == (lhs: Event, rhs: Event) -> Bool {
         if(lhs._event_id == rhs._event_id){
@@ -80,7 +80,6 @@ class Event: Hashable{
     func userEventToQueryObj() -> EventTable{
         let qObj:EventTable = EventTable()
         
-        let deviceid:String = (UIDevice.current.identifierForVendor?.uuidString)!
         //TODO
         //qObj._event_id = _event_id
         qObj._userId = _user_id
@@ -100,6 +99,21 @@ class Event: Hashable{
         
         return qObj
         
+    }
+/*:
+     function converts a DateComponents object to a string. function makes sure
+     that nil cannot be returned as AWS Dynamo DB cannot process nil
+ */
+    func dateComponenetsToString(dateIn: DateComponents) -> String{
+        let formatter = DateComponentsFormatter()
+        
+        formatter.allowedUnits = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.weekOfMonth ,NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second]
+        
+        let dateString = formatter.string(from: dateIn)
+        if(dateString == nil){
+            return ""
+        }
+        return dateString!
     }
     
     func queryObjToUserEvent(qObj:EventTable) {
