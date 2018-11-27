@@ -623,7 +623,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fi-rK-PD8">
                                 <rect key="frame" x="323" y="73" width="44" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -754,6 +754,6 @@
         <image name="on" width="39" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4aS-9D-5A5"/>
+        <segue reference="HjC-OO-mYL"/>
     </inferredMetricsTieBreakers>
 </document>
