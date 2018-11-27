@@ -764,7 +764,6 @@
         <image name="on" width="39" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Kg-hP-sVK"/>
         <segue reference="4aS-9D-5A5"/>
     </inferredMetricsTieBreakers>
 </document>
