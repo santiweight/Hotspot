@@ -39,6 +39,7 @@ class RegisterController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         yearPickerView.dataSource = self
         yearPickerView.delegate = self
         yearPickerView.tag = 1
