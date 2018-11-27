@@ -7,6 +7,8 @@
 //
 import UIKit
 import MapKit
+import AWSCore
+import AWSDynamoDB
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
@@ -18,22 +20,50 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //    var id2:[String]!
     
     @IBOutlet var mapView: MKMapView!
-
-  
-    //var db = DatabaseController()
+    
+    func getEvents(indexType: String, indexVal: String){
+        
+        let scanExpression = AWSDynamoDBScanExpression()
+        scanExpression.limit = 50
+        let om = AWSDynamoDBObjectMapper.default()
+        
+        if(indexType != "ALL"){
+            scanExpression.filterExpression = indexType + " = :val"
+            scanExpression.expressionAttributeValues = [":val": indexVal]
+        }
+        
+        om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            }
+            else if let paginatedOutput = task.result {
+                for event in paginatedOutput.items as! [EventTable] {
+                    let userEvent = Event()
+                    userEvent.queryObjToUserEvent(qObj: event)
+                    
+                    userEvent._latitude = event._latitude as? Double
+                    userEvent._longitude = event._longitude as? Double
+                    
+                    self.addEventToMap(newEvent: userEvent)
+                }
+            }
+            return nil
+        })
+    }
+    
     
     override func viewDidLoad() {
-        
-        //let eventsList = db.eventIdQuery(eventTitle: <#T##String#>)
+        // call get events to querey and plot all of the events
+        getEvents(indexType: "ALL", indexVal: "ALL")
         
         super.viewDidLoad()
         
         self.mapView.delegate = self
-        
-        //addEventToMap()
 
-        // 3
+        // declare the region of the map to show the claremont colleges
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 34.0944, longitude: -117.7083), span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
+        
+        // set the claremont region to the map
         self.mapView.setRegion(region, animated: true)
     }
     
@@ -41,44 +71,35 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         let calendar = Calendar.current
         
-//        var startComponents = DateComponents()
-//        startComponents.year = 2018
-//        startComponents.day = 10
-//        startComponents.month = 2
-//        startComponents.minute = 30
-//
-//        var endComponents = DateComponents()
-//        endComponents.year = 2019
-//        endComponents.month = 11
-//        endComponents.day = 9
-//        endComponents.minute = 29
-//
-//        var newEvent = Event(event_id: 1, user_id: "1", creator_email: "zackrossman10@gmail.com", title: "Dodgeball", address: "3927 Old Pali Road", description: "come throw some balls at one another", start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: 34.0944, longitude: -117.7083, year_filters: ["CMC"], school_filters: ["CMC"])
-        
-        //instantiate a new EventAnnotation and set its values to the event parameter
-        let point = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: newEvent._latitude , longitude: newEvent._longitude ))
-        point.name = newEvent._title
-        point.add = newEvent._address
-        point.hotness = String(describing: newEvent._attendees.count)
-        point.id2 = String(describing: newEvent._event_id)
-        
-        // convert component to date
-        let sDate = calendar.date(from: newEvent._start)
-        let eDate = calendar.date(from: newEvent._end)
-        
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "dd/MM H:mm"
-        
-        // convert date to string
-        let sString = dateFormatter.string(from: sDate!)
-        let eString = dateFormatter.string(from: eDate!)
-        
-        point.time = eString + " - " + sString
-        
-        // adding event point to map
-        self.mapView.addAnnotation(point)
-        
+        // check if new event has nil lat or longs, if it does, dont plot it
+        if (newEvent._longitude != nil && newEvent._latitude != nil){
+            
+            // declare a new point on the map to inherit ethe EventAnnotation Class
+            let point = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: newEvent._latitude , longitude: newEvent._longitude ))
+            
+            // set values of the point to the newEvent values that was passed in
+            point.name = newEvent._title
+            point.add = newEvent._address
+            point.hotness = String(describing: newEvent._attendees.count)
+            point.id2 = String(describing: newEvent._event_id)
+            
+            // convert component to date
+            let sDate = calendar.date(from: newEvent._start)
+            let eDate = calendar.date(from: newEvent._end)
+            
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "dd/MM H:mm"
+            
+            // convert date to string
+            let sString = dateFormatter.string(from: sDate!)
+            let eString = dateFormatter.string(from: eDate!)
+            
+            point.time = eString + " - " + sString
+            
+            // add the point to the map
+            self.mapView.addAnnotation(point)
+        }
     }
     
     override func didReceiveMemoryWarning() {
