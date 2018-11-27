@@ -32,8 +32,6 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var endPickerLabel: UILabel!
     
     @IBOutlet weak var pickerData: UIDatePicker!
-    
-
     @IBOutlet weak var endPickerData: UIDatePicker!
     
     var db = DatabaseController()
@@ -98,6 +96,7 @@ class CreateEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
     }
     
@@ -128,9 +127,13 @@ class CreateEventViewController: UIViewController {
                     print("New event created")
                     //insert into db
                     self.db.updateEventDb(event: newEvent)
-                    self.db.eventIdQuery(eventTitle: "hi")
-                    //call segue back to home page/event page
-                    
+                    let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
+                    uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+                        action in
+                        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                        self.navigationController?.present(mapViewController, animated: true)
+                    }))
+                    self.present(uploadConfirmAlert, animated: true)
                 }))
                 
                 self.present(addressConfirmAlert, animated: true)
@@ -145,5 +148,16 @@ class CreateEventViewController: UIViewController {
     
 }
 
-
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
 
