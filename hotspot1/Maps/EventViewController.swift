@@ -58,11 +58,7 @@ class EventViewController: UIViewController {
         idLabel?.text = id2
         
         print("name we are Qing by: " + name)
-        eventIdQuery(eventTitle: name)
         
-        eventIdQuery(eventTitle: "test")
-        
-        eventIdQuery(eventTitle: "so")
         // let event: Event = db.eventIdQuery(eventTitle: name)
         
         
