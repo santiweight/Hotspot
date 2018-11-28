@@ -87,8 +87,8 @@ class Event: Hashable{
         qObj._title = _title
         qObj._address = _address
         qObj._description = _description
-        qObj._startTime = "NULL"
-        qObj._endTime = "NULL"
+        qObj._startTime = dateComponenetsToString(dateIn: _start)
+        qObj._endTime = dateComponenetsToString(dateIn: _end)
         qObj._expectedAttendence = ["NULL"]
         qObj._latitude = _latitude as NSNumber
         qObj._longitude = _longitude as NSNumber
@@ -140,7 +140,13 @@ class Event: Hashable{
         _longitude = longitude
     }
     
+    func getStrHashValue() -> String {
+        return String(hashValue)
+        
+    }
+    
     var hashValue: Int {
-        return (_title + deviceID).hashValue
+        let hashStr = _title + _user_id
+        return hashStr.hashValue
     }
 }
