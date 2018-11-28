@@ -22,7 +22,7 @@ class Event: Hashable{
     }
     
     
-    var _event_id:      Int!
+    var _event_id:      String!
     var _user_id:       String!
     var _creator_email: String!
     var _title:         String!
@@ -37,9 +37,9 @@ class Event: Hashable{
     var _year_filters:  [String]!
     var _school_filters: [String]!
     
-    init(user_id: String, creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
-        _event_id      = 0
-        _user_id       = user_id
+    init(creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
+        _event_id      = "NULL"
+        _user_id       = deviceID
         _creator_email = creator_email
         _title         = title
         _address       = address
@@ -55,7 +55,7 @@ class Event: Hashable{
     }
     
     init(){
-        _event_id      = 0
+        _event_id      = "NULL"
         _user_id       = deviceID
         _creator_email = "NULL"
         _title         = "NULL"

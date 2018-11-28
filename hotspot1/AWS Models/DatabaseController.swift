@@ -105,6 +105,7 @@ class DatabaseController {
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
         let itemToCreate:EventTable = event.userEventToQueryObj()
+        event._event_id = event.getStrHashValue()
         
         objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
             if let error = error{
