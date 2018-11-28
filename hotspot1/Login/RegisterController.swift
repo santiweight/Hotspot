@@ -14,7 +14,7 @@ import AWSDynamoDB
 class RegisterController: UIViewController  {
     
     private let yearDataSource = ["Select Year", "Freshman", "Sophmore", "Junior", "Senior"]
-    private let schoolDataSource = ["Select School", "CMC", "PO", "SCR", "HMC", "PZ"]
+    private let schoolDataSource = ["Select School", "Claremont Mckenna", "Pomona", "Scripss", "Harvey Mudd", "Pitzer"]
 
     @IBOutlet weak var newUserName: UITextField!
     @IBOutlet weak var newUserEmail: UITextField!
@@ -39,6 +39,8 @@ class RegisterController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        
         yearPickerView.dataSource = self
         yearPickerView.delegate = self
         yearPickerView.tag = 1
@@ -54,13 +56,17 @@ class RegisterController: UIViewController  {
     
         //MARK: Action
     @IBAction func submit(_ sender: Any) {
+        //get user's year & school
+        //store in "lastName" and "mobilePhone" fields
+        var userYear = yearDataSource[yearPickerView.selectedRow(inComponent: 0)]
+        var userSchool = schoolDataSource[schoolPickerView.selectedRow(inComponent: 0)]
         let requestBody: [String: Any] = [
             "profile": [
-                "firstName": "\(newUserName.text ?? "")",
-                "lastName": "\(newUserName.text ?? "")",
+                "firstName": "\(userYear)",
+                "lastName": "\(userSchool)",
                 "email": "\(newUserEmail.text ?? "")",
                 "login": "\(newUserEmail.text ?? "")",
-                "mobilePhone": "555-415-1337"
+                "mobilePhone": "425-241-7707"
             ],
             "credentials": [
                 "recovery_question": [
@@ -77,9 +83,8 @@ class RegisterController: UIViewController  {
             responseObject, error in
                 if(responseObject!){
                     
-                    //access session email
-                    let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
-                    print("Logged in: \(sessionEmail)")
+                    //confirm that session vars were set
+                    OktaModel.printSessionVars()
                     
                     //alert tells user that user was succesfully created
                     let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)

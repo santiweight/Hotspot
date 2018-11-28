@@ -22,18 +22,14 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
+    @IBOutlet weak var expectedPeople: UITextField!
+    
     @IBOutlet weak var selectSchool: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
-
-    @IBOutlet weak var pickerLabel: UILabel!
-    @IBOutlet weak var endPickerLabel: UILabel!
-    
     @IBOutlet weak var pickerData: UIDatePicker!
-    
-
     @IBOutlet weak var endPickerData: UIDatePicker!
     
     var db = DatabaseController()
@@ -47,7 +43,6 @@ class CreateEventViewController: UIViewController {
             sender.isSelected = true
         }
     }
-
 
     @IBAction func poCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
@@ -66,8 +61,6 @@ class CreateEventViewController: UIViewController {
             sender.isSelected = true
         }
     }
-    
-    
  
     @IBAction func hmcCheckTapped(_ sender: UIButton) {
     if sender.isSelected{
@@ -87,21 +80,37 @@ class CreateEventViewController: UIViewController {
         }
     }
     
-    @IBAction func selectData(_ sender: Any) {
-        
-        pickerLabel.text = "\(pickerData.date)"
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    func getDateString(pickerData: UIDatePicker) -> String{
+        //get day/month/year info from picker
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, YYYY"
+        let dateString = dateFormatter.string(from: pickerData.date)
+        
+        //get time info from picker
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
+        let hour = comp.hour
+        let minute = comp.minute
+        let timeString = "\(hour!):\(minute!),"
+        
+        let completeString = "\(timeString) \(dateString)"
+        
+        print(completeString)
+        return completeString
     }
     
     @IBAction func submit(_ sender: Any) {
+        getDateString(pickerData: pickerData)
+        getDateString(pickerData: endPickerData)
         geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
@@ -122,15 +131,22 @@ class CreateEventViewController: UIViewController {
                     let endComponents = DateComponents()
 
                     
+
                     let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
+
 
                     
                     print("New event created")
                     //insert into db
                     self.db.updateEventDb(event: newEvent)
-                    //self.db.eventIdQuery(eventTitle: "hi")
-                    //call segue back to home page/event page
-                    
+
+                    let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
+                    uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+                        action in
+                        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                        self.navigationController?.present(mapViewController, animated: true)
+                    }))
+                    self.present(uploadConfirmAlert, animated: true)
                 }))
                 
                 self.present(addressConfirmAlert, animated: true)
@@ -144,5 +160,16 @@ class CreateEventViewController: UIViewController {
     }
 }
 
-
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
 

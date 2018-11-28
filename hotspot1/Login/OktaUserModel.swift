@@ -35,7 +35,9 @@ class OktaModel {
                     if(createdUser(JSON: JSON as! NSDictionary)){
                         let sessionParams = params["profile"] as! [String: Any]
                         let sessionEmail = sessionParams["email"] as! String
-                        setSessionEmail(sessionEmail: sessionEmail)
+                        let sessionYear = sessionParams["firstName"] as! String
+                        let sessionSchool = sessionParams["lastName"] as! String
+                        setSessionVars(sessionEmail: sessionEmail, sessionYear: sessionYear, sessionSchool: sessionSchool)
                         completionHandler(true, nil)
                     }else{
                         completionHandler(false, nil)
@@ -65,12 +67,16 @@ class OktaModel {
 
                     OktaAuth.userinfo() { response, error in
                         if error != nil {
-                            setSessionEmail(sessionEmail: "SESSION EMAIL ERROR")
+                            //don't set session var
+                            setSessionVars(sessionEmail: "Error", sessionYear: "Error", sessionSchool: "Error")
                         }
                         
                         if let userinfo = response {
+                            print(userinfo)
                             let sessionEmail = userinfo["preferred_username"] as! String
-                            setSessionEmail(sessionEmail: sessionEmail)
+                            let sessionYear = userinfo["given_name"] as! String
+                            let sessionSchool = userinfo["family_name"] as! String
+                            setSessionVars(sessionEmail: sessionEmail, sessionYear: sessionYear, sessionSchool: sessionSchool)
                         }
                     }
                     
@@ -85,9 +91,19 @@ class OktaModel {
     }
     
     //set session variables (only email right now)
-    static func setSessionEmail(sessionEmail: String){
+    static func setSessionVars(sessionEmail: String, sessionYear: String, sessionSchool: String){
             UserDefaults.standard.set(sessionEmail, forKey:"sessionEmail");
-            UserDefaults.standard.synchronize();
+            UserDefaults.standard.set(sessionYear, forKey:"sessionYear");
+            UserDefaults.standard.set(sessionSchool, forKey:"sessionSchool");
+            UserDefaults.standard.synchronize()
+    }
+    
+    static func printSessionVars(){
+        //access session email
+        let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as? String
+        let sessionYear = UserDefaults.standard.object(forKey: "sessionYear") as? String
+        let sessionSchool = UserDefaults.standard.object(forKey: "sessionSchool") as? String
+        print("Logged in: \(sessionEmail ?? "ERROR"), \(sessionYear ?? "ERROR") @ \(sessionSchool ?? "ERROR")")
     }
 }
 

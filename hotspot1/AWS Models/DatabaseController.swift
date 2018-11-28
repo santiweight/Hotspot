@@ -12,6 +12,8 @@ import AWSDynamoDB
 
 class DatabaseController {
     
+//    var MVController = MapViewController()
+    
     func atEvent(eventID: Int, attendee: String) {
         //TODO
     }
@@ -22,7 +24,6 @@ class DatabaseController {
 
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-    
 
     func eventIdQuery(eventTitle: String){
         
@@ -74,6 +75,7 @@ class DatabaseController {
     }
 
     func getEvents(indexType: String, indexVal: String){
+        
         let scanExpression = AWSDynamoDBScanExpression()
         scanExpression.limit = 50
         let om = AWSDynamoDBObjectMapper.default()
@@ -91,14 +93,11 @@ class DatabaseController {
                 for event in paginatedOutput.items as! [EventTable] {
                     let userEvent = Event()
                     userEvent.queryObjToUserEvent(qObj: event)
-                    
                     print(event)
-                    //addEventToMap(userEvent)
                 }
             }
             return nil
         })
-        
     }
 
     func updateEventDb(event: Event){
