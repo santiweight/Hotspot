@@ -12,7 +12,7 @@ import AWSDynamoDB
 
 class Event: Hashable{
     
-    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    let deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     static func == (lhs: Event, rhs: Event) -> Bool {
         if(lhs._event_id == rhs._event_id){
@@ -22,7 +22,7 @@ class Event: Hashable{
     }
     
     
-    var _event_id:      Int!
+    var _event_id:      String!
     var _user_id:       String!
     var _creator_email: String!
     var _title:         String!
@@ -37,9 +37,9 @@ class Event: Hashable{
     var _year_filters:  [String]!
     var _school_filters: [String]!
     
-    init(user_id: String, creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
-        _event_id      = 0
-        _user_id       = user_id
+    init(creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
+        _event_id      = "NULL"
+        _user_id       = deviceID
         _creator_email = creator_email
         _title         = title
         _address       = address
@@ -55,7 +55,7 @@ class Event: Hashable{
     }
     
     init(){
-        _event_id      = 0
+        _event_id      = "NULL"
         _user_id       = deviceID
         _creator_email = "NULL"
         _title         = "NULL"
@@ -80,7 +80,6 @@ class Event: Hashable{
     func userEventToQueryObj() -> EventTable{
         let qObj:EventTable = EventTable()
         
-        let deviceid:String = (UIDevice.current.identifierForVendor?.uuidString)!
         //TODO
         //qObj._event_id = _event_id
         qObj._userId = _user_id
@@ -88,8 +87,8 @@ class Event: Hashable{
         qObj._title = _title
         qObj._address = _address
         qObj._description = _description
-        qObj._startTime = "NULL"
-        qObj._endTime = "NULL"
+        qObj._startTime = dateComponenetsToString(dateIn: _start)
+        qObj._endTime = dateComponenetsToString(dateIn: _end)
         qObj._expectedAttendence = ["NULL"]
         qObj._latitude = _latitude as NSNumber
         qObj._longitude = _longitude as NSNumber
@@ -100,6 +99,21 @@ class Event: Hashable{
         
         return qObj
         
+    }
+/*:
+     function converts a DateComponents object to a string. function makes sure
+     that nil cannot be returned as AWS Dynamo DB cannot process nil
+ */
+    func dateComponenetsToString(dateIn: DateComponents) -> String{
+        let formatter = DateComponentsFormatter()
+        
+        formatter.allowedUnits = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.weekOfMonth ,NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second]
+        
+        let dateString = formatter.string(from: dateIn)
+        if(dateString == nil){
+            return ""
+        }
+        return dateString!
     }
     
     func queryObjToUserEvent(qObj:EventTable) {
@@ -126,7 +140,13 @@ class Event: Hashable{
         _longitude = longitude
     }
     
+    func getStrHashValue() -> String {
+        return String(hashValue)
+        
+    }
+    
     var hashValue: Int {
-        return (_title + deviceID).hashValue
+        let hashStr = _title + _user_id
+        return hashStr.hashValue
     }
 }
