@@ -10,19 +10,12 @@ import Foundation
 import AWSCore
 import AWSDynamoDB
 
-protocol DBInterface {
-    func eventIdQuery(eventTitle: String)
-    func updateEventDb(event: Event)
-    func atEvent(eventID: Int, attendee: String)
-    func attendEvent(event: Event, attendee: String)
-}
-
-class DatabaseController: DBInterface {
+class DatabaseController {
     
 //    var MVController = MapViewController()
     
     func atEvent(eventID: Int, attendee: String) {
-        //TODOe
+        //TODO
     }
     
     func attendEvent(event: Event, attendee: String) {
@@ -111,6 +104,7 @@ class DatabaseController: DBInterface {
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
         let itemToCreate:EventTable = event.userEventToQueryObj()
+        event._event_id = event.getStrHashValue()
         
         objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
             if let error = error{

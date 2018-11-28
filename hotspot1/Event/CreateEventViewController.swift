@@ -125,18 +125,21 @@ class CreateEventViewController: UIViewController {
                     let latitude = responseObject!.latitude!
                     let longitude = responseObject!.longitude!
                     
-                    var startComponents = DateComponents()
+                    let startComponents = DateComponents()
 
                     
-                    var endComponents = DateComponents()
+                    let endComponents = DateComponents()
 
                     
-                    var newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: ["CMC"], school_filters: ["CMC"])
+
+                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
+
 
                     
                     print("New event created")
                     //insert into db
                     self.db.updateEventDb(event: newEvent)
+
                     let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
                     uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
                         action in
@@ -155,7 +158,6 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
-    
 }
 
 // Put this piece of code anywhere you like
