@@ -19,6 +19,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //    var time:[String]!
 //    var id2:[String]!
     
+    var eventArr: Array<Event> = Array()
+    
+    
     @IBOutlet var mapView: MKMapView!
     
     func getEvents(indexType: String, indexVal: String){
@@ -44,7 +47,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     userEvent._latitude = event._latitude as? Double
                     userEvent._longitude = event._longitude as? Double
                     
+                    //self.eventArr.append(userEvent)
+                    
                     self.addEventToMap(newEvent: userEvent)
+                
                 }
             }
             return nil
@@ -53,9 +59,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     override func viewDidLoad() {
-        // call get events to querey and plot all of the events
-        getEvents(indexType: "ALL", indexVal: "ALL")
-        
         super.viewDidLoad()
         
         self.mapView.delegate = self
@@ -65,6 +68,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // set the claremont region to the map
         self.mapView.setRegion(region, animated: true)
+        
+        getEvents(indexType: "ALL", indexVal: "ALL")
+        
     }
     
     func addEventToMap(newEvent: Event){

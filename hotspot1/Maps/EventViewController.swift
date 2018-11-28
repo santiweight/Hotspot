@@ -36,52 +36,14 @@ class EventViewController: UIViewController {
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
-    func eventIdQuery(eventTitle: String){
+    
+    //TODO
+    // Maybe use scan to grab all events, iterate through the array and grab the
+    // event info with the desired tittle
+    
+    
+    func fillOutData(host: String, descr: String){
         
-        let obejectMapper = AWSDynamoDBObjectMapper.default()
-        let queryExpression = AWSDynamoDBQueryExpression()
-        
-        queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
-        queryExpression.expressionAttributeNames = [
-            "#userId": "userId",
-            "#title": "title",
-        ]
-        
-        queryExpression.expressionAttributeValues = [
-            ":userId" : deviceID,
-            ":title" : eventTitle,
-        ]
-        
-        obejectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
-            {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
-                
-                if let error = error{
-                    print("Amazon DynamoDB Save Error: \(error)")
-                }
-                //DispatchQueue.main.async(execute: {
-                print("querying")
-                //got a response
-                if(response != nil){
-                    print("got a repsonse")
-                    
-                    if(response?.items.count == 0){
-                        print("count was 0")
-                        //then take our object and put it in DB?
-                    } else {
-                        //var eventList = []
-                        for item in (response?.items)!{
-                            //we found the objects we want
-                            if(item.value(forKey: "_userId") != nil){
-                                if let existingID = item.value(forKey: "_userId"){
-                                    print("item")
-                                    print(existingID)
-                                }
-                            }
-                        }
-                    }
-                }
-                //})
-        })
     }
     
     override func viewDidLoad()
@@ -94,14 +56,20 @@ class EventViewController: UIViewController {
         
         test?.text = name
         idLabel?.text = id2
+        
+        print("name we are Qing by: " + name)
         eventIdQuery(eventTitle: name)
+        
+        eventIdQuery(eventTitle: "test")
+        
+        eventIdQuery(eventTitle: "so")
         // let event: Event = db.eventIdQuery(eventTitle: name)
         
         
         // querery database for rest of info.
-        descLabel?.text = desc
+        //descLabel?.text = desc
         addressLabel?.text = address
-        hostLabel?.text =  host
+        //hostLabel?.text =  host
         timeLabel?.text = time
     }
     
