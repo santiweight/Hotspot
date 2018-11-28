@@ -118,10 +118,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // get data from view controller
         var name: String
         var id2: String
+        var address: String
+        var time: String
         let ccv = sender.superview as! CustomCalloutView
         
         id2 = ccv.eventID.text!
         name = ccv.eventName.text!
+        address = ccv.eventAddress.text!
+        time = ccv.eventTime.text!
         
         //print("clicked: " + name)
         
@@ -131,6 +135,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // pass data from mapVC to eventVC
         eventViewController.name = name
         eventViewController.id2 = id2
+        eventViewController.address = address
+        eventViewController.time = time
+        eventViewController.host = (UserDefaults.standard.object(forKey: "sessionEmail") as? String)!
         
         // Switch over to the eventVC
         self.present(eventViewController, animated: true, completion: nil)
