@@ -18,86 +18,122 @@ import AWSDynamoDB
 
 class CreateEventViewController: UIViewController {
 
+    let localCalendar = Calendar.init(identifier: .gregorian)
+    let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
+    
+    let YEAR = TimeInterval.init(31536000)
+    let HOUR = TimeInterval.init(3600)
     
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
-    @IBOutlet weak var selectSchool: UILabel!
+    @IBOutlet weak var expectedPeople: UITextField!
+    
+    var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
-
-    @IBOutlet weak var pickerLabel: UILabel!
-    @IBOutlet weak var endPickerLabel: UILabel!
-    
-    @IBOutlet weak var pickerData: UIDatePicker!
-    @IBOutlet weak var endPickerData: UIDatePicker!
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
     
     var db = DatabaseController()
     var geocoder = Geocoder()
  
     @IBAction func cmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "CMC"}
             sender.isSelected = false
         }
         else{
+            selectSchool.append("CMC")
             sender.isSelected = true
         }
     }
 
-
     @IBAction func poCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "POM"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("POM")
+                sender.isSelected = true
         }
     }
     
     @IBAction func scrCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "SCR"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("SCR")
+                sender.isSelected = true
         }
     }
-    
-    
  
     @IBAction func hmcCheckTapped(_ sender: UIButton) {
-    if sender.isSelected{
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "HMC"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("HMC")
+                sender.isSelected = true
         }
     }
     
     @IBAction func pzCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "PIZ"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("PIZ")
+                sender.isSelected = true
         }
     }
     
-    @IBAction func selectData(_ sender: Any) {
-        
-        pickerLabel.text = "\(pickerData.date)"
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        setPickers()
+    }
+    
+    func setPickers() {
+        let currentTime = Date.init()
+        
+        startPicker.minimumDate = currentTime
+        startPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+        
+        endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
+        endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+        
+    }
 
+    
+    func getDateString(pickerData: UIDatePicker) -> String{
+        //get day/month/year info from picker
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, YYYY"
+        let dateString = dateFormatter.string(from: pickerData.date)
+        
+        //get time info from picker
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
+        let hour = comp.hour
+        let minute = comp.minute
+        let timeString = "\(hour!):\(minute!),"
+        
+        let completeString = "\(timeString) \(dateString)"
+        
+        print(completeString)
+        return completeString
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -115,18 +151,21 @@ class CreateEventViewController: UIViewController {
                     let latitude = responseObject!.latitude!
                     let longitude = responseObject!.longitude!
                     
-                    var startComponents = DateComponents()
-
+                    let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
+                    let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
                     
-                    var endComponents = DateComponents()
-
                     
-                    var newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
+//                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: filters, school_filters: ["CMC"])
+                    
+
+                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: self.selectSchool, school_filters: ["CMC"])
+
 
                     
                     print("New event created")
                     //insert into db
                     self.db.updateEventDb(event: newEvent)
+
                     let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
                     uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
                         action in
@@ -146,7 +185,29 @@ class CreateEventViewController: UIViewController {
         }
     }
     
+    func checkDatesValid(start: DateComponents, end: DateComponents) -> Bool{
+        let startDate = localCalendar.date(from: start)
+        let endDate = localCalendar.date(from: end)
+        let dateComp = localCalendar.compare(startDate!, to: endDate!, toGranularity: Calendar.Component.minute)
+        
+        if (dateComp == ComparisonResult.orderedAscending){
+            return true
+        } else if (dateComp == ComparisonResult.orderedSame){
+            let sameTimeAlert = UIAlertController(title: "Date Picker Error", message: "An event's start and end time must be different", preferredStyle: .alert)
+            sameTimeAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(sameTimeAlert, animated: true)
+            return false
+        } else if (dateComp == ComparisonResult.orderedAscending) {
+            let endDateFirstAlert = UIAlertController(title: "Date Picker Error", message: "An event's start time must come before its end time", preferredStyle: .alert)
+            endDateFirstAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(endDateFirstAlert, animated: true)
+            return false
+        }
+        return false
+    }
 }
+
+
 
 // Put this piece of code anywhere you like
 extension UIViewController {
