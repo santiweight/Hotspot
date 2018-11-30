@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3591ACEE216EF49A003FF5BC"
-               BuildableName = "hotspot1.app"
-               BlueprintName = "hotspot1"
-               ReferencedContainer = "container:hotspot1.xcodeproj">
+               BuildableName = "hotspot.app"
+               BlueprintName = "hotspot"
+               ReferencedContainer = "container:hotspot.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,39 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3591AD02216EF49A003FF5BC"
-               BuildableName = "hotspot1Tests.xctest"
-               BlueprintName = "hotspot1Tests"
-               ReferencedContainer = "container:hotspot1.xcodeproj">
+               BuildableName = "hotspotTests.xctest"
+               BlueprintName = "hotspotTests"
+               ReferencedContainer = "container:hotspot.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3570BA18219A7D2000E2D652"
+               BuildableName = "APITests.xctest"
+               BlueprintName = "APITests"
+               ReferencedContainer = "container:hotspot.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3570BA26219A7D3D00E2D652"
+               BuildableName = "alamoFireTest.xctest"
+               BlueprintName = "alamoFireTest"
+               ReferencedContainer = "container:hotspot.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3570BA34219A8D5600E2D652"
+               BuildableName = "hotspotUITests.xctest"
+               BlueprintName = "hotspotUITests"
+               ReferencedContainer = "container:hotspot.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3591ACEE216EF49A003FF5BC"
-            BuildableName = "hotspot1.app"
-            BlueprintName = "hotspot1"
-            ReferencedContainer = "container:hotspot1.xcodeproj">
+            BuildableName = "hotspot.app"
+            BlueprintName = "hotspot"
+            ReferencedContainer = "container:hotspot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3591ACEE216EF49A003FF5BC"
-            BuildableName = "hotspot1.app"
-            BlueprintName = "hotspot1"
-            ReferencedContainer = "container:hotspot1.xcodeproj">
+            BuildableName = "hotspot.app"
+            BlueprintName = "hotspot"
+            ReferencedContainer = "container:hotspot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +115,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3591ACEE216EF49A003FF5BC"
-            BuildableName = "hotspot1.app"
-            BlueprintName = "hotspot1"
-            ReferencedContainer = "container:hotspot1.xcodeproj">
+            BuildableName = "hotspot.app"
+            BlueprintName = "hotspot"
+            ReferencedContainer = "container:hotspot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

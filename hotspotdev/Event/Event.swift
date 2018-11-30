@@ -88,13 +88,13 @@ class Event: NSObject{
         qObj._description = _description
         qObj._startTime = _start
         qObj._endTime = _end
-        qObj._expectedAttendence = ["NULL"]
+        qObj._expectedAttendence = 0
         qObj._latitude = _latitude as NSNumber
         qObj._longitude = _longitude as NSNumber
         qObj._school = "NULL"
         qObj._year = 0 as NSNumber
         
-        qObj._eventType = "NULL"
+//        qObj._eventType = "NULL"
         
         return qObj
         
