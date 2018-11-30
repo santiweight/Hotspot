@@ -12,83 +12,109 @@ import AWSCore
 import AWSDynamoDB
 
 
-@objc protocol SSRadioButtonControllerDelegate {
-@objc func didSelectButton(selectedButton: UIButton?)
-}
+
 
 class CreateEventViewController: UIViewController {
 
-    
+    let localCalendar = Calendar.init(identifier: .gregorian)
+    let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
+
+    let YEAR = TimeInterval.init(31536000)
+    let HOUR = TimeInterval.init(3600)
+
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var expectedPeople: UITextField!
-    
-    @IBOutlet weak var selectSchool: UILabel!
+
+    var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
-    
+
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-    
-    @IBOutlet weak var pickerData: UIDatePicker!
-    @IBOutlet weak var endPickerData: UIDatePicker!
-    
+
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
+
     var db = DatabaseController()
     var geocoder = Geocoder()
- 
+
     @IBAction func cmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "CMC"}
             sender.isSelected = false
         }
         else{
+            selectSchool.append("CMC")
             sender.isSelected = true
         }
     }
 
     @IBAction func poCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "POM"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("POM")
+                sender.isSelected = true
         }
     }
-    
+
     @IBAction func scrCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "SCR"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("SCR")
+                sender.isSelected = true
         }
     }
- 
+
     @IBAction func hmcCheckTapped(_ sender: UIButton) {
-    if sender.isSelected{
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "HMC"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("HMC")
+                sender.isSelected = true
         }
     }
-    
+
     @IBAction func pzCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "PIZ"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("PIZ")
+                sender.isSelected = true
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        setPickers()
     }
-    
+
+
+    func setPickers() {
+        let currentTime = Date.init()
+
+        startPicker.minimumDate = currentTime
+        startPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+
+        endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
+        endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+
+    }
+
     @IBAction func submit(_ sender: Any) {
         geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
@@ -105,8 +131,8 @@ class CreateEventViewController: UIViewController {
                         title: self.eventTitle.text!,
                         address: formattedAddress,
                         description: self.eventDescription.text!,
-                        start: getDateString(pickerData: self.pickerData),
-                        end: getDateString(pickerData: self.endPickerData),
+                        start: getDateString(pickerData: self.startPicker),
+                        end: getDateString(pickerData: self.endPicker),
                         attendees: ["zackrossman10@gmail.com"],
                         expectedAttendees: 5,
                         latitude: responseObject!.latitude!,
@@ -126,7 +152,7 @@ class CreateEventViewController: UIViewController {
                     }))
                     self.present(uploadConfirmAlert, animated: true)
                 }))
-                
+
                 self.present(addressConfirmAlert, animated: true)
             }else{
                 print("Response obj is nil")
@@ -135,6 +161,27 @@ class CreateEventViewController: UIViewController {
                 self.present(badAddressAlert, animated: true)
             }
         }
+    }
+
+    func checkDatesValid(start: DateComponents, end: DateComponents) -> Bool{
+        let startDate = localCalendar.date(from: start)
+        let endDate = localCalendar.date(from: end)
+        let dateComp = localCalendar.compare(startDate!, to: endDate!, toGranularity: Calendar.Component.minute)
+
+        if (dateComp == ComparisonResult.orderedAscending){
+            return true
+        } else if (dateComp == ComparisonResult.orderedSame){
+            let sameTimeAlert = UIAlertController(title: "Date Picker Error", message: "An event's start and end time must be different", preferredStyle: .alert)
+            sameTimeAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(sameTimeAlert, animated: true)
+            return false
+        } else if (dateComp == ComparisonResult.orderedAscending) {
+            let endDateFirstAlert = UIAlertController(title: "Date Picker Error", message: "An event's start time must come before its end time", preferredStyle: .alert)
+            endDateFirstAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(endDateFirstAlert, animated: true)
+            return false
+        }
+        return false
     }
 }
 
@@ -165,9 +212,8 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
-
