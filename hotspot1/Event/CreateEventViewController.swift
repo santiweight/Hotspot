@@ -1,155 +1,223 @@
 //
-//  Event.swift
+//  CreateEventViewController.swift
 //  hotspot1
 //
 //  Created by Zack Rossman on 10/26/18.
 //  Copyright © 2018 CS121. All rights reserved.
 //
+
 import Foundation
 import UIKit
 import AWSCore
 import AWSDynamoDB
 
-class Event: NSObject{
 
-    let deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+@objc protocol SSRadioButtonControllerDelegate {
+@objc func didSelectButton(selectedButton: UIButton?)
+}
 
-    static func == (lhs: Event, rhs: Event) -> Bool {
-        if(lhs._event_id == rhs._event_id){
+class CreateEventViewController: UIViewController {
+
+    let localCalendar = Calendar.init(identifier: .gregorian)
+    let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
+
+    let YEAR = TimeInterval.init(31536000)
+    let HOUR = TimeInterval.init(3600)
+
+    @IBOutlet weak var eventTitle: UITextField!
+    @IBOutlet weak var eventAddress: UITextField!
+    @IBOutlet weak var eventDescription: UITextField!
+    @IBOutlet weak var expectedPeople: UITextField!
+
+    var selectSchool : [String] = []
+    @IBOutlet weak var detailLabel: UILabel!
+
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
+
+    var db = DatabaseController()
+    var geocoder = Geocoder()
+
+    @IBAction func cmcCheckTapped(_ sender: UIButton) {
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "CMC"}
+            sender.isSelected = false
+        }
+        else{
+            selectSchool.append("CMC")
+            sender.isSelected = true
+        }
+    }
+
+    @IBAction func poCheckTapped(_ sender: UIButton) {
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "POM"}
+            sender.isSelected = false
+        }
+        else{
+            selectSchool.append("POM")
+                sender.isSelected = true
+        }
+    }
+
+    @IBAction func scrCheckTapped(_ sender: UIButton) {
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "SCR"}
+            sender.isSelected = false
+        }
+        else{
+            selectSchool.append("SCR")
+                sender.isSelected = true
+        }
+    }
+
+    @IBAction func hmcCheckTapped(_ sender: UIButton) {
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "HMC"}
+            sender.isSelected = false
+        }
+        else{
+            selectSchool.append("HMC")
+                sender.isSelected = true
+        }
+    }
+
+    @IBAction func pzCheckTapped(_ sender: UIButton) {
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "PIZ"}
+            sender.isSelected = false
+        }
+        else{
+            selectSchool.append("PIZ")
+                sender.isSelected = true
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        setPickers()
+    }
+
+    func setPickers() {
+        let currentTime = Date.init()
+
+        startPicker.minimumDate = currentTime
+        startPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+
+        endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
+        endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+
+    }
+
+
+    func getDateString(pickerData: UIDatePicker) -> String{
+        //get day/month/year info from picker
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, YYYY"
+        let dateString = dateFormatter.string(from: pickerData.date)
+
+        //get time info from picker
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
+        let hour = comp.hour
+        let minute = comp.minute
+        let timeString = "\(hour!):\(minute!),"
+
+        let completeString = "\(timeString) \(dateString)"
+
+        print(completeString)
+        return completeString
+    }
+
+    @IBAction func submit(_ sender: Any) {
+        geocoder.getLocation(address: eventAddress.text!){
+            responseObject, error in
+            if(responseObject != nil && !(responseObject?.isEmpty)!){
+                let formattedAddress = responseObject!.formattedAddress!
+                let addressConfirmAlert = UIAlertController(title: "Confirm Event Address", message: "\(formattedAddress)", preferredStyle: .alert)
+                addressConfirmAlert.addAction(UIAlertAction(title: "Edit", style: .cancel, handler: {action in
+                        print("Address edited")
+                    }))
+                addressConfirmAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
+                        action in
+
+                    let latitude = responseObject!.latitude!
+                    let longitude = responseObject!.longitude!
+
+                    let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
+                    let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
+
+
+//                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: filters, school_filters: ["CMC"])
+
+
+                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: self.selectSchool, school_filters: ["CMC"])
+
+
+
+                    print("New event created")
+                    //insert into db
+                    self.db.updateEventDb(event: newEvent)
+
+                    let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
+                    uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+                        action in
+                        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                        self.navigationController?.present(mapViewController, animated: true)
+                    }))
+                    self.present(uploadConfirmAlert, animated: true)
+                }))
+
+                self.present(addressConfirmAlert, animated: true)
+            }else{
+                print("Response obj is nil")
+                let badAddressAlert = UIAlertController(title: "Address Not Found", message: "Please enter the approximate address for your event", preferredStyle: .alert)
+                badAddressAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+                self.present(badAddressAlert, animated: true)
+            }
+        }
+    }
+
+    func checkDatesValid(start: DateComponents, end: DateComponents) -> Bool{
+        let startDate = localCalendar.date(from: start)
+        let endDate = localCalendar.date(from: end)
+        let dateComp = localCalendar.compare(startDate!, to: endDate!, toGranularity: Calendar.Component.minute)
+
+        if (dateComp == ComparisonResult.orderedAscending){
             return true
+        } else if (dateComp == ComparisonResult.orderedSame){
+            let sameTimeAlert = UIAlertController(title: "Date Picker Error", message: "An event's start and end time must be different", preferredStyle: .alert)
+            sameTimeAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(sameTimeAlert, animated: true)
+            return false
+        } else if (dateComp == ComparisonResult.orderedAscending) {
+            let endDateFirstAlert = UIAlertController(title: "Date Picker Error", message: "An event's start time must come before its end time", preferredStyle: .alert)
+            endDateFirstAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(endDateFirstAlert, animated: true)
+            return false
         }
         return false
     }
+}
 
 
-    var _event_id:      String!
-    var _user_id:       String!
-    var _creator_email: String!
-    var _title:         String!
-    var _address:       String!
-    var _description:   String!
-    var _start:         DateComponents!
-    var _end:           DateComponents!
-    var _attendees:     [String]!
-    var _expectedAttendees: Int!
-    var _latitude:      Double!
-    var _longitude:     Double!
-    var _year_filters:  [String]!
-    var _school_filters: [String]!
 
-    init(creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
-        _event_id      = "NULL"
-        _user_id       = deviceID
-        _creator_email = creator_email
-        _title         = title
-        _address       = address
-        _description   = description
-        _start         = start
-        _end           = end
-        _attendees     = attendees
-        _expectedAttendees = expectedAttendees
-        _latitude      = latitude
-        _longitude     = longitude
-        _year_filters  = year_filters
-        _school_filters = school_filters
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
-    override init(){
-        _event_id      = "NULL"
-        _user_id       = deviceID
-        _creator_email = "NULL"
-        _title         = "NULL"
-        _address       = "NULL"
-        _description   = "NULL"
-        _start         = DateComponents()
-        _end           = DateComponents()
-        _attendees     = ["NULL"]
-        _expectedAttendees = 0
-        _latitude      = 0.0
-        _longitude     = 0.0
-        _year_filters  = ["NULL"]
-        _school_filters = ["NULL"]
-
-    }
-
-    func setDate(start: DateComponents, end: DateComponents){
-        _start = start
-        _end   = end
-    }
-
-    func userEventToQueryObj() -> EventTable{
-        let qObj:EventTable = EventTable()
-
-        //TODO
-        //qObj._event_id = _event_id
-        qObj._userId = _user_id
-        qObj._userEmail = _creator_email
-        qObj._title = _title
-        qObj._address = _address
-        qObj._description = _description
-        qObj._startTime = dateComponenetsToString(dateIn: _start)
-        qObj._endTime = dateComponenetsToString(dateIn: _end)
-        qObj._expectedAttendence = ["NULL"]
-        qObj._latitude = _latitude as NSNumber
-        qObj._longitude = _longitude as NSNumber
-        qObj._school = "NULL"
-        qObj._year = 0 as NSNumber
-
-        qObj._eventType = "NULL"
-
-        return qObj
-
-    }
-/*:
-     function converts a DateComponents object to a string. function makes sure
-     that nil cannot be returned as AWS Dynamo DB cannot process nil
- */
-    func dateComponenetsToString(dateIn: DateComponents) -> String{
-        let formatter = DateComponentsFormatter()
-
-        formatter.allowedUnits = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.weekOfMonth ,NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second]
-
-        let dateString = formatter.string(from: dateIn)
-        if(dateString == nil){
-            return ""
-        }
-        return dateString!
-    }
-
-    func queryObjToUserEvent(qObj:EventTable) {
-
-        _user_id = qObj._userId
-        _creator_email = qObj._userEmail
-        _title = qObj._title
-        _address = qObj._address
-        _description = qObj._description
-        //        usrEvnt._start = qObj._startTime
-        //        usrEvnt._end = qObj._endTime
-        //        usrEvnt._expectedAttendees = qObj._expectedAttendence
-        //        usrEvnt._latitude = qObj._latitude
-        //        usrEvnt._longitude = qObj._longitude
-        //        usrEvnt._school_filters = qObj._school
-        //        usrEvnt._year_filters = qObj._year
-        //        usrEvnt._eventType = qObj.EventType
-
-    }
-
-
-    func setLocation(latitude: Double, longitude: Double){
-        _latitude  = latitude
-        _longitude = longitude
-    }
-
-    func getStrHashValue() -> String {
-        return String(hashValue)
-    }
-
-    override var hash: Int {
-        let hashStr = _title + _user_id
-        return hashStr.hashValue
-    }
-
-    override var description: String {
-        return "{ event: \(_event_id!)\n  user: \(_user_id!)\n  creator email: \(_creator_email!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(DateComponentsFormatter().string(from: _start)!)\n  end time: \(DateComponentsFormatter().string(from: _end)!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year_filters.joined(separator: ","))\n  school filters\(_school_filters.joined(separator: ","))"
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
