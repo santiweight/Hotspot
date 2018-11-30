@@ -17,7 +17,11 @@ import AWSDynamoDB
 }
 
 class CreateEventViewController: UIViewController {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
     let localCalendar = Calendar.init(identifier: .gregorian)
     let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
     
@@ -29,11 +33,12 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var expectedPeople: UITextField!
     
-    @IBOutlet weak var selectSchool: UILabel!
+    var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
+<<<<<<< HEAD
     @IBOutlet weak var pickerLabel: UILabel!
     @IBOutlet weak var endPickerLabel: UILabel!
     
@@ -43,52 +48,66 @@ class CreateEventViewController: UIViewController {
     
 
 
+=======
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
     
     var db = DatabaseController()
     var geocoder = Geocoder()
  
     @IBAction func cmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "CMC"}
             sender.isSelected = false
         }
         else{
+            selectSchool.append("CMC")
             sender.isSelected = true
         }
     }
 
     @IBAction func poCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "POM"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("POM")
+                sender.isSelected = true
         }
     }
     
     @IBAction func scrCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "SCR"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("SCR")
+                sender.isSelected = true
         }
     }
  
     @IBAction func hmcCheckTapped(_ sender: UIButton) {
-    if sender.isSelected{
+        if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "HMC"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("HMC")
+                sender.isSelected = true
         }
     }
     
     @IBAction func pzCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
+            selectSchool = selectSchool.filter {$0 != "PIZ"}
             sender.isSelected = false
         }
         else{
-            sender.isSelected = true
+            selectSchool.append("PIZ")
+                sender.isSelected = true
         }
     }
     
@@ -99,6 +118,7 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+<<<<<<< HEAD
 
         setPickers()
     }
@@ -112,7 +132,22 @@ class CreateEventViewController: UIViewController {
         endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
         
 
+=======
+        setPickers()
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
     }
+    
+    func setPickers() {
+        let currentTime = Date.init()
+        
+        startPicker.minimumDate = currentTime
+        startPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+        
+        endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
+        endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+        
+    }
+
     
     func getDateString(pickerData: UIDatePicker) -> String{
         //get day/month/year info from picker
@@ -149,6 +184,7 @@ class CreateEventViewController: UIViewController {
                     let latitude = responseObject!.latitude!
                     let longitude = responseObject!.longitude!
                     
+<<<<<<< HEAD
 
                     let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
                     let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
@@ -157,6 +193,16 @@ class CreateEventViewController: UIViewController {
 
 
         
+=======
+                    let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
+                    let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
+                    
+                    
+//                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: filters, school_filters: ["CMC"])
+                    
+
+                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: self.selectSchool, school_filters: ["CMC"])
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
 
 
                     
@@ -182,7 +228,30 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
+    
+    func checkDatesValid(start: DateComponents, end: DateComponents) -> Bool{
+        let startDate = localCalendar.date(from: start)
+        let endDate = localCalendar.date(from: end)
+        let dateComp = localCalendar.compare(startDate!, to: endDate!, toGranularity: Calendar.Component.minute)
+        
+        if (dateComp == ComparisonResult.orderedAscending){
+            return true
+        } else if (dateComp == ComparisonResult.orderedSame){
+            let sameTimeAlert = UIAlertController(title: "Date Picker Error", message: "An event's start and end time must be different", preferredStyle: .alert)
+            sameTimeAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(sameTimeAlert, animated: true)
+            return false
+        } else if (dateComp == ComparisonResult.orderedAscending) {
+            let endDateFirstAlert = UIAlertController(title: "Date Picker Error", message: "An event's start time must come before its end time", preferredStyle: .alert)
+            endDateFirstAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            self.present(endDateFirstAlert, animated: true)
+            return false
+        }
+        return false
+    }
 }
+
+
 
 // Put this piece of code anywhere you like
 extension UIViewController {

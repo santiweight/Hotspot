@@ -19,6 +19,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 //    var time:[String]!
 //    var id2:[String]!
     
+    
+    
     @IBOutlet var mapView: MKMapView!
     
     func getEvents(indexType: String, indexVal: String){
@@ -45,6 +47,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     userEvent._longitude = event._longitude as? Double
                     
                     self.addEventToMap(newEvent: userEvent)
+                
                 }
             }
             return nil
@@ -53,9 +56,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     
     override func viewDidLoad() {
-        // call get events to querey and plot all of the events
-        getEvents(indexType: "ALL", indexVal: "ALL")
-        
         super.viewDidLoad()
         
         self.mapView.delegate = self
@@ -65,6 +65,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // set the claremont region to the map
         self.mapView.setRegion(region, animated: true)
+        
+        // call get events to query and add each event in DB to the map
+        getEvents(indexType: "ALL", indexVal: "ALL")
+        
     }
     
     func addEventToMap(newEvent: Event){
@@ -117,27 +121,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     {
         // get data from view controller
         var name: String
-        var id2: String
-        var address: String
         var time: String
         let ccv = sender.superview as! CustomCalloutView
         
-        id2 = ccv.eventID.text!
         name = ccv.eventName.text!
-        address = ccv.eventAddress.text!
         time = ccv.eventTime.text!
         
-        //print("clicked: " + name)
         
         // instantiate a version of the eventVC
         let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         
         // pass data from mapVC to eventVC
         eventViewController.name = name
-        eventViewController.id2 = id2
-        eventViewController.address = address
         eventViewController.time = time
-        eventViewController.host = (UserDefaults.standard.object(forKey: "sessionEmail") as? String)!
+
         
         // Switch over to the eventVC
         self.present(eventViewController, animated: true, completion: nil)

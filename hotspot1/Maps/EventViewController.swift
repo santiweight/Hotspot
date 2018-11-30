@@ -13,15 +13,8 @@ import AWSDynamoDB
 class EventViewController: UIViewController {
 
     var name = ""
-    var id2 = ""
-    
-    var address = ""
     var time = ""
-    var desc = ""
-    var host = ""
     
-    
-
     @IBOutlet weak var backButton: UIButton!
 
     
@@ -34,75 +27,60 @@ class EventViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hostLabel: UILabel!
     
-    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    var eventArr: Array<Event> = Array()
     
-    func eventIdQuery(eventTitle: String){
+    
+    func getEvents(indexType: String, indexVal: String){
         
-        let obejectMapper = AWSDynamoDBObjectMapper.default()
-        let queryExpression = AWSDynamoDBQueryExpression()
+        let scanExpression = AWSDynamoDBScanExpression()
+        scanExpression.limit = 50
+        let om = AWSDynamoDBObjectMapper.default()
         
-        queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
-        queryExpression.expressionAttributeNames = [
-            "#userId": "userId",
-            "#title": "title",
-        ]
+        if(indexType != "ALL"){
+            scanExpression.filterExpression = indexType + " = :val"
+            scanExpression.expressionAttributeValues = [":val": indexVal]
+        }
         
-        queryExpression.expressionAttributeValues = [
-            ":userId" : deviceID,
-            ":title" : eventTitle,
-        ]
-        
-        obejectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
-            {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
-                
-                if let error = error{
-                    print("Amazon DynamoDB Save Error: \(error)")
-                }
-                //DispatchQueue.main.async(execute: {
-                print("querying")
-                //got a response
-                if(response != nil){
-                    print("got a repsonse")
+        om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+            if let error = task.error as NSError? {
+                print("The request failed. Error: \(error)")
+            }
+            else if let paginatedOutput = task.result {
+                for event in paginatedOutput.items as! [EventTable] {
+                    let userEvent = Event()
+                    userEvent.queryObjToUserEvent(qObj: event)
                     
-                    if(response?.items.count == 0){
-                        print("count was 0")
-                        //then take our object and put it in DB?
-                    } else {
-                        //var eventList = []
-                        for item in (response?.items)!{
-                            //we found the objects we want
-                            if(item.value(forKey: "_userId") != nil){
-                                if let existingID = item.value(forKey: "_userId"){
-                                    print("item")
-                                    print(existingID)
-                                }
-                            }
-                        }
+                    userEvent._latitude = event._latitude as? Double
+                    userEvent._longitude = event._longitude as? Double
+                    
+                    // check if event is desired one, if so, call enterDate
+                    if(userEvent._title == self.name){
+                        self.enterData(event: userEvent)
                     }
                 }
-                //})
+            }
+            return nil
         })
+    }
+    
+    // this function simply sets label values to data from the specific event.
+    func enterData(event: Event){
+        DispatchQueue.main.async {
+            //code that caused error goes here
+            self.descLabel?.text = event._description
+            self.hostLabel?.text = event._creator_email
+            self.test?.text = event._title
+            self.idLabel?.text = String(describing: event._event_id)
+            self.addressLabel?.text = event._address
+        }
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        // attempting to set border around tittle of event
-        // test.layer.borderColor = UIColor.orange.cgColor
+        getEvents(indexType: "ALL", indexVal: "ALL")
         
-        
-        test?.text = name
-        idLabel?.text = id2
-        eventIdQuery(eventTitle: name)
-        // let event: Event = db.eventIdQuery(eventTitle: name)
-        
-        
-        // querery database for rest of info.
-        descLabel?.text = desc
-        addressLabel?.text = address
-        hostLabel?.text =  host
-        timeLabel?.text = time
     }
     
 
