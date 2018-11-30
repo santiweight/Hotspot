@@ -12,9 +12,7 @@ import AWSCore
 import AWSDynamoDB
 
 
-@objc protocol SSRadioButtonControllerDelegate {
-@objc func didSelectButton(selectedButton: UIButton?)
-}
+
 
 class CreateEventViewController: UIViewController {
 
@@ -154,11 +152,13 @@ class CreateEventViewController: UIViewController {
                     let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
                     let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
 
+                    var attendees : [String] = []
+                    attendees.append((UserDefaults.standard.object(forKey: "sessionEmail") as? String)!)
 
 //                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: filters, school_filters: ["CMC"])
 
 
-                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: self.selectSchool, school_filters: ["CMC"])
+                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: attendees, expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: ["2019"], school_filters: self.selectSchool)
 
 
 

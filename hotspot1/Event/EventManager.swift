@@ -5,7 +5,7 @@
 //  Created by cs121 on 11/28/18.
 //  Copyright © 2018 CS121. All rights reserved.
 //
-/*
+
 import UIKit
 import CoreLocation
 
@@ -87,4 +87,4 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
     }
     
 }
-*/
+
