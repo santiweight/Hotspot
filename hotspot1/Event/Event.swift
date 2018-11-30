@@ -28,8 +28,8 @@ class Event: Hashable{
     var _title:         String!
     var _address:       String!
     var _description:   String!
-    var _start:         DateComponents!
-    var _end:           DateComponents!
+    var _start:         String!
+    var _end:           String!
     var _attendees:     [String]!
     var _expectedAttendees: Int!
     var _latitude:      Double!
@@ -37,7 +37,7 @@ class Event: Hashable{
     var _year_filters:  [String]!
     var _school_filters: [String]!
     
-    init(creator_email: String, title: String, address: String, description: String, start: DateComponents, end: DateComponents, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
+    init(creator_email: String, title: String, address: String, description: String, start: String, end: String, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
         _event_id      = "NULL"
         _user_id       = deviceID
         _creator_email = creator_email
@@ -61,8 +61,8 @@ class Event: Hashable{
         _title         = "NULL"
         _address       = "NULL"
         _description   = "NULL"
-        _start         = DateComponents()
-        _end           = DateComponents()
+        _start         = "NULL"
+        _end           = "NULL"
         _attendees     = ["NULL"]
         _expectedAttendees = 0
         _latitude      = 0.0
@@ -72,7 +72,7 @@ class Event: Hashable{
         
     }
     
-    func setDate(start: DateComponents, end: DateComponents){
+    func setDate(start: String, end: String){
         _start = start
         _end   = end
     }
@@ -87,8 +87,8 @@ class Event: Hashable{
         qObj._title = _title
         qObj._address = _address
         qObj._description = _description
-        qObj._startTime = dateComponenetsToString(dateIn: _start)
-        qObj._endTime = dateComponenetsToString(dateIn: _end)
+        qObj._startTime = _start
+        qObj._endTime = _end
         qObj._expectedAttendence = ["NULL"]
         qObj._latitude = _latitude as NSNumber
         qObj._longitude = _longitude as NSNumber

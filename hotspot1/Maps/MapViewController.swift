@@ -84,18 +84,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             point.id2 = String(describing: newEvent._event_id)
             
             // convert component to date
-            let sDate = calendar.date(from: newEvent._start)
-            let eDate = calendar.date(from: newEvent._end)
+            let sDate = newEvent._start!
+            let eDate = newEvent._end!
             
-            let dateFormatter = DateFormatter()
-            
-            dateFormatter.dateFormat = "dd/MM H:mm"
-            
-            // convert date to string
-            let sString = dateFormatter.string(from: sDate!)
-            let eString = dateFormatter.string(from: eDate!)
-            
-            point.time = eString + " - " + sString
+            point.time = sDate + " - " + eDate
             
             // add the point to the map
             self.mapView.addAnnotation(point)

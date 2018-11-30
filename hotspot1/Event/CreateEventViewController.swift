@@ -89,28 +89,7 @@ class CreateEventViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
-    func getDateString(pickerData: UIDatePicker) -> String{
-        //get day/month/year info from picker
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, YYYY"
-        let dateString = dateFormatter.string(from: pickerData.date)
-        
-        //get time info from picker
-        let calendar = Calendar.current
-        let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
-        let hour = comp.hour
-        let minute = comp.minute
-        let timeString = "\(hour!):\(minute!),"
-        
-        let completeString = "\(timeString) \(dateString)"
-        
-        print(completeString)
-        return completeString
-    }
-    
     @IBAction func submit(_ sender: Any) {
-        getDateString(pickerData: pickerData)
-        getDateString(pickerData: endPickerData)
         geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
@@ -121,20 +100,19 @@ class CreateEventViewController: UIViewController {
                     }))
                 addressConfirmAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
                         action in
-                    
-                    let latitude = responseObject!.latitude!
-                    let longitude = responseObject!.longitude!
-                    
-                    let startComponents = DateComponents()
-
-                    
-                    let endComponents = DateComponents()
-
-                    
-
-                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
-
-
+                    let newEvent = Event(
+                        creator_email: "zackrossman10@gmail.com",
+                        title: self.eventTitle.text!,
+                        address: formattedAddress,
+                        description: self.eventDescription.text!,
+                        start: getDateString(pickerData: self.pickerData),
+                        end: getDateString(pickerData: self.endPickerData),
+                        attendees: ["zackrossman10@gmail.com"],
+                        expectedAttendees: 5,
+                        latitude: responseObject!.latitude!,
+                        longitude: responseObject!.longitude!,
+                        year_filters: ["CMC"],
+                        school_filters: ["CMC"])
                     
                     print("New event created")
                     //insert into db
@@ -158,6 +136,26 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
+}
+
+//get date info as a string from date picker
+func getDateString(pickerData: UIDatePicker) -> String{
+    //get day/month/year info from picker
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMM dd, YYYY"
+    let dateString = dateFormatter.string(from: pickerData.date)
+    
+    //get time info from picker
+    let calendar = Calendar.current
+    let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
+    let hour = comp.hour
+    let minute = comp.minute
+    let timeString = "\(hour!):\(minute!),"
+    
+    let completeString = "\(timeString) \(dateString)"
+    
+    print(completeString)
+    return completeString
 }
 
 // Put this piece of code anywhere you like
