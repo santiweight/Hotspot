@@ -17,7 +17,11 @@ import AWSDynamoDB
 }
 
 class CreateEventViewController: UIViewController {
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
     let localCalendar = Calendar.init(identifier: .gregorian)
     let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
     
@@ -34,8 +38,20 @@ class CreateEventViewController: UIViewController {
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
+<<<<<<< HEAD
+    @IBOutlet weak var pickerLabel: UILabel!
+    @IBOutlet weak var endPickerLabel: UILabel!
+    
+
     @IBOutlet weak var startPicker: UIDatePicker!
     @IBOutlet weak var endPicker: UIDatePicker!
+    
+
+
+=======
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
     
     var db = DatabaseController()
     var geocoder = Geocoder()
@@ -102,7 +118,23 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+<<<<<<< HEAD
+
         setPickers()
+    }
+    func setPickers() {
+        let currentTime = Date.init()
+        
+        startPicker.minimumDate = currentTime
+        startPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+        
+        endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
+        endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
+        
+
+=======
+        setPickers()
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
     }
     
     func setPickers() {
@@ -134,6 +166,7 @@ class CreateEventViewController: UIViewController {
         
         print(completeString)
         return completeString
+
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -151,6 +184,16 @@ class CreateEventViewController: UIViewController {
                     let latitude = responseObject!.latitude!
                     let longitude = responseObject!.longitude!
                     
+<<<<<<< HEAD
+
+                    let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
+                    let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
+                    
+                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text, address: formattedAddress, description: self.eventDescription.text, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text], school_filters: ["CMC"])
+
+
+        
+=======
                     let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
                     let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
                     
@@ -159,6 +202,7 @@ class CreateEventViewController: UIViewController {
                     
 
                     let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: self.selectSchool, school_filters: ["CMC"])
+>>>>>>> 332fe09322e37b3b9290e1dadfc7fda7d7313bb2
 
 
                     
@@ -178,7 +222,7 @@ class CreateEventViewController: UIViewController {
                 self.present(addressConfirmAlert, animated: true)
             }else{
                 print("Response obj is nil")
-                let badAddressAlert = UIAlertController(title: "Address Not Found", message: "Please enter the approximate address for your event", preferredStyle: .alert)
+                let badAddressAlert = UIAlertController(title: "Address Not Found", message: "Please enter the approximate address for your eent", preferredStyle: .alert)
                 badAddressAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 self.present(badAddressAlert, animated: true)
             }
