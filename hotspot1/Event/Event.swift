@@ -10,7 +10,7 @@ import UIKit
 import AWSCore
 import AWSDynamoDB
 
-class Event: Hashable{
+class Event: NSObject{
     
     let deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
@@ -54,7 +54,7 @@ class Event: Hashable{
         _school_filters = school_filters
     }
     
-    init(){
+    override init(){
         _event_id      = "NULL"
         _user_id       = deviceID
         _creator_email = "NULL"
@@ -142,11 +142,14 @@ class Event: Hashable{
     
     func getStrHashValue() -> String {
         return String(hashValue)
-        
     }
     
-    var hashValue: Int {
+    override var hash: Int {
         let hashStr = _title + _user_id
         return hashStr.hashValue
+    }
+    
+    override var description: String {
+        return "{ event: \(_event_id!)\n  user: \(_user_id!)\n  creator email: \(_creator_email!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(DateComponentsFormatter().string(from: _start)!)\n  end time: \(DateComponentsFormatter().string(from: _end)!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year_filters.joined(separator: ","))\n  school filters\(_school_filters.joined(separator: ","))"
     }
 }
