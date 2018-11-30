@@ -34,8 +34,6 @@ class CreateEventViewController: UIViewController {
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
-<<<<<<< HEAD
-
     @IBOutlet weak var pickerLabel: UILabel!
     @IBOutlet weak var endPickerLabel: UILabel!
     
@@ -43,10 +41,8 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var startPicker: UIDatePicker!
     @IBOutlet weak var endPicker: UIDatePicker!
     
-=======
-    @IBOutlet weak var pickerData: UIDatePicker!
-    @IBOutlet weak var endPickerData: UIDatePicker!
->>>>>>> 62b784f5d749baa8c92e3b5109668502653a98a6
+
+
     
     var db = DatabaseController()
     var geocoder = Geocoder()
@@ -103,10 +99,9 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-<<<<<<< HEAD
+
         setPickers()
     }
-    
     func setPickers() {
         let currentTime = Date.init()
         
@@ -116,7 +111,7 @@ class CreateEventViewController: UIViewController {
         endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
         endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
         
-=======
+
     }
     
     func getDateString(pickerData: UIDatePicker) -> String{
@@ -136,12 +131,10 @@ class CreateEventViewController: UIViewController {
         
         print(completeString)
         return completeString
->>>>>>> 62b784f5d749baa8c92e3b5109668502653a98a6
+
     }
     
     @IBAction func submit(_ sender: Any) {
-        getDateString(pickerData: pickerData)
-        getDateString(pickerData: endPickerData)
         geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
@@ -156,23 +149,15 @@ class CreateEventViewController: UIViewController {
                     let latitude = responseObject!.latitude!
                     let longitude = responseObject!.longitude!
                     
-<<<<<<< HEAD
+
                     let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
                     let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
-
                     
-                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
-=======
-                    let startComponents = DateComponents()
+                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text, address: formattedAddress, description: self.eventDescription.text, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text], school_filters: ["CMC"])
 
-                    
-                    let endComponents = DateComponents()
 
-                    
+        
 
-                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startComponents, end: endComponents, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: [self.selectSchool.text!], school_filters: ["CMC"])
-
->>>>>>> 62b784f5d749baa8c92e3b5109668502653a98a6
 
                     
                     print("New event created")
@@ -191,7 +176,7 @@ class CreateEventViewController: UIViewController {
                 self.present(addressConfirmAlert, animated: true)
             }else{
                 print("Response obj is nil")
-                let badAddressAlert = UIAlertController(title: "Address Not Found", message: "Please enter the approximate address for your event", preferredStyle: .alert)
+                let badAddressAlert = UIAlertController(title: "Address Not Found", message: "Please enter the approximate address for your eent", preferredStyle: .alert)
                 badAddressAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                 self.present(badAddressAlert, animated: true)
             }

@@ -37,18 +37,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-<<<<<<< HEAD
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="Losses" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eZl-KM-095">
-                                <rect key="frame" x="135" y="224" width="224" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Address:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLL-Zy-FDE">
-                                <rect key="frame" x="11" y="116" width="109" height="18"/>
-=======
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Event Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLL-Zy-FDE">
                                 <rect key="frame" x="11" y="116" width="99" height="18"/>
->>>>>>> 62b784f5d749baa8c92e3b5109668502653a98a6
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -106,8 +96,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-<<<<<<< HEAD
-=======
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qu-qh-wgp">
                                 <rect key="frame" x="163" y="587" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -119,7 +107,6 @@
                                     <action selector="submit:" destination="0s2-sK-SLE" eventType="touchUpInside" id="DFA-cY-GlP"/>
                                 </connections>
                             </button>
->>>>>>> 62b784f5d749baa8c92e3b5109668502653a98a6
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvc-bG-OEQ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -276,23 +263,12 @@
                     </view>
                     <connections>
                         <outlet property="detailLabel" destination="mvc-bG-OEQ" id="XKX-wv-IyA"/>
-<<<<<<< HEAD
-                        <outlet property="endPicker" destination="ZT9-c2-vpL" id="s5a-kT-yHX"/>
-                        <outlet property="endPickerLabel" destination="syG-Rk-VyV" id="vgH-27-d0c"/>
-                        <outlet property="eventAddress" destination="xKk-Wd-RZL" id="jht-4F-533"/>
-                        <outlet property="eventDescription" destination="ypO-cj-gyL" id="7p5-Y4-0U6"/>
-                        <outlet property="eventTitle" destination="8fI-GV-IBB" id="azP-Ad-tme"/>
-                        <outlet property="pickerLabel" destination="bqy-nP-MB1" id="Mab-Py-CD0"/>
-                        <outlet property="selectSchool" destination="Goy-75-LXl" id="Sih-YM-Zo7"/>
-                        <outlet property="startPicker" destination="3Ar-FB-80d" id="ycg-tj-pnS"/>
-=======
                         <outlet property="endPickerData" destination="ZT9-c2-vpL" id="afB-mm-GJz"/>
                         <outlet property="eventAddress" destination="xKk-Wd-RZL" id="jht-4F-533"/>
                         <outlet property="eventDescription" destination="ypO-cj-gyL" id="7p5-Y4-0U6"/>
                         <outlet property="eventTitle" destination="8fI-GV-IBB" id="azP-Ad-tme"/>
                         <outlet property="expectedPeople" destination="0Jb-6J-XYh" id="cbJ-Dm-yWO"/>
                         <outlet property="pickerData" destination="3Ar-FB-80d" id="XSf-uY-I0g"/>
->>>>>>> 62b784f5d749baa8c92e3b5109668502653a98a6
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyq-l0-xX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
