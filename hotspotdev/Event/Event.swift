@@ -24,6 +24,7 @@ class Event: NSObject{
     var _user_id: String!
     var _event_id: String!
     var _address: String!
+    var _atEvent: [String]!
     var _attendees: [String]!
     var _description: String!
     var _endTime: String!
@@ -36,11 +37,12 @@ class Event: NSObject{
     var _userEmail: String!
     var _year: Int!
     
-    init(user_id: String, event_id: String, address: String, attendees: [String], description: String, endTime: String, startTime: String, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
+    init(user_id: String, event_id: String, address: String, atEvent[String], attendees: [String], description: String, endTime: String, startTime: String, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
         
         _user_id = user_id
         _event_id = event_id
         _address = address
+        _atEvent = _atEvent
         _attendees = attendees
         _description = description
         _endTime = endTime
@@ -58,6 +60,7 @@ class Event: NSObject{
         _user_id = "NULL"
         _event_id = "NULL"
         _address = "NULL"
+        _atEvent = ["NULL"]
         _attendees = ["NULL"]
         _description = "NULL"
         _endTime = "NULL"
@@ -82,6 +85,7 @@ class Event: NSObject{
         qObj._userId = _user_id
         qObj._eventId = _event_id
         qObj._address = _address
+        qObj._atEvent = _atEvent
         qObj._attendees = _attendees
         qObj._description = _description
         qObj._endTime = _endTime
@@ -118,6 +122,7 @@ class Event: NSObject{
         _user_id = qObj._userId
         _event_id = qObj._eventId
         _address = qObj._address
+        _atEvent = qObj._atEvent
         _attendees = qObj._attendees
         _description = qObj._description
         _endTime = qObj._endTime
@@ -147,6 +152,6 @@ class Event: NSObject{
     }
     
     override var description: String {
-        return "{ event: \(_event_id)\n  user: \(_user_id!)\n  creator email: \(_userEmail!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(_startTime!)\n  end time: \(_endTime!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year))\n  school filters\(_school)"
+        return "{ event: \(_event_id)\n  user: \(_user_id!)\n  creator email: \(_userEmail!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(_startTime!)\n  end time: \(_endTime!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year))\n  school filters\(_school)\n at Event: \(_atEvent)"
     }
 }

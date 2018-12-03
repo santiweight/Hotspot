@@ -15,12 +15,12 @@ import Foundation
 import UIKit
 import AWSDynamoDB
 
-@objcMembers
 class EventTable2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     var _userId: String?
     var _eventId: String?
     var _address: String?
+    var _atEvent: [String]?
     var _attendees: [String]?
     var _description: String?
     var _endTime: String?
@@ -53,6 +53,7 @@ class EventTable2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
                "_userId" : "userId",
                "_eventId" : "eventId",
                "_address" : "address",
+               "_atEvent" : "atEvent",
                "_attendees" : "attendees",
                "_description" : "description",
                "_endTime" : "endTime",
