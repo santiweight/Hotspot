@@ -14,8 +14,54 @@ class DatabaseController {
     
 //    var MVController = MapViewController()
     
-    func atEvent(eventID: Int, attendee: String) {
-        //TODO
+    func atEvent(event: Event, attendee: String) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
+        queryExpression.expressionAttributeNames = [
+            "#userId": "userId",
+            "#title": "title",
+        ]
+        
+        queryExpression.expressionAttributeValues = [
+            ":userId" : event._user_id,
+            ":title" : event._title,
+        ]
+        
+        objectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
+            {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
+                if let error = error{
+                    print("Amazon DynamoDB Save Error: \(error)")
+                }
+                
+                if(response != nil){
+                    print("got a repsonse")
+                    
+                    if(response?.items.count != 1){
+                        print("ERROR: got multiple events")
+                        //then take our object and put it in DB?
+                    } else {
+                        //var eventList = []
+                        for item in (response?.items)! as! [EventTable]{
+                            item._expectedAttendence?.append(attendee)
+                            self.updateEvent(event: item)
+                        }
+                    }
+                }
+        })
+    }
+    
+    func updateEvent(event: EventTable){
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        
+        objectMapper.save(event, completionHandler: {(error: Error?) -> Void in
+            if let error = error {
+                print(" Amazon DynamoDB Save Error: \(error)")
+                return
+            }
+            print("An item was updated.")
+        })
     }
     
     func attendEvent(event: Event, attendee: String) {
@@ -27,7 +73,7 @@ class DatabaseController {
 
     func eventIdQuery(eventTitle: String){
         
-        let obejectMapper = AWSDynamoDBObjectMapper.default()
+        let objectMapper = AWSDynamoDBObjectMapper.default()
         let queryExpression = AWSDynamoDBQueryExpression()
         
         queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
@@ -41,7 +87,7 @@ class DatabaseController {
             ":title" : eventTitle,
         ]
         
-        obejectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
+        objectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
             {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
                 
                 if let error = error{
@@ -58,20 +104,12 @@ class DatabaseController {
                         //then take our object and put it in DB?
                     } else {
                         //var eventList = []
-                        for item in (response?.items)!{
-                            //we found the objects we want
-                            if(item.value(forKey: "_userId") != nil){
-                                
-                                if let existingID = item.value(forKey: "_userId"){
-                                    print("item")
-                                    print(existingID)
-                                }
-                            }
+                        for item in (response?.items)! as! [EventTable]{
+                            print(eventTitle)
                         }
                     }
                 }
-                //})
-        })
+            })
     }
 
     func getEvents(indexType: String, indexVal: String){
