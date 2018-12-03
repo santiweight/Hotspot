@@ -130,6 +130,7 @@ class CreateEventViewController: UIViewController {
                     user_id: self.deviceID,
                     event_id: "NULL",
                     address: formattedAddress,
+                    atEvent: ["NULL"],
                     attendees: ["zackrossman10@gmail.com"],
                     description: self.eventDescription.text!,
                     endTime: getDateString(pickerData: self.endPicker),

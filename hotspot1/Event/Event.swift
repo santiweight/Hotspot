@@ -37,12 +37,12 @@ class Event: NSObject{
     var _userEmail: String!
     var _year: Int!
     
-    init(user_id: String, event_id: String, address: String, atEvent[String], attendees: [String], description: String, endTime: String, startTime: String, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
+    init(user_id: String, event_id: String, address: String, atEvent: [String], attendees: [String], description: String, endTime: String, startTime: String, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
         
         _user_id = user_id
         _event_id = event_id
         _address = address
-        _atEvent = _atEvent
+        _atEvent = atEvent
         _attendees = attendees
         _description = description
         _endTime = endTime
