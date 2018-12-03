@@ -41,12 +41,12 @@ class EventViewController: UIViewController {
             scanExpression.expressionAttributeValues = [":val": indexVal]
         }
         
-        om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+        om.scan(EventTable2.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
             if let error = task.error as NSError? {
                 print("The request failed. Error: \(error)")
             }
             else if let paginatedOutput = task.result {
-                for event in paginatedOutput.items as! [EventTable] {
+                for event in paginatedOutput.items as! [EventTable2] {
                     let userEvent = Event()
                     userEvent.queryObjToUserEvent(qObj: event)
                     
@@ -68,7 +68,7 @@ class EventViewController: UIViewController {
         DispatchQueue.main.async {
             //code that caused error goes here
             self.descLabel?.text = event._description
-            self.hostLabel?.text = event._creator_email
+            self.hostLabel?.text = event._userEmail
             self.test?.text = event._title
             self.idLabel?.text = String(describing: event._event_id)
             self.addressLabel?.text = event._address

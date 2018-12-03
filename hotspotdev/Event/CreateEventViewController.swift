@@ -127,18 +127,20 @@ class CreateEventViewController: UIViewController {
                 addressConfirmAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
                         action in
                     let newEvent = Event(
-                        creator_email: "zackrossman10@gmail.com",
-                        title: self.eventTitle.text!,
-                        address: formattedAddress,
-                        description: self.eventDescription.text!,
-                        start: getDateString(pickerData: self.startPicker),
-                        end: getDateString(pickerData: self.endPicker),
-                        attendees: ["zackrossman10@gmail.com"],
-                        expectedAttendees: 5,
-                        latitude: responseObject!.latitude!,
-                        longitude: responseObject!.longitude!,
-                        year_filters: ["CMC"],
-                        school_filters: ["CMC"])
+                    user_id: self.deviceID,
+                    event_id: "NULL",
+                    address: formattedAddress,
+                    attendees: ["zackrossman10@gmail.com"],
+                    description: self.eventDescription.text!,
+                    endTime: getDateString(pickerData: self.endPicker),
+                    startTime: getDateString(pickerData: self.startPicker),
+                    expectedAttencence: 5,
+                    latitude: responseObject!.latitude!,
+                    longitude: responseObject!.longitude!,
+                    school: "CMC",
+                    title: self.eventTitle.text!,
+                    userEmail: "zackrossman10@gmail.com",
+                    year: 0)
                     
                     print("New event created")
                     //insert into db

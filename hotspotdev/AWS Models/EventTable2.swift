@@ -16,7 +16,7 @@ import UIKit
 import AWSDynamoDB
 
 @objcMembers
-class EventTable: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
+class EventTable2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     var _userId: String?
     var _eventId: String?
