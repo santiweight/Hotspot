@@ -12,7 +12,7 @@
         <!--Create Event View Controller-->
         <scene sceneID="awL-hZ-U6N">
             <objects>
-                <viewController storyboardIdentifier="CreateEventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateEventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8J-P8-mks"/>
                         <viewControllerLayoutGuide type="bottom" id="k4I-Yg-C5C"/>
@@ -265,7 +265,7 @@
                         <outlet property="detailLabel" destination="mvc-bG-OEQ" id="XKX-wv-IyA"/>
                         <outlet property="endPicker" destination="ZT9-c2-vpL" id="eSh-X0-Xfe"/>
                         <outlet property="eventAddress" destination="xKk-Wd-RZL" id="jht-4F-533"/>
-                        <outlet property="eventDescription" destination="ypO-cj-gyL" id="7p5-Y4-0U6"/>
+                        <outlet property="eventDescription" destination="ypO-cj-gyL" id="QCr-qF-z0h"/>
                         <outlet property="eventTitle" destination="8fI-GV-IBB" id="azP-Ad-tme"/>
                         <outlet property="expectedPeople" destination="0Jb-6J-XYh" id="cbJ-Dm-yWO"/>
                         <outlet property="startPicker" destination="3Ar-FB-80d" id="Lkp-fj-FRY"/>
@@ -296,7 +296,7 @@
         <!--Choose Login Controller-->
         <scene sceneID="S4x-eh-dU6">
             <objects>
-                <viewController storyboardIdentifier="ChooseLoginController" id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseLoginController" id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vXW-yt-0XS"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6H-8R-wVS"/>
@@ -372,7 +372,7 @@
         <!--Register Controller-->
         <scene sceneID="O2B-bf-gS1">
             <objects>
-                <viewController storyboardIdentifier="RegisterController" id="YFD-hr-NxQ" customClass="RegisterController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterController" id="YFD-hr-NxQ" customClass="RegisterController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TbP-lB-uN3"/>
                         <viewControllerLayoutGuide type="bottom" id="MZK-bI-VKy"/>
@@ -507,7 +507,7 @@
         <!--Map View Controller-->
         <scene sceneID="2IW-MU-tXx">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="21Z-3q-jvL" customClass="MapViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="21Z-3q-jvL" customClass="MapViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QhS-N6-nMx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -555,7 +555,7 @@
         <!--Event View Controller-->
         <scene sceneID="9kd-Fi-YVI">
             <objects>
-                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oA5-ke-KLm" customClass="EventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oA5-ke-KLm" customClass="EventViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NOI-cy-SfX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

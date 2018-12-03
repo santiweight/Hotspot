@@ -16,6 +16,7 @@ import AWSDynamoDB
 
 class CreateEventViewController: UIViewController {
 
+    let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
     let localCalendar = Calendar.init(identifier: .gregorian)
     let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
 
@@ -116,7 +117,7 @@ class CreateEventViewController: UIViewController {
     }
 
     @IBAction func submit(_ sender: Any) {
-        geocoder.getLocation(address: eventAddress.text!){
+        geocoder.getLocation(address: eventAddress.text ?? ""){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
                 let formattedAddress = responseObject!.formattedAddress!
@@ -130,16 +131,17 @@ class CreateEventViewController: UIViewController {
                     user_id: self.deviceID,
                     event_id: "NULL",
                     address: formattedAddress,
+                    atEvent: [],
                     attendees: ["zackrossman10@gmail.com"],
-                    description: self.eventDescription.text!,
+                    description: self.eventDescription.text ?? "",
                     endTime: getDateString(pickerData: self.endPicker),
                     startTime: getDateString(pickerData: self.startPicker),
                     expectedAttencence: 5,
                     latitude: responseObject!.latitude!,
                     longitude: responseObject!.longitude!,
                     school: "CMC",
-                    title: self.eventTitle.text!,
-                    userEmail: "zackrossman10@gmail.com",
+                    title: self.eventTitle.text ?? "",
+                    userEmail: self.sessionEmail,
                     year: 0)
                     
                     print("New event created")
