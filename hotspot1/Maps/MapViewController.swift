@@ -34,12 +34,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             scanExpression.expressionAttributeValues = [":val": indexVal]
         }
         
-        om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+        om.scan(EventTable2.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
             if let error = task.error as NSError? {
                 print("The request failed. Error: \(error)")
             }
             else if let paginatedOutput = task.result {
-                for event in paginatedOutput.items as! [EventTable] {
+                for event in paginatedOutput.items as! [EventTable2] {
                     let userEvent = Event()
                     userEvent.queryObjToUserEvent(qObj: event)
                     
@@ -88,18 +88,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             point.id2 = String(describing: newEvent._event_id)
             
             // convert component to date
-            let sDate = calendar.date(from: newEvent._start)
-            let eDate = calendar.date(from: newEvent._end)
+            let sDate = newEvent._startTime!
+            let eDate = newEvent._endTime!
             
-            let dateFormatter = DateFormatter()
-            
-            dateFormatter.dateFormat = "dd/MM H:mm"
-            
-            // convert date to string
-            let sString = dateFormatter.string(from: sDate!)
-            let eString = dateFormatter.string(from: eDate!)
-            
-            point.time = eString + " - " + sString
+            point.time = sDate + " - " + eDate
             
             // add the point to the map
             self.mapView.addAnnotation(point)

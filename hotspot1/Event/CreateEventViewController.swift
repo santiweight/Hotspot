@@ -12,34 +12,32 @@ import AWSCore
 import AWSDynamoDB
 
 
-@objc protocol SSRadioButtonControllerDelegate {
-@objc func didSelectButton(selectedButton: UIButton?)
-}
+
 
 class CreateEventViewController: UIViewController {
 
     let localCalendar = Calendar.init(identifier: .gregorian)
     let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
-    
+
     let YEAR = TimeInterval.init(31536000)
     let HOUR = TimeInterval.init(3600)
-    
+
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var expectedPeople: UITextField!
-    
+
     var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
-    
+
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-    
+
     @IBOutlet weak var startPicker: UIDatePicker!
     @IBOutlet weak var endPicker: UIDatePicker!
-    
+
     var db = DatabaseController()
     var geocoder = Geocoder()
- 
+
     @IBAction func cmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
             selectSchool = selectSchool.filter {$0 != "CMC"}
@@ -61,7 +59,7 @@ class CreateEventViewController: UIViewController {
                 sender.isSelected = true
         }
     }
-    
+
     @IBAction func scrCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
             selectSchool = selectSchool.filter {$0 != "SCR"}
@@ -72,7 +70,7 @@ class CreateEventViewController: UIViewController {
                 sender.isSelected = true
         }
     }
- 
+
     @IBAction func hmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
             selectSchool = selectSchool.filter {$0 != "HMC"}
@@ -83,7 +81,7 @@ class CreateEventViewController: UIViewController {
                 sender.isSelected = true
         }
     }
-    
+
     @IBAction func pzCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
             selectSchool = selectSchool.filter {$0 != "PIZ"}
@@ -94,48 +92,29 @@ class CreateEventViewController: UIViewController {
                 sender.isSelected = true
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         setPickers()
     }
-    
+
+
     func setPickers() {
         let currentTime = Date.init()
-        
+
         startPicker.minimumDate = currentTime
         startPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
-        
+
         endPicker.minimumDate = currentTime.addingTimeInterval(HOUR)
         endPicker.maximumDate = currentTime.addingTimeInterval(YEAR)
-        
+
     }
 
-    
-    func getDateString(pickerData: UIDatePicker) -> String{
-        //get day/month/year info from picker
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM dd, YYYY"
-        let dateString = dateFormatter.string(from: pickerData.date)
-        
-        //get time info from picker
-        let calendar = Calendar.current
-        let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
-        let hour = comp.hour
-        let minute = comp.minute
-        let timeString = "\(hour!):\(minute!),"
-        
-        let completeString = "\(timeString) \(dateString)"
-        
-        print(completeString)
-        return completeString
-    }
-    
     @IBAction func submit(_ sender: Any) {
         geocoder.getLocation(address: eventAddress.text!){
             responseObject, error in
@@ -147,20 +126,22 @@ class CreateEventViewController: UIViewController {
                     }))
                 addressConfirmAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
                         action in
-                    
-                    let latitude = responseObject!.latitude!
-                    let longitude = responseObject!.longitude!
-                    
-                    let startDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.startPicker.date)
-                    let endDateComps = self.localCalendar.dateComponents(_: self.calComponents, from: self.endPicker.date)
-                    
-                    
-//                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: filters, school_filters: ["CMC"])
-                    
-
-                    let newEvent = Event(creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: self.selectSchool, school_filters: ["CMC"])
-
-
+                    let newEvent = Event(
+                    user_id: self.deviceID,
+                    event_id: "NULL",
+                    address: formattedAddress,
+                    atEvent: ["NULL"],
+                    attendees: ["zackrossman10@gmail.com"],
+                    description: self.eventDescription.text!,
+                    endTime: getDateString(pickerData: self.endPicker),
+                    startTime: getDateString(pickerData: self.startPicker),
+                    expectedAttencence: 5,
+                    latitude: responseObject!.latitude!,
+                    longitude: responseObject!.longitude!,
+                    school: "CMC",
+                    title: self.eventTitle.text!,
+                    userEmail: "zackrossman10@gmail.com",
+                    year: 0)
                     
                     print("New event created")
                     //insert into db
@@ -174,7 +155,7 @@ class CreateEventViewController: UIViewController {
                     }))
                     self.present(uploadConfirmAlert, animated: true)
                 }))
-                
+
                 self.present(addressConfirmAlert, animated: true)
             }else{
                 print("Response obj is nil")
@@ -184,12 +165,12 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
-    
+
     func checkDatesValid(start: DateComponents, end: DateComponents) -> Bool{
         let startDate = localCalendar.date(from: start)
         let endDate = localCalendar.date(from: end)
         let dateComp = localCalendar.compare(startDate!, to: endDate!, toGranularity: Calendar.Component.minute)
-        
+
         if (dateComp == ComparisonResult.orderedAscending){
             return true
         } else if (dateComp == ComparisonResult.orderedSame){
@@ -207,7 +188,25 @@ class CreateEventViewController: UIViewController {
     }
 }
 
-
+//get date info as a string from date picker
+func getDateString(pickerData: UIDatePicker) -> String{
+    //get day/month/year info from picker
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMM dd, YYYY"
+    let dateString = dateFormatter.string(from: pickerData.date)
+    
+    //get time info from picker
+    let calendar = Calendar.current
+    let comp = calendar.dateComponents([.hour, .minute], from: pickerData.date)
+    let hour = comp.hour
+    let minute = comp.minute
+    let timeString = "\(hour!):\(minute!),"
+    
+    let completeString = "\(timeString) \(dateString)"
+    
+    print(completeString)
+    return completeString
+}
 
 // Put this piece of code anywhere you like
 extension UIViewController {
@@ -216,9 +215,8 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
-
