@@ -29,7 +29,7 @@ class DatabaseController {
             ":title" : event._title,
         ]
         
-        objectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
+        objectMapper.query(EventTable2.self, expression: queryExpression, completionHandler:
             {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
                 if let error = error{
                     print("Amazon DynamoDB Save Error: \(error)")
@@ -43,8 +43,8 @@ class DatabaseController {
                         //then take our object and put it in DB?
                     } else {
                         //var eventList = []
-                        for item in (response?.items)! as! [EventTable]{
-                            item._expectedAttendence?.append(attendee)
+                        for item in (response?.items)! as! [EventTable2]{
+                            item._attendees?.append(attendee)
                             self.updateEvent(event: item)
                         }
                     }
@@ -52,7 +52,7 @@ class DatabaseController {
         })
     }
     
-    func updateEvent(event: EventTable){
+    func updateEvent(event: EventTable2){
         let objectMapper = AWSDynamoDBObjectMapper.default()
         
         objectMapper.save(event, completionHandler: {(error: Error?) -> Void in
@@ -87,7 +87,7 @@ class DatabaseController {
             ":title" : eventTitle,
         ]
         
-        objectMapper.query(EventTable.self, expression: queryExpression, completionHandler:
+        objectMapper.query(EventTable2.self, expression: queryExpression, completionHandler:
             {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
                 
                 if let error = error{
@@ -104,7 +104,7 @@ class DatabaseController {
                         //then take our object and put it in DB?
                     } else {
                         //var eventList = []
-                        for item in (response?.items)! as! [EventTable]{
+                        for item in (response?.items)! as! [EventTable2]{
                             print(eventTitle)
                         }
                     }
@@ -123,12 +123,12 @@ class DatabaseController {
             scanExpression.expressionAttributeValues = [":val": indexVal]
         }
         
-        om.scan(EventTable.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+        om.scan(EventTable2.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
             if let error = task.error as NSError? {
                 print("The request failed. Error: \(error)")
             }
             else if let paginatedOutput = task.result {
-                for event in paginatedOutput.items as! [EventTable] {
+                for event in paginatedOutput.items as! [EventTable2] {
                     let userEvent = Event()
                     userEvent.queryObjToUserEvent(qObj: event)
                     print(event)
@@ -141,7 +141,7 @@ class DatabaseController {
     func updateEventDb(event: Event){
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
-        let itemToCreate:EventTable = event.userEventToQueryObj()
+        let itemToCreate:EventTable2 = event.userEventToQueryObj()
         event._event_id = event.getStrHashValue()
         
         objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in

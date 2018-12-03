@@ -15,86 +15,84 @@ class Event: NSObject{
     let deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     static func == (lhs: Event, rhs: Event) -> Bool {
-        if(lhs._event_id == rhs._event_id){
+        if(lhs._event_id == rhs._event_id && lhs._user_id == rhs._user_id){
             return true
         }
         return false
     }
     
-    var _event_id:      String!
-    var _user_id:       String!
-    var _creator_email: String!
-    var _title:         String!
-    var _address:       String!
-    var _description:   String!
-    var _start:         String!
-    var _end:           String!
-    var _attendees:     [String]!
-    var _expectedAttendees: Int!
-    var _latitude:      Double!
-    var _longitude:     Double!
-    var _year_filters:  [String]!
-    var _school_filters: [String]!
+    var _user_id: String!
+    var _event_id: String!
+    var _address: String!
+    var _attendees: [String]!
+    var _description: String!
+    var _endTime: String!
+    var _startTime: String!
+    var _expectedAttendence: Int!
+    var _latitude: Double!
+    var _longitude: Double!
+    var _school: String!
+    var _title: String!
+    var _userEmail: String!
+    var _year: Int!
     
-    init(creator_email: String, title: String, address: String, description: String, start: String, end: String, attendees: [String], expectedAttendees: Int, latitude: Double, longitude: Double, year_filters: [String], school_filters: [String]){
-        _event_id      = "NULL"
-        _user_id       = deviceID
-        _creator_email = creator_email
-        _title         = title
-        _address       = address
-        _description   = description
-        _start         = start
-        _end           = end
-        _attendees     = attendees
-        _expectedAttendees = expectedAttendees
-        _latitude      = latitude
-        _longitude     = longitude
-        _year_filters  = year_filters
-        _school_filters = school_filters
+    init(user_id: String, event_id: String, address: String, attendees: [String], description: String, endTime: String, startTime: String, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
+        
+        _user_id = user_id
+        _event_id = event_id
+        _address = address
+        _attendees = attendees
+        _description = description
+        _endTime = endTime
+        _startTime = startTime
+        _expectedAttendence = expectedAttencence
+        _latitude = latitude
+        _longitude = longitude
+        _school = school
+        _title = title
+        _userEmail = userEmail
+        _year = year
     }
     
     override init(){
-        _event_id      = "NULL"
-        _user_id       = deviceID
-        _creator_email = "NULL"
-        _title         = "NULL"
-        _address       = "NULL"
-        _description   = "NULL"
-        _start         = "NULL"
-        _end           = "NULL"
-        _attendees     = ["NULL"]
-        _expectedAttendees = 0
-        _latitude      = 0.0
-        _longitude     = 0.0
-        _year_filters  = ["NULL"]
-        _school_filters = ["NULL"]
-        
+        _user_id = "NULL"
+        _event_id = "NULL"
+        _address = "NULL"
+        _attendees = ["NULL"]
+        _description = "NULL"
+        _endTime = "NULL"
+        _startTime = "NULL"
+        _expectedAttendence = 0
+        _latitude = 0.0
+        _longitude = 0.0
+        _school = "NULL"
+        _title = "NULL"
+        _userEmail = "NULL"
+        _year = 0
     }
     
     func setDate(start: String, end: String){
-        _start = start
-        _end   = end
+        _startTime = start
+        _endTime = end
     }
     
-    func userEventToQueryObj() -> EventTable{
-        let qObj:EventTable = EventTable()
+    func userEventToQueryObj() -> EventTable2{
+        let qObj:EventTable2 = EventTable2()
         
-        //TODO
-        //qObj._event_id = _event_id
         qObj._userId = _user_id
-        qObj._userEmail = _creator_email
-        qObj._title = _title
+        qObj._eventId = _event_id
         qObj._address = _address
+        qObj._attendees = _attendees
         qObj._description = _description
-        qObj._startTime = _start
-        qObj._endTime = _end
-        qObj._expectedAttendence = ["NULL"]
+        qObj._endTime = _endTime
+        qObj._startTime = _startTime
+        qObj._expectedAttendence = _expectedAttendence as NSNumber
         qObj._latitude = _latitude as NSNumber
         qObj._longitude = _longitude as NSNumber
-        qObj._school = "NULL"
-        qObj._year = 0 as NSNumber
-        
-        qObj._eventType = "NULL"
+        qObj._school = _school
+        qObj._title = _title
+        qObj._userEmail = _userEmail
+        qObj._year = _year as NSNumber
         
         return qObj
         
@@ -115,22 +113,22 @@ class Event: NSObject{
         return dateString!
     }
     
-    func queryObjToUserEvent(qObj:EventTable) {
+    func queryObjToUserEvent(qObj:EventTable2) {
         
         _user_id = qObj._userId
-        _creator_email = qObj._userEmail
-        _title = qObj._title
+        _event_id = qObj._eventId
         _address = qObj._address
+        _attendees = qObj._attendees
         _description = qObj._description
-        //        usrEvnt._start = qObj._startTime
-        //        usrEvnt._end = qObj._endTime
-        //        usrEvnt._expectedAttendees = qObj._expectedAttendence
-        //        usrEvnt._latitude = qObj._latitude
-        //        usrEvnt._longitude = qObj._longitude
-        //        usrEvnt._school_filters = qObj._school
-        //        usrEvnt._year_filters = qObj._year
-        //        usrEvnt._eventType = qObj.EventType
-        
+        _endTime = qObj._endTime
+        _startTime = qObj._startTime
+        _expectedAttendence = Int(qObj._expectedAttendence!)
+        _latitude = Double(qObj._latitude!)
+        _longitude = Double(qObj._longitude!)
+        _school = qObj._school
+        _title = qObj._title
+        _userEmail = qObj._userEmail
+        _year = Int(qObj._year!)
     }
     
     
@@ -149,6 +147,6 @@ class Event: NSObject{
     }
     
     override var description: String {
-        return "{ event: \(_event_id!)\n  user: \(_user_id!)\n  creator email: \(_creator_email!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(_start!)\n  end time: \(_end!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year_filters.joined(separator: ","))\n  school filters\(_school_filters.joined(separator: ","))"
+        return "{ event: \(_event_id)\n  user: \(_user_id!)\n  creator email: \(_userEmail!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(_startTime!)\n  end time: \(_endTime!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year))\n  school filters\(_school)"
     }
 }
