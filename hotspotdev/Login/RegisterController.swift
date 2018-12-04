@@ -58,8 +58,8 @@ class RegisterController: UIViewController  {
     @IBAction func submit(_ sender: Any) {
         //get user's year & school
         //store in "lastName" and "mobilePhone" fields
-        var userYear = yearDataSource[yearPickerView.selectedRow(inComponent: 0)]
-        var userSchool = schoolDataSource[schoolPickerView.selectedRow(inComponent: 0)]
+        let userYear = yearDataSource[yearPickerView.selectedRow(inComponent: 0)]
+        let userSchool = schoolDataSource[schoolPickerView.selectedRow(inComponent: 0)]
         let requestBody: [String: Any] = [
             "profile": [
                 "firstName": "\(userYear)",
@@ -79,12 +79,9 @@ class RegisterController: UIViewController  {
         
 
         //create an active user in Okta group, direct to login page
-        OktaModel.createUser(params: requestBody){
+        OktaManager.shared.createUser(params: requestBody){
             responseObject, error in
                 if(responseObject!){
-                    
-                    //confirm that session vars were set
-                    OktaModel.printSessionVars()
                     
                     //alert tells user that user was succesfully created
                     let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)

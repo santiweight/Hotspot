@@ -44,7 +44,7 @@ class ChooseLoginController: UIViewController{
         super.viewWillAppear(animated)
         //Lauch screen Testing Grounds
         
-        if OktaModel.isAuthenticated() {
+        if OktaManager.shared.isAuthenticated() {
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
             self.navigationController?.present(homeViewController, animated: true)
         }
@@ -57,12 +57,9 @@ class ChooseLoginController: UIViewController{
         
     //login to hotspot using Okta Authentication
     @IBAction func login(_ sender: Any) {
-        OktaModel.login(viewController: self){
+        OktaManager.shared.login(viewController: self){
             responseObject, error in
             if(responseObject!){
-                
-                //confirm that session vars were set
-                OktaModel.printSessionVars()
                 
                 //go to map view
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController

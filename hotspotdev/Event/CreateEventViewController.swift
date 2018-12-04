@@ -11,9 +11,6 @@ import UIKit
 import AWSCore
 import AWSDynamoDB
 
-
-
-
 class CreateEventViewController: UIViewController {
 
     let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
