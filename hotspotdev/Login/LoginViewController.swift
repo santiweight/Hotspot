@@ -19,9 +19,6 @@ class LoginViewController: UIViewController{
         //Create Attachment
         let imageAttachment =  NSTextAttachment()
         imageAttachment.image = UIImage(named:"fire-logo")
-        //Set bound to reposition
-//        let imageOffsetY:CGFloat = -5.0;
-//        imageAttachment.bounds = CGRect(x: 10, y: imageOffsetY, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
         //Create string with attachment
         let attachmentString = NSMutableAttributedString(attachment: imageAttachment)
         //Initialize mutable string
@@ -36,14 +33,11 @@ class LoginViewController: UIViewController{
         //completeText.append(textAfterIcon)
         self.titleName.textAlignment = .center;
         self.titleName.attributedText = textBeforeIcon;
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //Lauch screen Testing Grounds
-        
         if OktaManager.shared.isAuthenticated() {
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
             self.navigationController?.present(homeViewController, animated: true)
@@ -60,7 +54,6 @@ class LoginViewController: UIViewController{
         OktaManager.shared.login(viewController: self){
             responseObject, error in
             if(responseObject!){
-                
                 //go to map view
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
                 self.navigationController?.present(mapViewController, animated: true)

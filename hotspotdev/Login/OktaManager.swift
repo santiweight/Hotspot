@@ -64,7 +64,6 @@ class OktaManager {
                     print(error!)
                     completionHandler(false, nil)
                 }
-
                 if let tokenResponse = response {
                     //set Okta tokens
                     OktaAuth.tokens?.set(value: tokenResponse.accessToken!, forKey: "accessToken")

@@ -46,7 +46,7 @@ class Geocoder{
         Alamofire.request(geocoderBegRequest, method: .post, parameters: [:], encoding: JSONEncoding.default, headers: [:])
             .responseJSON {
                 response in switch response.result {
-                case .success(let JSON):
+                case .success(_):
                     let JSON = response.result.value as! NSDictionary
                     let location = self.JSONToLocation(JSON: JSON);
                     completionHandler(location, nil)

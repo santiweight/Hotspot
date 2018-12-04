@@ -13,7 +13,8 @@ import AWSDynamoDB
 
 class CreateEventViewController: UIViewController {
 
-    let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as! String
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+
     let localCalendar = Calendar.init(identifier: .gregorian)
     let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
 
@@ -24,14 +25,11 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var eventAddress: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var expectedPeople: UITextField!
+    @IBOutlet weak var startPicker: UIDatePicker!
+    @IBOutlet weak var endPicker: UIDatePicker!
 
     var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
-
-    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-
-    @IBOutlet weak var startPicker: UIDatePicker!
-    @IBOutlet weak var endPicker: UIDatePicker!
 
     var db = DatabaseController()
 
@@ -124,33 +122,34 @@ class CreateEventViewController: UIViewController {
                 addressConfirmAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
                         action in
                     let newEvent = Event(
-                    user_id: self.deviceID,
-                    event_id: "NULL",
-                    address: formattedAddress,
-                    atEvent: ["NULL"],
-                    attendees: ["zackrossman10@gmail.com"],
-                    description: self.eventDescription.text ?? "",
-                    endTime: getDateString(pickerData: self.endPicker),
-                    startTime: getDateString(pickerData: self.startPicker),
-                    expectedAttencence: 5,
-                    latitude: responseObject!.latitude!,
-                    longitude: responseObject!.longitude!,
-                    school: "CMC",
-                    title: self.eventTitle.text ?? "",
-                    userEmail: self.sessionEmail,
-                    year: 0)
+                        user_id: self.deviceID,
+                        event_id: "NULL",
+                        address: formattedAddress,
+                        atEvent: ["NULL"],
+                        attendees: [OktaManager.shared.getSessionInfo()["sessionEmail"] ?? ""],
+                        description: self.eventDescription.text ?? "",
+                        endTime: getDateString(pickerData: self.endPicker),
+                        startTime: getDateString(pickerData: self.startPicker),
+                        expectedAttencence: Int(self.expectedPeople.text ?? "0") ?? 0,
+                        latitude: responseObject!.latitude!,
+                        longitude: responseObject!.longitude!,
+                        school: "CMC",
+                        title: self.eventTitle.text ?? "",
+                        userEmail: OktaManager.shared.getSessionInfo()["sessionEmail"] ?? "",
+                        year: 0)
                     
                     print("New event created")
+                    stringToDateComponent(stringDate: getDateString(pickerData: self.endPicker))
                     //insert into db
-                    self.db.updateEventDb(event: newEvent)
-
-                    let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
-                    uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
-                        action in
-                        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                        self.navigationController?.present(mapViewController, animated: true)
-                    }))
-                    self.present(uploadConfirmAlert, animated: true)
+//                    self.db.updateEventDb(event: newEvent)
+//
+//                    let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
+//                    uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+//                        action in
+//                        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//                        self.navigationController?.present(mapViewController, animated: true)
+//                    }))
+//                    self.present(uploadConfirmAlert, animated: true)
                 }))
 
                 self.present(addressConfirmAlert, animated: true)
@@ -162,7 +161,7 @@ class CreateEventViewController: UIViewController {
             }
         }
     }
-
+    
     func checkDatesValid(start: DateComponents, end: DateComponents) -> Bool{
         let startDate = localCalendar.date(from: start)
         let endDate = localCalendar.date(from: end)
@@ -204,6 +203,21 @@ func getDateString(pickerData: UIDatePicker) -> String{
     print(completeString)
     return completeString
 }
+
+//func getDateString(pickerData: UIDatePicker) -> DateComponents{
+//    var dc = DateComponents()
+//    let calendar = Calendar.current
+//    let bigComponents = calendar.dateComponents([.day,.month,.year], from: pickerData.date)
+//    dc.year = bigComponents.year
+//    dc.month = bigComponents.month
+//    dc.day = bigComponents.day
+//
+//    //get time info from picker
+//    let smallComponents = calendar.dateComponents([.hour, .minute], from: pickerData.date)
+//    dc.hour = smallComponents.hour
+//    dc.minute = smallComponents.minute
+//    return dc
+//}
 
 // Put this piece of code anywhere you like
 extension UIViewController {

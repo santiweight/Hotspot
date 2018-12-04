@@ -13,6 +13,8 @@ import AWSDynamoDB
 
 class RegisterViewController: UIViewController  {
     
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
+    
     private let yearDataSource = ["Select Year", "Freshman", "Sophmore", "Junior", "Senior"]
     private let schoolDataSource = ["Select School", "Claremont Mckenna", "Pomona", "Scripss", "Harvey Mudd", "Pitzer"]
 
@@ -28,9 +30,6 @@ class RegisterViewController: UIViewController  {
     
     var schoolOutput : String = ""
     var yearOutput : String = ""
-    
-    
-     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,13 +49,31 @@ class RegisterViewController: UIViewController  {
         schoolPickerView.tag = 2
     }
     
-    func completionHandler(value: Bool) {
-        print("Function completion handler value: )")
+    //create an active user in Okta group, direct to login page
+    @IBAction func submit(_ sender: Any) {
+        OktaManager.shared.createUser(params: constructRequest()){
+            responseObject, error in
+                if(responseObject!){
+                    
+                    //alert tells user that user was succesfully created
+                    let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
+                    userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
+                        action in
+                            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                            self.navigationController?.present(mapViewController, animated: true)
+                    }))
+                    self.present(userCreatedAlert, animated: true)
+                }else{
+                    //alert prompts user to edit registration info
+                    let userErrorAlert = UIAlertController(title: "Error Creating User", message: "", preferredStyle: .alert)
+                    userErrorAlert.addAction(UIAlertAction(title: "Edit Info", style: .cancel, handler: nil))
+                    self.present(userErrorAlert, animated: true)
+            }
+        }
     }
     
-        //MARK: Action
-    @IBAction func submit(_ sender: Any) {
-        //get user's year & school
+    //construct a dictionary used for Okta API request
+    func constructRequest() -> [String: Any]{
         //store in "lastName" and "mobilePhone" fields
         let userYear = yearDataSource[yearPickerView.selectedRow(inComponent: 0)]
         let userSchool = schoolDataSource[schoolPickerView.selectedRow(inComponent: 0)]
@@ -76,28 +93,7 @@ class RegisterViewController: UIViewController  {
                 "password" : [ "value": "\(newUserPassword.text ?? "")" ]
             ]
         ]
-        
-
-        //create an active user in Okta group, direct to login page
-        OktaManager.shared.createUser(params: requestBody){
-            responseObject, error in
-                if(responseObject!){
-                    
-                    //alert tells user that user was succesfully created
-                    let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
-                    userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
-                        action in
-                            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                            self.navigationController?.present(mapViewController, animated: true)
-                    }))
-                    self.present(userCreatedAlert, animated: true)
-                }else{
-                    //alert prompts user to edit registration info
-                    let userErrorAlert = UIAlertController(title: "Error Creating User", message: "", preferredStyle: .alert)
-                    userErrorAlert.addAction(UIAlertAction(title: "Edit Info", style: .cancel, handler: nil))
-                    self.present(userErrorAlert, animated: true)
-            }
-        }
+        return requestBody
     }
 }
 
@@ -133,8 +129,7 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             yearOutput = yearDataSource[row]
         }
     }
-    
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
         if pickerView == schoolPickerView {
             //pickerView1
@@ -145,34 +140,5 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         }
         return "ERROR"
     }
-    
-    //school
-    
-    /*func schoolPickerView(_ schoolPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == schoolPickerView {
-            //pickerView1
-        } else if pickerView == yearPickerView{
-            //pickerView2
-        }
-        return schoolDataSource.count
-    }
-
-    
-    func schoolNumberOfComponents(in schoolPickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func schoolPickerView(_ schoolPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-    }
-    
-    
-    
-    func schoolPickerView(_ schoolPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-        return schoolDataSource[row]
-    } */
-    
-    
-    
-    
 }
 
