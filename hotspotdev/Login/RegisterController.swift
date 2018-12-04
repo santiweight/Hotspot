@@ -11,7 +11,7 @@ import UIKit
 import AWSCore
 import AWSDynamoDB
 
-class RegisterController: UIViewController  {
+class RegisterViewController: UIViewController  {
     
     private let yearDataSource = ["Select Year", "Freshman", "Sophmore", "Junior", "Senior"]
     private let schoolDataSource = ["Select School", "Claremont Mckenna", "Pomona", "Scripss", "Harvey Mudd", "Pitzer"]
@@ -101,7 +101,7 @@ class RegisterController: UIViewController  {
     }
 }
 
-extension RegisterController: UIPickerViewDelegate, UIPickerViewDataSource{
+extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == schoolPickerView {

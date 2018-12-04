@@ -9,7 +9,7 @@
 import UIKit
 import OktaAuth
 
-class ChooseLoginController: UIViewController{
+class LoginViewController: UIViewController{
     
     @IBOutlet var titleName: UILabel!
     

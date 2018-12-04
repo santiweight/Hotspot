@@ -11,6 +11,10 @@ import Alamofire
 
 class Geocoder{
     
+    static let shared = Geocoder()
+    
+    private init(){}
+    
     //struct containing relevant info about an event location
     struct EventLocation {
         var formattedAddress: String?

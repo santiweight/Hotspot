@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="279" y="-488"/>
         </scene>
-        <!--Choose Login Controller-->
+        <!--Login View Controller-->
         <scene sceneID="S4x-eh-dU6">
             <objects>
-                <viewController storyboardIdentifier="ChooseLoginController" id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="60j-wq-Qcn" customClass="LoginViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vXW-yt-0XS"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6H-8R-wVS"/>
@@ -369,10 +369,10 @@
             </objects>
             <point key="canvasLocation" x="1088.8" y="-488.00599700149928"/>
         </scene>
-        <!--Register Controller-->
+        <!--Register View Controller-->
         <scene sceneID="O2B-bf-gS1">
             <objects>
-                <viewController storyboardIdentifier="RegisterController" id="YFD-hr-NxQ" customClass="RegisterController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="YFD-hr-NxQ" customClass="RegisterViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TbP-lB-uN3"/>
                         <viewControllerLayoutGuide type="bottom" id="MZK-bI-VKy"/>

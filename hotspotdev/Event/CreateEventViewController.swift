@@ -34,7 +34,6 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var endPicker: UIDatePicker!
 
     var db = DatabaseController()
-    var geocoder = Geocoder()
 
     @IBAction func cmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
@@ -114,7 +113,7 @@ class CreateEventViewController: UIViewController {
     }
 
     @IBAction func submit(_ sender: Any) {
-        geocoder.getLocation(address: eventAddress.text ?? ""){
+        Geocoder.shared.getLocation(address: eventAddress.text ?? ""){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
                 let formattedAddress = responseObject!.formattedAddress!
