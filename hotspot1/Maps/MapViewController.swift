@@ -12,18 +12,30 @@ import AWSDynamoDB
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
-//    var coordinates: [[Double]]!
-//    var names:[String]!
-//    var hotness:[String]!
-//    var add:[String]!
-//    var time:[String]!
-//    var id2:[String]!
-    
-    
-    
     @IBOutlet var mapView: MKMapView!
     
-    func getEvents(indexType: String, indexVal: String){
+    
+    /*
+     updates database with a event.
+     */
+    func updateEventDb(event: Event){
+        
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let itemToCreate:EventTable2 = event.userEventToQueryObj()
+        event._event_id = event.getStrHashValue()
+        
+        objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
+            if let error = error{
+                print("Amazon DynamoDB Save Error: \(error)")
+            }
+            else{
+                print("Event Data saved")
+            }
+        })
+    }
+    
+    
+    func getEvents(indexType: String, indexVal: String, attend: Bool, name: String){
         
         let scanExpression = AWSDynamoDBScanExpression()
         scanExpression.limit = 50
@@ -46,8 +58,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     userEvent._latitude = event._latitude as? Double
                     userEvent._longitude = event._longitude as? Double
                     
-                    self.addEventToMap(newEvent: userEvent)
-                
+                    if (attend == true){
+                        print("attend == true")
+                        let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as? String
+                        if (!userEvent._attendees.contains(sessionEmail!) && userEvent._title == name){
+                            //print("calling attend event")
+                            userEvent._attendees.append(sessionEmail!)
+                            self.updateEventDb(event: userEvent)
+                        }
+                    }else{
+                        self.addEventToMap(newEvent: userEvent)
+                    }
+
                 }
             }
             return nil
@@ -67,13 +89,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.setRegion(region, animated: true)
         
         // call get events to query and add each event in DB to the map
-        getEvents(indexType: "ALL", indexVal: "ALL")
+        getEvents(indexType: "ALL", indexVal: "ALL", attend: false, name: "")
         
     }
     
     func addEventToMap(newEvent: Event){
-        
-        let calendar = Calendar.current
         
         // check if new event has nil lat or longs, if it does, dont plot it
         if (newEvent._longitude != nil && newEvent._latitude != nil){
@@ -84,6 +104,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             // set values of the point to the newEvent values that was passed in
             point.name = newEvent._title
             point.add = newEvent._address
+            
             point.hotness = String(describing: newEvent._attendees.count)
             point.id2 = String(describing: newEvent._event_id)
             
@@ -103,9 +124,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func attendEvent(event: Event, attendee: String){
+        
+    }
+    
     @objc func increaseAttendance(sender: UIButton)
     {
         print("clicked: attendance")
+        
+        var name: String
+        let ccv = sender.superview as! CustomCalloutView
+        
+        name = ccv.eventName.text!
+        
+        self.getEvents(indexType: "ALL", indexVal: "ALL", attend: true, name: name)
     }
     
     // MARK - Action Handler
@@ -113,21 +145,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     {
         // get data from view controller
         var name: String
-        var time: String
         let ccv = sender.superview as! CustomCalloutView
         
         name = ccv.eventName.text!
-        time = ccv.eventTime.text!
-        
         
         // instantiate a version of the eventVC
         let eventViewController = self.storyboard?.instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
         
         // pass data from mapVC to eventVC
         eventViewController.name = name
-        eventViewController.time = time
 
-        
         // Switch over to the eventVC
         self.present(eventViewController, animated: true, completion: nil)
         
