@@ -38,7 +38,6 @@ class EventManager: UIViewController, CLLocationManagerDelegate {
     }
     
     func requestLocationServices() {
-        
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
             //LOCATION SERVICES DENIED FOR THIS APP
             return
