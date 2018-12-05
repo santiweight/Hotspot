@@ -13,7 +13,6 @@ import AWSDynamoDB
 class EventViewController: UIViewController {
 
     var name = ""
-    var time = ""
     
     @IBOutlet weak var backButton: UIButton!
 
@@ -72,6 +71,8 @@ class EventViewController: UIViewController {
             self.test?.text = event._title
             self.idLabel?.text = String(describing: event._event_id)
             self.addressLabel?.text = event._address
+            self.timeLabel?.text = event._startTime + " - " + event._endTime
+            //self.test?.text = event._title
         }
     }
     

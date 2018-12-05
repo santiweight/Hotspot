@@ -91,6 +91,7 @@ class DatabaseController {
                         //var eventList = []
                         for item in (response?.items)! as! [EventTable2]{
                             item._attendees?.append(attendee)
+                            print("here")
                             self.updateEventDb(event: item)
                         }
                     }
