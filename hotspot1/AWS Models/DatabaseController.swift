@@ -173,6 +173,10 @@ class DatabaseController {
      */
     func updateEventDb(event: EventTable2){
         let objectMapper = AWSDynamoDBObjectMapper.default()
+        let userEvent = Event()
+        
+        userEvent.queryObjToUserEvent(qObj: event)
+        event._eventId = userEvent.getStrHashValue()
         
         objectMapper.save(event, completionHandler: {(error: Error?) -> Void in
             if let error = error {
@@ -190,7 +194,8 @@ class DatabaseController {
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
         let itemToCreate:EventTable2 = event.userEventToQueryObj()
-        event._event_id = event.getStrHashValue()
+        
+        itemToCreate._eventId = event.getStrHashValue()
         
         objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
             if let error = error{
