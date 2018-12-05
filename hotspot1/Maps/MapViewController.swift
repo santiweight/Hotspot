@@ -112,7 +112,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let sDate = newEvent._startTime!
             let eDate = newEvent._endTime!
             
-            point.time = sDate + " - " + eDate
+            point.time = "\(Event.dateComponentToString(dc: sDate)) - \(Event.dateComponentToString(dc: eDate))"
             
             // add the point to the map
             self.mapView.addAnnotation(point)

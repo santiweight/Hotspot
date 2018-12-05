@@ -55,6 +55,10 @@ class DatabaseController {
                 }
         })
     }
+
+    func atEvent(event: Event) {
+        //TODO
+    }
     
     func attendEvent(event: Event, attendee: String) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
