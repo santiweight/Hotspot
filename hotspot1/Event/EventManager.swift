@@ -47,10 +47,10 @@ class EventManager : UIViewController {
 
     static func requestLocationServices() {
 
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
-            //LOCATION SERVICES DENIED FOR THIS APP
-            return
-        }
+//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
+//            //LOCATION SERVICES DENIED FOR THIS APP
+//            return
+//        }
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
             manager.requestAlwaysAuthorization()
             if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
@@ -98,7 +98,7 @@ class EventManager : UIViewController {
             }
         }
         for event in trackedEvents {
-            trackEvent(event: event)
+            startMonitoring(event: event)
         }
     }
     
