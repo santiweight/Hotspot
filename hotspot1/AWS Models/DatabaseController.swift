@@ -12,8 +12,12 @@ import AWSDynamoDB
 
 class DatabaseController {
     
-//    var MVController = MapViewController()
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     
+    /*
+     queries for specified event, adds attendee to the event and then updates the
+     DB with the updated event information.
+    */
     func atEvent(event: Event, attendee: String) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
         let queryExpression = AWSDynamoDBQueryExpression()
@@ -44,33 +48,58 @@ class DatabaseController {
                     } else {
                         //var eventList = []
                         for item in (response?.items)! as! [EventTable2]{
-                            item._attendees?.append(attendee)
-                            self.updateEvent(event: item)
+                            item._atEvent?.append(attendee)
+                            self.updateEventDb(event: item)
                         }
                     }
                 }
         })
     }
     
-    func updateEvent(event: EventTable2){
+    func attendEvent(event: Event, attendee: String) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
         
-        objectMapper.save(event, completionHandler: {(error: Error?) -> Void in
-            if let error = error {
-                print(" Amazon DynamoDB Save Error: \(error)")
-                return
-            }
-            print("An item was updated.")
+        queryExpression.keyConditionExpression = "#userId = :userId and #title = :title"
+        queryExpression.expressionAttributeNames = [
+            "#userId": "userId",
+            "#title": "title",
+        ]
+        
+        queryExpression.expressionAttributeValues = [
+            ":userId" : event._user_id,
+            ":title" : event._title,
+        ]
+        
+        objectMapper.query(EventTable2.self, expression: queryExpression, completionHandler:
+            {(response: AWSDynamoDBPaginatedOutput?, error: Error?) -> Void in
+                if let error = error{
+                    print("Amazon DynamoDB Save Error: \(error)")
+                }
+                
+                if(response != nil){
+                    print("got a repsonse")
+                    
+                    if(response?.items.count != 1){
+                        print("ERROR: got multiple events")
+                        //then take our object and put it in DB?
+                    } else {
+                        //var eventList = []
+                        for item in (response?.items)! as! [EventTable2]{
+                            item._attendees?.append(attendee)
+                            print("here")
+                            self.updateEventDb(event: item)
+                        }
+                    }
+                }
         })
     }
     
-    func attendEvent(event: Event, attendee: String) {
-        //TODO
-    }
-
-    
-    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
-
+    /*
+     queries the database by event title and the session uuid
+     if there is a response the function loops through and prints Event ID
+     *add a callback function below if need.
+    */
     func eventIdQuery(eventTitle: String){
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
@@ -81,7 +110,6 @@ class DatabaseController {
             "#userId": "userId",
             "#title": "title",
         ]
-        
         queryExpression.expressionAttributeValues = [
             ":userId" : deviceID,
             ":title" : eventTitle,
@@ -98,20 +126,22 @@ class DatabaseController {
                 //got a response
                 if(response != nil){
                     print("got a repsonse")
-                    
                     if(response?.items.count == 0){
                         print("count was 0")
-                        //then take our object and put it in DB?
                     } else {
-                        //var eventList = []
                         for item in (response?.items)! as! [EventTable2]{
-                            print(eventTitle)
+                            //insert callback function here
+                            print(item._eventId)
                         }
                     }
                 }
             })
     }
 
+    /*
+     Scans Table for all events then uses a callback funciton to populate
+     map
+    */
     func getEvents(indexType: String, indexVal: String){
         
         let scanExpression = AWSDynamoDBScanExpression()
@@ -137,7 +167,25 @@ class DatabaseController {
             return nil
         })
     }
-
+    
+    /*
+     overload Takes in a AWS event Model object and updates the database with the new OBJ
+     */
+    func updateEventDb(event: EventTable2){
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        
+        objectMapper.save(event, completionHandler: {(error: Error?) -> Void in
+            if let error = error {
+                print(" Amazon DynamoDB Save Error: \(error)")
+                return
+            }
+            print("An item was updated.")
+        })
+    }
+    
+    /*
+     updates database with a event.
+    */
     func updateEventDb(event: Event){
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
