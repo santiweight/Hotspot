@@ -178,6 +178,11 @@ class DatabaseController {
     func updateEventDb(event: EventTable2){
         let objectMapper = AWSDynamoDBObjectMapper.default()
         
+        let userEvent = Event()
+        userEvent._title = event._title
+        userEvent._user_id = event._userId
+        event._eventId = userEvent.getStrHashValue()
+        
         objectMapper.save(event, completionHandler: {(error: Error?) -> Void in
             if let error = error {
                 print(" Amazon DynamoDB Save Error: \(error)")
@@ -194,7 +199,7 @@ class DatabaseController {
         
         let objectMapper = AWSDynamoDBObjectMapper.default()
         let itemToCreate:EventTable2 = event.userEventToQueryObj()
-        event._event_id = event.getStrHashValue()
+        itemToCreate._eventId = event.getStrHashValue()
         
         objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
             if let error = error{
