@@ -605,11 +605,6 @@
 				AA61FC382191549D00073463 /* EventViewController.swift in Sources */,
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
-<<<<<<< Updated upstream
-=======
-				9395ABBC21B4B84A0038FACA /* EventManagerDelegate.swift in Sources */,
-				6FA210D8219A36190034E6C7 /* EventTable.swift in Sources */,
->>>>>>> Stashed changes
 				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				9395ABBA21B1C6DF0038FACA /* EventManagerTestPage.swift in Sources */,
