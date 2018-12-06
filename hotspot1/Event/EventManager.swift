@@ -47,10 +47,10 @@ class EventManager : UIViewController {
 
     static func requestLocationServices() {
 
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
-            //LOCATION SERVICES DENIED FOR THIS APP
-            return
-        }
+//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
+//            //LOCATION SERVICES DENIED FOR THIS APP
+//            return
+//        }
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
             manager.requestAlwaysAuthorization()
             if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
@@ -62,7 +62,7 @@ class EventManager : UIViewController {
     static func monitorEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
         let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius: radius, identifier: identifier )
 
-        if !CLLocationManager.isMonitoringAvailable(for: Event.self) {
+        if !CLLocationManager.isMonitoringAvailable(for: CLRegion.self) {
             //ERROR - monitoring not available on device
             return
         }
@@ -98,7 +98,7 @@ class EventManager : UIViewController {
             }
         }
         for event in trackedEvents {
-            trackEvent(event: event)
+            startMonitoring(event: event)
         }
     }
     

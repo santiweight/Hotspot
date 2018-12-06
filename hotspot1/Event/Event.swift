@@ -57,7 +57,7 @@ class Event: NSObject{
     }
     
     static func dateComponentToString(dc: DateComponents)-> String{
-        return "\(dc.month) \(dc.day), \(dc.year) \(dc.hour) \(dc.minute)"
+        return "\(dc.month!) \(dc.day!) \(dc.year!) \(dc.hour!) \(dc.minute!)"
     }
     
     static func stringToDateComponents(stringDate: String)-> DateComponents{

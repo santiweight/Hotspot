@@ -221,7 +221,7 @@ class CreateEventViewController: UIViewController {
         dc.minute = smallComponents.minute
     
         //get day/month/year info from picker
-        return "\(bigComponents.month) \(bigComponents.day), \(bigComponents.year) \(smallComponents.hour): \(smallComponents.minute)"
+        return "\(bigComponents.month) \(bigComponents.day) \(bigComponents.year) \(smallComponents.hour) \(smallComponents.minute)"
     }
     
     func datetoDC(pickerData: UIDatePicker) -> DateComponents{
