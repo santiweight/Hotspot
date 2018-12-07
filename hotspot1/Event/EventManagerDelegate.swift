@@ -13,6 +13,21 @@ import UIKit
 class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
     let db = DatabaseController()
     
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+        var state_str : String
+        switch state {
+        case .inside:
+                state_str = "inside"
+        case .outside:
+                state_str = "outside"
+        case .unknown:
+                state_str = "unknown"
+        }
+        EventManager.manager.requestLocation()
+        print("\(region.identifier): \(state_str)")
+        
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
     }
     
@@ -22,11 +37,7 @@ class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         //ATTEND EVENT
-        let attend_alert = UIAlertController(title: "Location Update", message: "Attending event \(region.identifier)", preferredStyle: .alert)
-        attend_alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-        self.present(attend_alert, animated: true)
-        
-        
+        print("At event: \(region.identifier)")
         
         manager.stopMonitoring(for: region)
         let attendTarget = EventManager.trackedEvents.first(where: {String($0.hash) == region.identifier})

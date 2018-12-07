@@ -41,7 +41,7 @@ class EventManagerTestPage : UIViewController {
         EventManager.manager.requestLocation()
 
         for region in EventManager.manager.monitoredRegions {
-                print("\(region.identifier)")
+            print("\(region.identifier):\n \(EventManager.manager.requestState(for: region))")
         }
     }
 }

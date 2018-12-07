@@ -13,7 +13,7 @@ class EventManager : UIViewController {
 
     static let cal = Calendar(identifier: .gregorian)
 
-    static let DEFAULT_RADIUS : Double = 400
+    static let DEFAULT_RADIUS : Double = 1000
 
     static var trackedEvents : [Event] = []
 
@@ -40,32 +40,32 @@ class EventManager : UIViewController {
     }
 
     static func initializeLocationServices() {
+        requestLocationServices()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.delegate = delegate
-        requestLocationServices()
     }
 
     static func requestLocationServices() {
-
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
-            //LOCATION SERVICES DENIED FOR THIS APP
-            return
-        }
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
-            manager.requestAlwaysAuthorization()
-            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
-            
-                manager.allowsBackgroundLocationUpdates = true
-                manager.startUpdatingLocation()
-            }
-            else {
-                manager.requestWhenInUseAuthorization()
-                if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
-                    manager.startUpdatingLocation()
-                }
-            }
-        
-        }
+        manager.requestAlwaysAuthorization()
+//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
+//            //LOCATION SERVICES DENIED FOR THIS APP
+//            return
+//        }
+//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
+//            manager.requestAlwaysAuthorization()
+//            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
+//
+//                manager.allowsBackgroundLocationUpdates = true
+//                manager.startUpdatingLocation()
+//            }
+//            else {
+//                manager.requestWhenInUseAuthorization()
+//                if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
+//                    manager.startUpdatingLocation()
+//                }
+//            }
+//
+//        }
     }
 
     static func monitorEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
