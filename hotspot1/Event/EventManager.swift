@@ -20,7 +20,7 @@ class EventManager : UIViewController {
     static let manager: CLLocationManager = CLLocationManager()
 
     static let delegate = EventManagerDelegate()
-
+    
     static func trackEvent(event: Event) {
         trackedEvents.append(event)
         updateEventsTracked()
@@ -47,26 +47,35 @@ class EventManager : UIViewController {
 
     static func requestLocationServices() {
 
-//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
-//            //LOCATION SERVICES DENIED FOR THIS APP
-//            return
-//        }
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
+            //LOCATION SERVICES DENIED FOR THIS APP
+            return
+        }
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
             manager.requestAlwaysAuthorization()
             if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
-                manager.requestWhenInUseAuthorization()
+            
+                manager.allowsBackgroundLocationUpdates = true
+                manager.startUpdatingLocation()
             }
+            else {
+                manager.requestWhenInUseAuthorization()
+                if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
+                    manager.startUpdatingLocation()
+                }
+            }
+        
         }
     }
 
     static func monitorEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
+        
         let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius: radius, identifier: identifier )
-
-        if !CLLocationManager.isMonitoringAvailable(for: CLRegion.self) {
+        region.notifyOnEntry = true
+        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
             //ERROR - monitoring not available on device
             return
         }
-
         manager.startMonitoring(for: region)
     }
 
@@ -103,17 +112,17 @@ class EventManager : UIViewController {
     }
     
     func stringToDateC(date: Date) -> DateComponents{
-    var dc = DateComponents()
-    let calendar = Calendar.current
-    let bigComponents = calendar.dateComponents([.day,.month,.year], from: date)
-    dc.year = bigComponents.year
-    dc.month = bigComponents.month
-    dc.day = bigComponents.day
-    
-    //get time info from picker
-    let smallComponents = calendar.dateComponents([.hour, .minute], from: date)
-    dc.hour = smallComponents.hour
-    dc.minute = smallComponents.minute
-    return dc
+        var dc = DateComponents()
+        let calendar = Calendar.current
+        let bigComponents = calendar.dateComponents([.day,.month,.year], from: date)
+        dc.year = bigComponents.year
+        dc.month = bigComponents.month
+        dc.day = bigComponents.day
+        
+        //get time info from picker
+        let smallComponents = calendar.dateComponents([.hour, .minute], from: date)
+        dc.hour = smallComponents.hour
+        dc.minute = smallComponents.minute
+        return dc
     }
 }

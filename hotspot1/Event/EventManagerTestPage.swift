@@ -12,8 +12,6 @@ import CoreLocation
 
 class EventManagerTestPage : UIViewController {
     
-    let event_manager = EventManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if CLLocationManager.locationServicesEnabled() {
@@ -28,18 +26,22 @@ class EventManagerTestPage : UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func printCoord(_ sender: Any) {
+        EventManager.manager.requestLocation()
+        print("User Location: \n\(EventManager.manager.location?.coordinate.latitude ?? 0) \n\(EventManager.manager.location?.coordinate.longitude ?? 0)")
+    }
     
     @IBAction func printEvents(_ sender: Any) {
         print("testing event tracking")
         for event in EventManager.trackedEvents {
             print( event.description )
+            _ = EventManager.manager.location
         }
         print("\n\n")
-        
+        EventManager.manager.requestLocation()
+
         for region in EventManager.manager.monitoredRegions {
-            print(region.identifier)
+                print("\(region.identifier)")
         }
     }
-    
-    
 }

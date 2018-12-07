@@ -26,6 +26,8 @@ class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
         attend_alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(attend_alert, animated: true)
         
+        
+        
         manager.stopMonitoring(for: region)
         let attendTarget = EventManager.trackedEvents.first(where: {String($0.hash) == region.identifier})
         db.atEvent(event: attendTarget!)

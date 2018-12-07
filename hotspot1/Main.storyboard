@@ -22,11 +22,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjI-Ti-tzN">
-                                <rect key="frame" x="141" y="146" width="92" height="99"/>
+                                <rect key="frame" x="88" y="178" width="198" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <accessibility key="accessibilityConfiguration" label=" "/>
+                                <state key="normal" title="Print Events/Regions"/>
                                 <connections>
                                     <action selector="printEvents:" destination="gTA-8J-gct" eventType="touchUpInside" id="wJB-kt-7f2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ms-vX-Bw4">
+                                <rect key="frame" x="92" y="297" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Print current coordinate"/>
+                                <connections>
+                                    <action selector="printCoord:" destination="gTA-8J-gct" eventType="touchUpInside" id="RBk-RR-px7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -770,5 +779,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HjC-OO-mYL"/>
+        <segue reference="jJ3-OK-vya"/>
     </inferredMetricsTieBreakers>
 </document>
