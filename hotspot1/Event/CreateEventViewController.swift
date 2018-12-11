@@ -22,11 +22,13 @@ class CreateEventViewController: UIViewController {
     let YEAR = TimeInterval.init(31536000)
     let HOUR = TimeInterval.init(3600)
 
+    
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventAddress: UITextField!
+    
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var expectedPeople: UITextField!
-
+    
     var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
 
