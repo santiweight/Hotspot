@@ -27,8 +27,8 @@ class Event: NSObject{
     var _atEvent: [String]!
     var _attendees: [String]!
     var _description: String!
-    var _endTime: String!
-    var _startTime: String!
+    var _endTime: DateComponents!
+    var _startTime: DateComponents!
     var _expectedAttendence: Int!
     var _latitude: Double!
     var _longitude: Double!
@@ -37,7 +37,7 @@ class Event: NSObject{
     var _userEmail: String!
     var _year: Int!
     
-    init(user_id: String, event_id: String, address: String, atEvent: [String], attendees: [String], description: String, endTime: String, startTime: String, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
+    init(user_id: String, event_id: String, address: String, atEvent: [String], attendees: [String], description: String, endTime: DateComponents, startTime: DateComponents, expectedAttencence: Int, latitude: Double, longitude: Double, school: String, title: String, userEmail: String, year: Int){
         
         _user_id = user_id
         _event_id = event_id
@@ -56,6 +56,22 @@ class Event: NSObject{
         _year = year
     }
     
+    static func dateComponentToString(dc: DateComponents)-> String{
+        return "\(dc.month!) \(dc.day!) \(dc.year!) \(dc.hour!) \(dc.minute!)"
+    }
+    
+    static func stringToDateComponents(stringDate: String)-> DateComponents{
+        let dcArray = stringDate.components(separatedBy: " ")
+        var dc = DateComponents()
+        print(stringDate)
+        dc.month = Int(dcArray[0])
+        dc.day = Int(dcArray[1])
+        dc.year = Int(dcArray[2])
+        dc.hour = Int(dcArray[3])
+        dc.minute = Int(dcArray[4])
+        return dc
+    }
+    
     override init(){
         _user_id = "NULL"
         _event_id = "NULL"
@@ -63,8 +79,8 @@ class Event: NSObject{
         _atEvent = ["NULL"]
         _attendees = ["NULL"]
         _description = "NULL"
-        _endTime = "NULL"
-        _startTime = "NULL"
+        _endTime = DateComponents()
+        _startTime = DateComponents()
         _expectedAttendence = 0
         _latitude = 0.0
         _longitude = 0.0
@@ -74,7 +90,7 @@ class Event: NSObject{
         _year = 0
     }
     
-    func setDate(start: String, end: String){
+    func setDate(start: DateComponents, end: DateComponents){
         _startTime = start
         _endTime = end
     }
@@ -88,8 +104,8 @@ class Event: NSObject{
         qObj._atEvent = _atEvent
         qObj._attendees = _attendees
         qObj._description = _description
-        qObj._endTime = _endTime
-        qObj._startTime = _startTime
+        qObj._startTime = Event.dateComponentToString(dc: _startTime)
+        qObj._endTime = Event.dateComponentToString(dc: _endTime)
         qObj._expectedAttendence = _expectedAttendence as NSNumber
         qObj._latitude = _latitude as NSNumber
         qObj._longitude = _longitude as NSNumber
@@ -105,17 +121,6 @@ class Event: NSObject{
      function converts a DateComponents object to a string. function makes sure
      that nil cannot be returned as AWS Dynamo DB cannot process nil
  */
-    func dateComponenetsToString(dateIn: DateComponents) -> String{
-        let formatter = DateComponentsFormatter()
-        
-        formatter.allowedUnits = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.weekOfMonth ,NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second]
-        
-        let dateString = formatter.string(from: dateIn)
-        if(dateString == nil){
-            return ""
-        }
-        return dateString!
-    }
     
     func queryObjToUserEvent(qObj:EventTable2) {
         
@@ -125,8 +130,8 @@ class Event: NSObject{
         _atEvent = qObj._atEvent
         _attendees = qObj._attendees
         _description = qObj._description
-        _endTime = qObj._endTime
-        _startTime = qObj._startTime
+        _endTime = Event.stringToDateComponents(stringDate: qObj._endTime!)
+        _startTime = Event.stringToDateComponents(stringDate: qObj._startTime!)
         _expectedAttendence = Int(qObj._expectedAttendence!)
         _latitude = Double(qObj._latitude!)
         _longitude = Double(qObj._longitude!)
@@ -152,6 +157,8 @@ class Event: NSObject{
     }
     
     override var description: String {
-        return "{ event: \(_event_id)\n  user: \(_user_id!)\n  creator email: \(_userEmail!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(_startTime!)\n  end time: \(_endTime!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year))\n  school filters\(_school)\n at Event: \(_atEvent)"
+        return "{ event: \(String(describing: _event_id))\n  user: \(_user_id!)\n  creator email: \(_userEmail!)\n  title: \(_title!)\n  address: \(_address!)\n  description: \(_description!)\n  start time:\(_startTime!)\n  end time: \(_endTime!)\n  no. of att: \(_attendees.count)\n  latitude: \(_latitude!)\n  longitude: \(_longitude!)\n  year filters: \(_year!))\n  school filters\(_school!)\n at Event: \(String(describing: _atEvent))"
     }
+    
+    
 }
