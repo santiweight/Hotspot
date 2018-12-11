@@ -37,7 +37,7 @@ class ChooseLoginController: UIViewController{
         self.titleName.textAlignment = .center;
         self.titleName.attributedText = textBeforeIcon;
         
-        EventManager.requestLocationServices()
+        EventManager.initializeLocationServices()
     }
     
     override func viewWillAppear(_ animated: Bool) {
