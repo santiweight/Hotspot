@@ -63,7 +63,8 @@ class LoginViewController: UIViewController{
                 
                 //go to map view
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                self.navigationController?.present(mapViewController, animated: true)
+                let navigationController = UINavigationController(rootViewController: mapViewController)
+                self.present(navigationController, animated: true)
             }
         }
     }

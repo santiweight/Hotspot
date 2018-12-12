@@ -90,8 +90,10 @@ class RegisterViewController: UIViewController  {
                     let userCreatedAlert = UIAlertController(title: "Successfully Created User", message: "", preferredStyle: .alert)
                     userCreatedAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
                         action in
-                            let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                            self.navigationController?.present(mapViewController, animated: true)
+                        //go to map view
+                        let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                        let navigationController = UINavigationController(rootViewController: mapViewController)
+                        self.present(navigationController, animated: true)
                     }))
                     self.present(userCreatedAlert, animated: true)
                 }else{

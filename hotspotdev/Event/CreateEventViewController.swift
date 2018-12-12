@@ -156,9 +156,15 @@ class CreateEventViewController: UIViewController {
                         self.navigationController?.present(mapViewController, animated: true)
                     }))
                     self.present(uploadConfirmAlert, animated: true)
+                    
                 }))
 
                 self.present(addressConfirmAlert, animated: true)
+                
+                //go to map view
+                let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+                let navigationController = UINavigationController(rootViewController: mapViewController)
+                self.present(navigationController, animated: true)
             }else{
                 print("Response obj is nil")
                 let badAddressAlert = UIAlertController(title: "Address Not Found", message: "Please enter the approximate address for your event", preferredStyle: .alert)
