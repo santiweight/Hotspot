@@ -9,7 +9,11 @@
 import UIKit
 import CoreLocation
 
-class EventManager : UIViewController {
+class EventManager{
+    
+    static let shared = EventManager()
+
+    private init(){}
 
     static let cal = Calendar(identifier: .gregorian)
 

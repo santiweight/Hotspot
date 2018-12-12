@@ -11,9 +11,6 @@ import UIKit
 import AWSCore
 import AWSDynamoDB
 
-
-
-
 class CreateEventViewController: UIViewController {
 
     let localCalendar = Calendar.init(identifier: .gregorian)
@@ -36,9 +33,6 @@ class CreateEventViewController: UIViewController {
 
     @IBOutlet weak var startPicker: UIDatePicker!
     @IBOutlet weak var endPicker: UIDatePicker!
-
-    var db = DatabaseController()
-    var geocoder = Geocoder()
 
     @IBAction func cmcCheckTapped(_ sender: UIButton) {
         if sender.isSelected{
@@ -118,7 +112,7 @@ class CreateEventViewController: UIViewController {
     }
 
     @IBAction func submit(_ sender: Any) {
-        geocoder.getLocation(address: eventAddress.text!){
+        GeocodeManager.shared.getLocation(address: eventAddress.text!){
             responseObject, error in
             if(responseObject != nil && !(responseObject?.isEmpty)!){
                 let formattedAddress = responseObject!.formattedAddress!
@@ -150,22 +144,9 @@ class CreateEventViewController: UIViewController {
                         userEmail: "zackrossman10@gmail.com",
                         year: 0)
 
-                    print("New event created")
-
-                    
-
-//                    let newEvent = Event(user_id: self.deviceID, creator_email: "zackrossman10@gmail.com", title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: ["zackrossman10@gmail.com"], expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: filters, school_filters: ["CMC"])
-
-
-//                    let newEvent = Event(creator_email: my_email!, title: self.eventTitle.text!, address: formattedAddress, description: self.eventDescription.text!, start: startDateComps, end: endDateComps, attendees: attendees, expectedAttendees: 5, latitude: latitude, longitude: longitude, year_filters: ["2019"], school_filters: self.selectSchool)
-
-
-
                     print("New event created \(newEvent.description)")
-                    //insert into db
-                    self.db.updateEventDb(event: newEvent)
-
-
+                    
+                    DynamoDBManager.shared.updateEventDb(event: newEvent)
                     EventManager.trackEvent(event: newEvent)
 
                     let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
@@ -242,9 +223,7 @@ class CreateEventViewController: UIViewController {
     }
 }
 
-
-
-// Put this piece of code anywhere you like
+//allow user to exit out of keyboard on any UIViewcontroller
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

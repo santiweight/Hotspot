@@ -11,7 +11,6 @@ import CoreLocation
 import UIKit
 
 class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
-    let db = DatabaseController()
     
     func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
         var state_str : String
@@ -41,7 +40,7 @@ class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
         
         manager.stopMonitoring(for: region)
         let attendTarget = EventManager.trackedEvents.first(where: {String($0.hash) == region.identifier})
-        db.atEvent(event: attendTarget!)
+        DynamoDBManager.shared.atEvent(event: attendTarget!)
         EventManager.trackedEvents = EventManager.trackedEvents.filter({String($0.hash) != region.identifier})
         EventManager.updateEventsTracked()
     }

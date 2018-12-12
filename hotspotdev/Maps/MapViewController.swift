@@ -14,7 +14,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     
-    
     /*
      updates database with a event.
      */
@@ -33,7 +32,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
         })
     }
-    
     
     func getEvents(indexType: String, indexVal: String, attend: Bool, name: String){
         

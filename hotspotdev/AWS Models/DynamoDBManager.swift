@@ -1,5 +1,5 @@
 //
-//  DatabaseController.swift
+//  DatabaseManager.swift
 //  hotspot1
 //
 //  Created by clinic18 on 11/12/18.
@@ -10,7 +10,11 @@ import Foundation
 import AWSCore
 import AWSDynamoDB
 
-class DatabaseController {
+class DynamoDBManager {
+    
+    static let shared = DynamoDBManager()
+    
+    private init(){}
     
     var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
     

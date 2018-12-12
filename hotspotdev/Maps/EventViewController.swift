@@ -15,10 +15,7 @@ class EventViewController: UIViewController {
     var name = ""
     
     @IBOutlet weak var backButton: UIButton!
-
     
-    // test = name
-
     @IBOutlet weak var test: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -27,7 +24,6 @@ class EventViewController: UIViewController {
     @IBOutlet weak var hostLabel: UILabel!
     
     var eventArr: Array<Event> = Array()
-    
     
     func getEvents(indexType: String, indexVal: String){
         

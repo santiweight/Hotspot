@@ -12,7 +12,7 @@
         <!--Event Manager Test Page-->
         <scene sceneID="WZb-DC-ZCs">
             <objects>
-                <viewController storyboardIdentifier="Location Test Page" id="gTA-8J-gct" customClass="EventManagerTestPage" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Location Test Page" id="gTA-8J-gct" customClass="EventManagerTestPage" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jkd-fR-ylR"/>
                         <viewControllerLayoutGuide type="bottom" id="0Yw-Uc-UOw"/>
@@ -49,7 +49,7 @@
         <!--Create Event View Controller-->
         <scene sceneID="awL-hZ-U6N">
             <objects>
-                <viewController storyboardIdentifier="CreateEventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateEventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0s2-sK-SLE" customClass="CreateEventViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8J-P8-mks"/>
                         <viewControllerLayoutGuide type="bottom" id="k4I-Yg-C5C"/>
@@ -306,10 +306,10 @@
             </objects>
             <point key="canvasLocation" x="279" y="-488"/>
         </scene>
-        <!--Choose Login Controller-->
+        <!--Login View Controller-->
         <scene sceneID="S4x-eh-dU6">
             <objects>
-                <viewController storyboardIdentifier="ChooseLoginController" id="60j-wq-Qcn" customClass="ChooseLoginController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="60j-wq-Qcn" customClass="LoginViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vXW-yt-0XS"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6H-8R-wVS"/>
@@ -362,14 +362,6 @@
                                     <segue destination="YFD-hr-NxQ" kind="show" identifier="registerAccount" id="hln-sy-PXE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJt-Fu-FfF">
-                                <rect key="frame" x="120" y="569" width="139" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="gTA-8J-gct" kind="show" id="jJ3-OK-vya"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -390,10 +382,10 @@
             </objects>
             <point key="canvasLocation" x="1088.8" y="-488.00599700149928"/>
         </scene>
-        <!--Register Controller-->
+        <!--Register View Controller-->
         <scene sceneID="O2B-bf-gS1">
             <objects>
-                <viewController storyboardIdentifier="RegisterController" id="YFD-hr-NxQ" customClass="RegisterController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="YFD-hr-NxQ" customClass="RegisterViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TbP-lB-uN3"/>
                         <viewControllerLayoutGuide type="bottom" id="MZK-bI-VKy"/>
@@ -528,7 +520,7 @@
         <!--Map View Controller-->
         <scene sceneID="2IW-MU-tXx">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="21Z-3q-jvL" customClass="MapViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="21Z-3q-jvL" customClass="MapViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QhS-N6-nMx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -576,7 +568,7 @@
         <!--Event View Controller-->
         <scene sceneID="9kd-Fi-YVI">
             <objects>
-                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oA5-ke-KLm" customClass="EventViewController" customModule="hotspot1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oA5-ke-KLm" customClass="EventViewController" customModule="hotspotdev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NOI-cy-SfX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,5 +1,5 @@
 //
-//  Geocoder.swift
+//  GeocodeManager.swift
 //  hotspot1
 //
 //  Created by Zack Rossman on 10/29/18.
@@ -9,7 +9,11 @@
 import Foundation
 import Alamofire
 
-class Geocoder{
+class GeocodeManager{
+    
+    static let shared = GeocodeManager()
+    
+    private init(){}
     
     //struct containing relevant info about an event location
     struct EventLocation {
@@ -36,10 +40,10 @@ class Geocoder{
         
         //construct API request for a given address
         let formattedAddress = address.replacingOccurrences(of: " ", with: "+")
-        let geocoderBegRequest : String = "https://maps.googleapis.com/maps/api/geocode/json?address="+formattedAddress+"&key=AIzaSyC5agT4X8NX9Rkio1NB_Bhp1J6au5qCLL8"
+        let GeocodeManagerBegRequest : String = "https://maps.googleapis.com/maps/api/geocode/json?address="+formattedAddress+"&key=AIzaSyC5agT4X8NX9Rkio1NB_Bhp1J6au5qCLL8"
         
-        //make POST request to Google geocoder API
-        Alamofire.request(geocoderBegRequest, method: .post, parameters: [:], encoding: JSONEncoding.default, headers: [:])
+        //make POST request to Google GeocodeManager API
+        Alamofire.request(GeocodeManagerBegRequest, method: .post, parameters: [:], encoding: JSONEncoding.default, headers: [:])
             .responseJSON {
                 response in switch response.result {
                 case .success(let JSON):
@@ -53,7 +57,7 @@ class Geocoder{
         }
     }
     
-    //translate Geocoder API response JSON Object to EventLocation struct
+    //translate GeocodeManager API response JSON Object to EventLocation struct
     func JSONToLocation(JSON: NSDictionary)->EventLocation{
         print(JSON)
         let status = JSON["status"] as! String

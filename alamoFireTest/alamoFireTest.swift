@@ -24,7 +24,7 @@ class alamoFireTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testValidGeocodeRequest() {
+    func testValidGeocodeManagerequest() {
         // given
         let url = URL(string: "https://maps.googleapis.com/maps/api/geocode/json?address=222_W_Avenida_Valencie&key=AIzaSyC5agT4X8NX9Rkio1NB_Bhp1J6au5qCLL8")
         let promise = expectation(description: "Status code: 200")

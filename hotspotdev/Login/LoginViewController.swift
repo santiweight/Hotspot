@@ -9,7 +9,7 @@
 import UIKit
 import OktaAuth
 
-class ChooseLoginController: UIViewController{
+class LoginViewController: UIViewController{
     
     @IBOutlet var titleName: UILabel!
     
@@ -19,9 +19,6 @@ class ChooseLoginController: UIViewController{
         //Create Attachment
         let imageAttachment =  NSTextAttachment()
         imageAttachment.image = UIImage(named:"fire-logo")
-        //Set bound to reposition
-//        let imageOffsetY:CGFloat = -5.0;
-//        imageAttachment.bounds = CGRect(x: 10, y: imageOffsetY, width: imageAttachment.image!.size.width, height: imageAttachment.image!.size.height)
         //Create string with attachment
         let attachmentString = NSMutableAttributedString(attachment: imageAttachment)
         //Initialize mutable string
@@ -44,7 +41,7 @@ class ChooseLoginController: UIViewController{
         super.viewWillAppear(animated)
         //Lauch screen Testing Grounds
         
-        if OktaModel.isAuthenticated() {
+        if OktaManager.shared.isAuthenticated() {
             let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
             self.navigationController?.present(homeViewController, animated: true)
         }
@@ -57,12 +54,12 @@ class ChooseLoginController: UIViewController{
         
     //login to hotspot using Okta Authentication
     @IBAction func login(_ sender: Any) {
-        OktaModel.login(viewController: self){
+        OktaManager.shared.login(viewController: self){
             responseObject, error in
             if(responseObject!){
                 
                 //confirm that session vars were set
-                OktaModel.printSessionVars()
+                OktaManager.shared.getSessionInfo()
                 
                 //go to map view
                 let mapViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
