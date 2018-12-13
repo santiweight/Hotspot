@@ -68,7 +68,6 @@ class EventViewController: UIViewController {
             self.idLabel?.text = String(describing: event._event_id)
             self.addressLabel?.text = event._address
             self.timeLabel?.text = "\(Event.dateComponentToString(dc: event._startTime)) - \(Event.dateComponentToString(dc: event._endTime) )"
-            //self.test?.text = event._title
         }
     }
     
@@ -79,6 +78,5 @@ class EventViewController: UIViewController {
         getEvents(indexType: "ALL", indexVal: "ALL")
         
     }
-    
 
 }

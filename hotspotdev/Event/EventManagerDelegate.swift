@@ -22,7 +22,7 @@ class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
         case .unknown:
                 state_str = "unknown"
         }
-        EventManager.manager.requestLocation()
+        EventManager.shared.manager.requestLocation()
         print("\(region.identifier): \(state_str)")
         
     }
@@ -39,10 +39,10 @@ class EventManagerDelegate : UIViewController, CLLocationManagerDelegate {
         print("At event: \(region.identifier)")
         
         manager.stopMonitoring(for: region)
-        let attendTarget = EventManager.trackedEvents.first(where: {String($0.hash) == region.identifier})
-        DynamoDBManager.shared.atEvent(event: attendTarget!)
-        EventManager.trackedEvents = EventManager.trackedEvents.filter({String($0.hash) != region.identifier})
-        EventManager.updateEventsTracked()
+        let attendTarget = EventManager.shared.trackedEvents.first(where: {String($0.hash) == region.identifier})
+        DynamoDBManager.shared.atEvent(event: attendTarget!, attendee: OktaManager.shared.getSessionInfo()["sessionEmail"]!)
+        EventManager.shared.trackedEvents = EventManager.shared.trackedEvents.filter({String($0.hash) != region.identifier})
+        EventManager.shared.updateEventsTracked()
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {

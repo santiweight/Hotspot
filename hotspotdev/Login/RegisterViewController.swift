@@ -50,10 +50,6 @@ class RegisterViewController: UIViewController  {
         schoolPickerView.tag = 2
     }
     
-    func completionHandler(value: Bool) {
-        print("Function completion handler value: )")
-    }
-    
         //MARK: Action
     @IBAction func submit(_ sender: Any) {
         //get user's year & school
@@ -119,16 +115,6 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         return 1
    }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if pickerView == yearPickerView{
-            //pickerView1
-            //return yearDataSource.count
-        } else if pickerView == schoolPickerView{
-            //return schoolDataSource.count
-        }
-    return 1
-    }
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         if pickerView == schoolPickerView {
             //pickerView1
@@ -149,6 +135,16 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
             return yearDataSource[row]
         }
         return "ERROR"
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        if pickerView == yearPickerView{
+            //pickerView1
+            //return yearDataSource.count
+        } else if pickerView == schoolPickerView{
+            //return schoolDataSource.count
+        }
+        return 1
     }
     
 }

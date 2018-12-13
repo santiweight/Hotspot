@@ -15,7 +15,6 @@
 		35AEE4732182DA5F00EA9EB1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */; };
 		35AEE4752182DB5700EA9EB1 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35AEE4742182DB5700EA9EB1 /* Okta.plist */; };
 		35AEE4792183755D00EA9EB1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE4782183755D00EA9EB1 /* Event.swift */; };
-		35AEE47B218375DA00EA9EB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47A218375DA00EA9EB1 /* User.swift */; };
 		35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */; };
 		35D4E81A217014A10091D73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35D4E819217014A10091D73F /* Main.storyboard */; };
 		6F302FED21ACF4DD00DBA4E4 /* EventTable2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F302FEC21ACF4DD00DBA4E4 /* EventTable2.swift */; };
@@ -90,7 +89,6 @@
 		35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		35AEE4742182DB5700EA9EB1 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
 		35AEE4782183755D00EA9EB1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		35AEE47A218375DA00EA9EB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		35AEE47C21837A8700EA9EB1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		35AEE47E218807B000EA9EB1 /* GeocodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeManager.swift; sourceTree = "<group>"; };
 		35BF1379218CCC2600B77357 /* OktaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OktaManager.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				35AEE4742182DB5700EA9EB1 /* Okta.plist */,
 				35BF1379218CCC2600B77357 /* OktaManager.swift */,
 				35AEE4722182DA5F00EA9EB1 /* RegisterViewController.swift */,
-				35AEE47A218375DA00EA9EB1 /* User.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -600,7 +597,6 @@
 				AA5A06A221823BAC002501F6 /* EventAnnotation.swift in Sources */,
 				AA5A06A121823BAC002501F6 /* MapViewController.swift in Sources */,
 				9395ABBC21B4B84A0038FACA /* EventManagerDelegate.swift in Sources */,
-				35AEE47B218375DA00EA9EB1 /* User.swift in Sources */,
 				35AEE47D21837A8700EA9EB1 /* CreateEventViewController.swift in Sources */,
 				9395ABBA21B1C6DF0038FACA /* EventManagerTestPage.swift in Sources */,
 				35AEE4732182DA5F00EA9EB1 /* RegisterViewController.swift in Sources */,

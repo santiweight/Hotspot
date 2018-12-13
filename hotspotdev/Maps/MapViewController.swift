@@ -122,10 +122,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func attendEvent(event: Event, attendee: String){
-        
-    }
-    
     @objc func increaseAttendance(sender: UIButton)
     {
         print("clicked: attendance")

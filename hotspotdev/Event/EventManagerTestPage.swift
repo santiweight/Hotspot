@@ -15,33 +15,33 @@ class EventManagerTestPage : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if CLLocationManager.locationServicesEnabled() {
-            EventManager.initializeLocationServices()
+            EventManager.shared.initializeLocationServices()
         }
         else {
-            EventManager.requestLocationServices()
+            EventManager.shared.requestLocationServices()
             if CLLocationManager.locationServicesEnabled() {
-                EventManager.initializeLocationServices()
+                EventManager.shared.initializeLocationServices()
             }
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func printCoord(_ sender: Any) {
-        EventManager.manager.requestLocation()
-        print("User Location: \n\(EventManager.manager.location?.coordinate.latitude ?? 0) \n\(EventManager.manager.location?.coordinate.longitude ?? 0)")
+        EventManager.shared.manager.requestLocation()
+        print("User Location: \n\(EventManager.shared.manager.location?.coordinate.latitude ?? 0) \n\(EventManager.shared.manager.location?.coordinate.longitude ?? 0)")
     }
     
     @IBAction func printEvents(_ sender: Any) {
         print("testing event tracking")
-        for event in EventManager.trackedEvents {
+        for event in EventManager.shared.trackedEvents {
             print( event.description )
-            _ = EventManager.manager.location
+            _ = EventManager.shared.manager.location
         }
         print("\n\n")
-        EventManager.manager.requestLocation()
+        EventManager.shared.manager.requestLocation()
 
-        for region in EventManager.manager.monitoredRegions {
-            print("\(region.identifier):\n \(EventManager.manager.requestState(for: region))")
+        for region in EventManager.shared.manager.monitoredRegions {
+            print("\(region.identifier):\n \(EventManager.shared.manager.requestState(for: region))")
         }
     }
 }

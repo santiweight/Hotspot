@@ -15,26 +15,22 @@ class EventManager{
 
     private init(){}
 
-    static let cal = Calendar(identifier: .gregorian)
-
-    static let DEFAULT_RADIUS : Double = 1000
-
-    static var trackedEvents : [Event] = []
-
-    static let manager: CLLocationManager = CLLocationManager()
-
-    static let delegate = EventManagerDelegate()
+    let cal = Calendar(identifier: .gregorian)
+    let DEFAULT_RADIUS : Double = 1000
+    var trackedEvents : [Event] = []
+    let manager: CLLocationManager = CLLocationManager()
+    let delegate = EventManagerDelegate()
     
-    static func trackEvent(event: Event) {
+    func trackEvent(event: Event) {
         trackedEvents.append(event)
         updateEventsTracked()
     }
 
-    static func startMonitoring(event: Event) {
+    func startMonitoring(event: Event) {
         monitorEventRegion(manager, latitude: event._latitude, longitude: event._longitude, radius: DEFAULT_RADIUS, identifier: String(event.hash))
     }
 
-    static func stopTracking(event: Event) {
+    func stopTracking(event: Event) {
         //takes event_id and removes it from tracked regions and tracked events
         if let delRegion = manager.monitoredRegions.first(where: {$0.identifier == String(event.hash)}) {
             manager.stopMonitoring(for: delRegion)
@@ -43,36 +39,36 @@ class EventManager{
         updateEventsTracked()
     }
 
-    static func initializeLocationServices() {
+    func initializeLocationServices() {
         requestLocationServices()
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.delegate = delegate
     }
 
-    static func requestLocationServices() {
+    func requestLocationServices() {
         manager.requestAlwaysAuthorization()
-//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
-//            //LOCATION SERVICES DENIED FOR THIS APP
-//            return
-//        }
-//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
-//            manager.requestAlwaysAuthorization()
-//            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
-//
-//                manager.allowsBackgroundLocationUpdates = true
-//                manager.startUpdatingLocation()
-//            }
-//            else {
-//                manager.requestWhenInUseAuthorization()
-//                if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
-//                    manager.startUpdatingLocation()
-//                }
-//            }
-//
-//        }
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.denied || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.restricted {
+            //LOCATION SERVICES DENIED FOR THIS APP
+            return
+        }
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
+            manager.requestAlwaysAuthorization()
+            if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedAlways {
+
+                manager.allowsBackgroundLocationUpdates = true
+                manager.startUpdatingLocation()
+            }
+            else {
+                manager.requestWhenInUseAuthorization()
+                if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse {
+                    manager.startUpdatingLocation()
+                }
+            }
+
+        }
     }
 
-    static func monitorEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
+    func monitorEventRegion(_ manager: CLLocationManager, latitude: Double, longitude: Double, radius: Double, identifier: String) {
         
         let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius: radius, identifier: identifier )
         region.notifyOnEntry = true
@@ -83,13 +79,13 @@ class EventManager{
         manager.startMonitoring(for: region)
     }
 
-    static func stopMonitoringAllRegions() {
-        for region in manager.monitoredRegions {
-            manager.stopMonitoring(for: region)
-        }
+    func stopMonitoringAllRegions() {
+//        for region in self.monitoredRegions {
+//            manager.stopMonitoring(for: region)
+//        }
     }
 
-    static func checkDatesOrdered(start: DateComponents, end: DateComponents) -> Bool{
+    func checkDatesOrdered(start: DateComponents, end: DateComponents) -> Bool{
         let startDate = cal.date(from: start)
         let endDate = cal.date(from: end)
         let dateComp = cal.compare(startDate!, to: endDate!, toGranularity: Calendar.Component.minute)
@@ -97,21 +93,21 @@ class EventManager{
         return dateComp == ComparisonResult.orderedAscending
     }
 
-    static func updateEventsTracked()
+    func updateEventsTracked()
     {
 
-        if trackedEvents.count > 20 {
-            stopMonitoringAllRegions()
+        if self.trackedEvents.count > 20 {
+            self.stopMonitoringAllRegions()
 
-            trackedEvents = trackedEvents.sorted(by: {checkDatesOrdered( start: $0._startTime!, end: $1._startTime!) } )
+            self.trackedEvents = self.trackedEvents.sorted(by: {self.checkDatesOrdered( start: $0._startTime!, end: $1._startTime!) } )
 
             let firstEvents = trackedEvents[0..<20]
             for event in firstEvents {
-                trackEvent(event: event)
+                self.trackEvent(event: event)
             }
         }
-        for event in trackedEvents {
-            startMonitoring(event: event)
+        for event in self.trackedEvents {
+            self.startMonitoring(event: event)
         }
     }
     

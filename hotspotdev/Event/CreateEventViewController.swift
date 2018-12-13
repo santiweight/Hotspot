@@ -15,6 +15,7 @@ class CreateEventViewController: UIViewController {
 
     let localCalendar = Calendar.init(identifier: .gregorian)
     let calComponents : Set<Calendar.Component> = [.year, .month, .day, .hour]
+    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
 
     let YEAR = TimeInterval.init(31536000)
     let HOUR = TimeInterval.init(3600)
@@ -28,8 +29,6 @@ class CreateEventViewController: UIViewController {
     
     var selectSchool : [String] = []
     @IBOutlet weak var detailLabel: UILabel!
-
-    var deviceID = (UIDevice.current.identifierForVendor?.uuidString)!
 
     @IBOutlet weak var startPicker: UIDatePicker!
     @IBOutlet weak var endPicker: UIDatePicker!
@@ -147,7 +146,7 @@ class CreateEventViewController: UIViewController {
                     print("New event created \(newEvent.description)")
                     
                     DynamoDBManager.shared.updateEventDb(event: newEvent)
-                    EventManager.trackEvent(event: newEvent)
+                    EventManager.shared.trackEvent(event: newEvent)
 
                     let uploadConfirmAlert = UIAlertController(title: "Successfully Created Event", message: "", preferredStyle: .alert)
                     uploadConfirmAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {
