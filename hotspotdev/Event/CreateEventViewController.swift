@@ -122,7 +122,7 @@ class CreateEventViewController: UIViewController {
                 addressConfirmAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: {
                         action in
 
-                    let my_email = UserDefaults.standard.object(forKey: "sessionEmail") as? String
+                    let my_email = OktaManager.shared.getSessionInfo()["sessionEmail"]
                     var attendees : [String] = []
                     attendees.append(my_email!)
                     

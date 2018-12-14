@@ -58,7 +58,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                     
                     if (attend == true){
                         print("attend == true")
-                        let sessionEmail = UserDefaults.standard.object(forKey: "sessionEmail") as? String
+                        let sessionEmail = OktaManager.shared.getSessionInfo()["sessionEmail"]
                         if (!userEvent._attendees.contains(sessionEmail!) && userEvent._title == name){
                             //print("calling attend event")
                             userEvent._attendees.append(sessionEmail!)
